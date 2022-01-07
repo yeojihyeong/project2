@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <header class="header">
 	<div class="header__top">
 		<div class="container">
@@ -29,9 +30,26 @@
 								<li><a href="#">English</a></li>
 							</ul>
 						</div>
+						<c:if test="${member_id eq null }">
+							<div class="header__top__right__auth">
+								<a href="loginForm.do"><i class="fa fa-user"></i> Login</a>
+							</div>
+						</c:if>
+						<c:if test="${member_id eq null }">
 						<div class="header__top__right__auth">
-							<a href="#"><i class="fa fa-user"></i> Login</a>
+								<a href="#"><i class="fa fa-user"></i> Join</a>
 						</div>
+						</c:if>
+						<c:if test="${member_id ne null }">
+							<div class="header__top__right__auth">
+								<a href="logout.do"><i class="fa fa-user"></i> Logout</a>
+							</div>
+						</c:if>
+						<c:if test="${member_id ne null }">
+							<div class="header__top__right__auth">
+								<a href="#"><i class="fa fa-user"></i> MyPage</a>
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
