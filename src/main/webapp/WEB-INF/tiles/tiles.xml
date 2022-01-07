@@ -12,7 +12,6 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/ogani/footer.jsp"/>
 	</definition>
 	
-	
 	<definition name="admin/*/*" template="/WEB-INF/tiles/admin/layout.jsp">
 		<put-attribute name="title" value="Management"/>
 		<put-attribute name="side" value="/WEB-INF/tiles/admin/side.jsp"/>

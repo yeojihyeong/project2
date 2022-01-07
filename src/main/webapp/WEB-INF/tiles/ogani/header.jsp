@@ -56,7 +56,7 @@
 								<li><a href="./checkout.html">Check Out</a></li>
 								<li><a href="./blog-details.html">Blog Details</a></li>
 							</ul></li>
-						<li><a href="./blog.html">Blog</a></li>
+						<li><a href="./blog_main.do">Blog</a></li>
 						<li><a href="contact.do">Contact</a></li>
 					</ul>
 				</nav>
