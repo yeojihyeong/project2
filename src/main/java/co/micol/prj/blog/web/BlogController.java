@@ -16,8 +16,8 @@ public class BlogController {
 	private BlogService blogDAO;
 	
 	@RequestMapping("/blog_main.do")
-	public String home() {
-		return "ogani/home/home";
+	public String blog_main() {
+		return "ogani/blog/blog_main";
 	}
 	
 	//페이징 + 리뷰 전체 조회
