@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.book.service.BookMapper">
+	<select id="bookSelectList"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT * FROM BOOK
+	</select>
+
+	<select id="bookSelect"
+		parameterType="co.micol.prj.book.service.BookVO">
+		SELECT * FROM BOOK
+		WHERE BOOKISBN=#{book_isbn}
+
+	</select>
+
+	<insert id="bookInsert"
+		parameterType="co.micol.prj.book.service.BookVO">
+		INSERT INTO BOOK(BOOKISBN, BOOKNAME, BOOKCONTENT, BOOKWRITE, BOOKPAGE, BOOKPUBLIS, BOOKPICTURE, BOOKPFILE, BOOKCHEONGGU)
+		VALUES(#{book_isbn}, #{book_name}, #{book_content}, #{book_write}, #{book_page}, #{book_publis}, #{book_picture}, #{book_pfile}, #{book_bookcheonggu})
+	</insert>
+
+	<delete id="bookDelete"
+		parameterType="co.micol.prj.book.service.BookVO"></delete>
+
+	<update id="bookUpdate"
+		parameterType="co.micol.prj.book.service.BookVO"></update>
+
+</mapper>
