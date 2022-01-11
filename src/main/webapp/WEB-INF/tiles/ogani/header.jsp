@@ -37,7 +37,7 @@
 						</c:if>
 						<c:if test="${member_id eq null }">
 						<div class="header__top__right__auth">
-								<a href="joinForm.do"><i class="fa fa-user"></i> Join</a>
+								<a href="joinForm.do">&nbsp;<i class="fa fa-user"></i> Join</a>
 						</div>
 						</c:if>
 						
