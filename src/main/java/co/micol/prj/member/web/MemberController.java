@@ -68,4 +68,10 @@ public class MemberController {
 	public String myinfo() {
 		return "ogani/myinfo/myinfo";
 	}
+	
+	@RequestMapping("/memberSelectList.do")
+	   public String memberSelectList(Model model) {
+	      model.addAttribute("members", memberDao.memberSelectList());
+	      return "admin/member/memberSelectList";
+	}
 }
