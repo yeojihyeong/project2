@@ -6,21 +6,23 @@
 		SELECT * FROM BOOK
 	</select>
 
-	<select id="bookSelect"
-		parameterType="co.micol.prj.book.service.BookVO">
+	<select id="bookSearch" resultType="co.micol.prj.book.service.BookVO">
 		SELECT * FROM BOOK
-		WHERE BOOKISBN=#{book_isbn}
+		WHERE BOOK_ISBN = #{book_isbn}
 
 	</select>
 
 	<insert id="bookInsert"
 		parameterType="co.micol.prj.book.service.BookVO">
-		INSERT INTO BOOK(BOOKISBN, BOOKNAME, BOOKCONTENT, BOOKWRITE, BOOKPAGE, BOOKPUBLIS, BOOKPICTURE, BOOKPFILE, BOOKCHEONGGU)
+		INSERT INTO BOOK(BOOK_ISBN, BOO_KNAME, BOOK_CONTENT, BOOK_WRITE, BOOK_PAGE, BOOK_PUBLIS, BOOK_PICTURE, BOOK_PFILE, BOOK_CHEONGGU)
 		VALUES(#{book_isbn}, #{book_name}, #{book_content}, #{book_write}, #{book_page}, #{book_publis}, #{book_picture}, #{book_pfile}, #{book_bookcheonggu})
 	</insert>
 
 	<delete id="bookDelete"
-		parameterType="co.micol.prj.book.service.BookVO"></delete>
+		parameterType="co.micol.prj.book.service.BookVO">
+		DELETE BOOK WHERE BOOK_ISBN = #{book_isbn}
+		
+		</delete>
 
 	<update id="bookUpdate"
 		parameterType="co.micol.prj.book.service.BookVO"></update>

@@ -11,6 +11,19 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
+
+<!-- 도서 인설트 css 스타일 -->
+<link rel="stylesheet" href="resources/admin/ogani/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/admin/ogani/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/admin/ogani/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="resources/admin/ogani/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="resources/admin/ogani/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/admin/ogani/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/admin/ogani/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/admin/ogani/css/style.css" type="text/css">
+
+
+
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -54,5 +67,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="resources/admin/js/datatables-simple-demo.js"></script>
+	
+	
+	
+	<script src="resources/admin/ogani/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/admin/ogani/js/bootstrap.min.js"></script>
+    <script src="resources/admin/ogani/js/jquery.nice-select.min.js"></script>
+    <script src="resources/admin/ogani/js/jquery-ui.min.js"></script>
+    <script src="resources/admin/ogani/js/jquery.slicknav.js"></script>
+    <script src="resources/admin/ogani/js/mixitup.min.js"></script>
+    <script src="resources/admin/ogani/js/owl.carousel.min.js"></script>
+    <script src="resources/admin/ogani/js/main.js"></script>
+	
+	
+	
 </body>
 </html>

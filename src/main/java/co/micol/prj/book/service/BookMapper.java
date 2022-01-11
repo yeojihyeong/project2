@@ -12,5 +12,5 @@ public interface BookMapper {
 
 	String bookUpdate(BookVO book);
 	
-	String bookSelect(BookVO book);
+	String bookSearch(String book_isbn);
 }

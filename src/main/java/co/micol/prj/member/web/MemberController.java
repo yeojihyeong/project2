@@ -51,9 +51,9 @@ public class MemberController {
 		System.out.println(member.getGenre_id());
 		int insert = memberDao.memberInsert(member);
 		if(insert != 0) {
-			model.addAttribute("message", "ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+			model.addAttribute("message", "°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
 		}else {
-			model.addAttribute("message", "ë‹¤ì‹œ ì‹œë„í•´ì£¼ì‹­ì‹œì˜¤.");
+			model.addAttribute("message", "´Ù½Ã ½ÃµµÇØÁÖ½Ê½Ã¿À.");
 		}
 		return "ogani/join/join";
 	}
@@ -67,5 +67,11 @@ public class MemberController {
 	@RequestMapping("/myinfo.do")
 	public String myinfo() {
 		return "ogani/myinfo/myinfo";
+	}
+	
+	@RequestMapping("/memberSelectList.do")
+	   public String memberSelectList(Model model) {
+	      model.addAttribute("members", memberDao.memberSelectList());
+	      return "admin/member/memberSelectList";
 	}
 }

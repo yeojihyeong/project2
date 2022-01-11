@@ -36,8 +36,8 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public String bookSelect(BookVO book) {
-		return map.bookSelect(book);
+	public String bookSearch(String book_isbn) {
+		return map.bookSearch(book_isbn);
 	}
 	
 	
