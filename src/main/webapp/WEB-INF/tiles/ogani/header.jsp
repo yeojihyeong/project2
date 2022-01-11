@@ -37,17 +37,24 @@
 						</c:if>
 						<c:if test="${member_id eq null }">
 						<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> Join</a>
+								<a href="joinForm.do">&nbsp;<i class="fa fa-user"></i> Join</a>
 						</div>
 						</c:if>
+						
+						<c:if test="${member_id ne null }">
+							<div class="header__top__right__language">
+							<div>&nbsp;<i class="fa fa-user"></i> MyPage</div>
+							<span class="arrow_carrot-down"></span>
+								<ul>
+									<li><a href="myinfo.do"> Info</a></li>
+									<li><a href="#"> Blog</a></li>
+								</ul>
+							</div>
+						</c:if>
+						
 						<c:if test="${member_id ne null }">
 							<div class="header__top__right__auth">
 								<a href="logout.do"><i class="fa fa-user"></i> Logout</a>
-							</div>
-						</c:if>
-						<c:if test="${member_id ne null }">
-							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> MyPage</a>
 							</div>
 						</c:if>
 					</div>

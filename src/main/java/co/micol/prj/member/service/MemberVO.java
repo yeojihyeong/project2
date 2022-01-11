@@ -16,5 +16,5 @@ public class MemberVO {
 	private String member_pfile;
 	private String member_gender;
 	private String member_bir;
-	private String genre;
+	private String genre_id;
 }
