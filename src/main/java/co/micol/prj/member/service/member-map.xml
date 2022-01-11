@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.prj.member.service.MemberMapper">
+	
+	<select id="memberSelectList"></select>
+	
 	<select id="memberSelect" parameterType="co.micol.prj.member.service.MemberVO"
 			resultType="co.micol.prj.member.service.MemberVO">
 		select * from  member
@@ -9,5 +12,20 @@
 			and member_password = #{member_password}
 		</if>
 	</select>
-
+	
+	<insert id="memberInsert" parameterType="co.micol.prj.member.service.MemberVO">
+		insert into member(member_id, member_password, member_name, member_tel, member_address, member_picture, member_pfile, member_gender, member_bir, genre_id)
+		values(#{member_id}, #{member_password}, #{member_name}, #{member_tel}, #{member_address}, #{member_picture}, #{member_pfile}, #{member_gender}, #{member_bir}, #{genre_id})
+	</insert>
+	
+	<update id="memberUpdate"></update>
+	
+	<delete id="memberDelete"></delete>
+	
+	<select id="isIdCheck" parameterType="String" resultType="boolean">
+		select case when count(member_id) = 1 then 0 else 1 end as member_id
+		from member where member_id = #{member_id}
+	</select>
+	
+	<select id="memberSearch"></select>
 </mapper>
