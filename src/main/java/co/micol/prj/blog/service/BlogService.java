@@ -2,9 +2,13 @@ package co.micol.prj.blog.service;
 
 import java.util.List;
 
+import co.micol.prj.member.service.MemberVO;
 import co.micol.prj.utils.PagingVO;
 
 public interface BlogService {
+	//로그인 여부 조회
+	MemberVO memberSelect(MemberVO member);
+
 	// 게시물 총 갯수
 	int countReview();
 
@@ -31,6 +35,7 @@ public interface BlogService {
 	
 	//리뷰 검색
 	List<BlogVO> reviewSearch(BlogVO blog);
+
 
 	// 댓글 입력
 }
