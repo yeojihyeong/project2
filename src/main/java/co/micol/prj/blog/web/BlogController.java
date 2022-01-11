@@ -15,10 +15,16 @@ public class BlogController {
 	@Autowired
 	private BlogService blogDAO;
 	
-	@RequestMapping("/blog_main.do")
+	@RequestMapping("/blog.do")
 	public String blog_main() {
-		return "ogani/blog/blog_main";
+		return "ogani/blog/blog";
 	}
+	
+	@RequestMapping("/blog_home.do")
+	public String blog_home() {
+		return "blog/blog_home";
+	}
+	
 	
 	//페이징 + 리뷰 전체 조회
 	/*@GetMapping("blogSelectList")
