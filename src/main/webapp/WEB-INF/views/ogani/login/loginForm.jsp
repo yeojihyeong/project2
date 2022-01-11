@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> 계정이 없으신가요? <a href="#">지금 가입하기</a>
+                    <h6><span class="icon_tag_alt"></span> 계정이 없으신가요? <a href="joinForm.do">지금 가입하기</a>
                     </h6>
                 </div>
             </div>
@@ -56,7 +56,9 @@
 	                                </div>
                                 </div>
                         	<br>
+                        	
                         	<button type="submit" class="btn btn-success btn-lg btn-block">LOGIN</button>
+                        	
                         </div>
                     </div>
                 </form>
