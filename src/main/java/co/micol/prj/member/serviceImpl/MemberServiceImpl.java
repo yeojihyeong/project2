@@ -9,9 +9,9 @@ import co.micol.prj.member.service.MemberMapper;
 import co.micol.prj.member.service.MemberService;
 import co.micol.prj.member.service.MemberVO;
 
-@Repository("nenberDao")
-public class MemberServiceImpl implements MemberService{
-
+@Repository("memberDao")
+public class MemberServiceImpl implements MemberService {
+	
 	@Autowired
 	private MemberMapper map;
 
