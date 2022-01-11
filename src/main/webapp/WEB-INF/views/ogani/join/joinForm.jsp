@@ -5,9 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
+<script>
+
+	$(document).ready(function(){
+		$('input[type="checkbox"][name="member_gender"]').click(function(){
+			if($(this).prop('checked')){
+				$('input[type="checkbox"][name="member_gender"]').prop('checked', false);
+				$(this).prop('checked', true);
+			}
+		});
+	});
+
+</script>
 
 <section class="breadcrumb-section set-bg" data-setbg="resources/ogani/img/breadcrumb.jpg">
         <div class="container">
