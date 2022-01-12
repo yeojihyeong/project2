@@ -83,6 +83,14 @@
 							</ul></li>
 						<li><a href="blog.do">Blog</a></li>
 						<li><a href="contact.do">Contact</a></li>
+						<li><a href="./blog.html">Blog</a></li>
+						<li><a href="#">Community</a>
+							<ul class="header__menu__dropdown">
+								<li><a href="noticeList.do">공지사항</a></li>
+								<li><a href="boardList.do">자유게시판</a></li>
+								<li><a href="faqList.do">FAQ</a></li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</div>

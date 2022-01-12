@@ -54,5 +54,4 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO memberOne(String member_id) {
 		return map.memberOne(member_id);
 	}
-
 }

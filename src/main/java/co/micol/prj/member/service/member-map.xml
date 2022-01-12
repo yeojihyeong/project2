@@ -52,10 +52,10 @@
 		<if test="key == 'name'"> WHERE NAME LIKE '%'|| #{data} ||'%' </if>
 		<if test="key == 'tel'"> WHERE TEL LIKE '%'|| #{data} ||'%' </if>
 	</select>
-	
+
 	<select id="memberOne" resultType="co.micol.prj.member.service.MemberVO">
 		select * from member
 		where member_id = #{member_id}
 	</select>
-	
+
 </mapper>
