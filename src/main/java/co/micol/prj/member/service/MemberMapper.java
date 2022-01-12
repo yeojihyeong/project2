@@ -13,4 +13,7 @@ public interface MemberMapper {
 	
 	boolean isIdCheck(String member_id);
 	List<MemberVO> memberSearch(@Param("key") String key, @Param("data") String data);
+
+	MemberVO memberOne(String member_id);
+
 }

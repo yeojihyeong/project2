@@ -50,4 +50,9 @@ public class MemberServiceImpl implements MemberService {
 		return map.memberSearch(key, data);
 	}
 
+	@Override
+	public MemberVO memberOne(String member_id) {
+		return map.memberOne(member_id);
+	}
+
 }
