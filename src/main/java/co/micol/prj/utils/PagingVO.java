@@ -7,9 +7,9 @@ public class PagingVO {
 
 	@Getter
 	@Setter
-	// ÇöÀç ÆäÀÌÁö, ½ÃÀÛ ÆäÀÌÁö, ³¡ÆäÀÌÁö, °Ô½Ã±Û ÃÑ °¹¼ö, ÆäÀÌÁö´ç ±Û °¹¼ö, ¸¶Áö¸· ÆäÀÌÁö, sql Äõ¸®¿¡ ¾µ start, end
+	// í˜„ì¬í˜ì´ì§€, ì‹œì‘í˜ì´ì§€, ëí˜ì´ì§€, ê²Œì‹œê¸€ ì´ ê°¯ìˆ˜, í˜ì´ì§€ë‹¹ ê¸€ ê°¯ìˆ˜, ë§ˆì§€ë§‰í˜ì´ì§€, sql ì¿¼ë¦¬ì— ì“¸ start, end
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start_no, end_no;
-	private int cntPage = 5;
+	private int cntPage = 5; // í•œ í˜ì´ì§€ë‹¹ ë³´ì—¬ì§ˆ í˜ì´ì§€ ê°œìˆ˜
 
 	public PagingVO() {
 	}
@@ -23,12 +23,12 @@ public class PagingVO {
 		calcStartEnd(getNowPage(), getCntPerPage());
 	}
 
-	// Á¦ÀÏ ¸¶Áö¸· ÆäÀÌÁö °è»ê
+	
 	public void calcLastPage(int total, int cntPerPage) {
 		setLastPage((int) Math.ceil((double) total / (double) cntPerPage));
 	}
 
-	// ½ÃÀÛ ÆäÀÌÁö, ³¡ ÆäÀÌÁö °è»ê
+	
 	public void calcStartEndPage(int nowPage, int cntPage) {
 		setEndPage(((int) Math.ceil((double) nowPage / (double) cntPage)) * cntPage);
 		if (getLastPage() < getEndPage()) {
@@ -40,8 +40,9 @@ public class PagingVO {
 		}
 	}
 
-	// DB Äõ¸®¿¡¼­ »ç¿ëÇÒ start, end°ª °è»ê
+	
 	public void calcStartEnd(int nowPage, int cntPerPage) {
+		
 		setEnd_no(nowPage * cntPerPage);
 		setStart_no(getEnd_no() - cntPerPage + 1);
 	}

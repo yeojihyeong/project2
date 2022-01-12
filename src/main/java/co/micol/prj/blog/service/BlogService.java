@@ -6,39 +6,28 @@ import co.micol.prj.member.service.MemberVO;
 import co.micol.prj.utils.PagingVO;
 
 public interface BlogService {
-	//�α��� ���� ��ȸ
+
 	MemberVO memberSelect(MemberVO member);
 
-	// �Խù� �� ����
-	int countReview();
+	int countReview(String member_id);
 
-	// ��ü��ȸ
-	List<BlogVO> blogSelectList(PagingVO vo);
+	List<BlogVO> blogSelectList(int start_no, int end_no, String member_id);
 
-	// �ܰ���ȸ(����ȸ)
 	BlogVO blogSelect(BlogVO blog);
 
-	// ���� �ۼ�(�μ�Ʈ)
 	int blogInsert(BlogVO blog);
 
-	// ���� ����
 	int blogUpdate(BlogVO blog);
 
-	// ���� ����
 	int blogDelete(BlogVO blog);
 
-	// ���� ��ȸ��
 	int updateReviewCnt(String blog_id);
 
-	// ��ȸ�� ���� ���� ��ȸ
 	List<BlogVO> likedReview();
-	
-	//���� �˻�
+
 	List<BlogVO> reviewSearch(BlogVO blog);
 
 	//개별 리뷰 상세 조회
 	BlogVO reviewDetailSelect(String blog_id);
 
-
-	// ��� �Է�
 }

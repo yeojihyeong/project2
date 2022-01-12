@@ -43,24 +43,29 @@ public class BlogController {
 	}
 	
 	@RequestMapping("/blog_home.do")
-	public String blog_home(PagingVO vo, Model model, @RequestParam(value="nowPage", required=false)String nowPage, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
+	public String blog_home(PagingVO paging, Model model, @RequestParam(defaultValue="1", required=false)String nowPage, @RequestParam(defaultValue="4", required=false)String cntPerPage, HttpServletRequest request, @RequestParam(required=false) String member_id) {
+		HttpSession session = request.getSession();
 		
-		int total = blogDAO.countReview();
-		
-		if(nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "4";
-		} else if (nowPage == null) {
-			nowPage = "1";
-		} else if (cntPerPage == null) {
-			cntPerPage = "4";
-		}
-		
-		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		model.addAttribute("paging", vo);
-		model.addAttribute("viewAll", blogDAO.blogSelectList(vo));
-		return "blog/blog/main";
+		member_id = (String) session.getAttribute("member_id");
+	
 
+		int total = blogDAO.countReview(member_id);
+		
+		paging = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		System.out.println("start_no : " + paging.getStart_no());
+		System.out.println("end_no : " + paging.getEnd_no());
+		
+		
+		
+		model.addAttribute("member2", memberDao.memberOne(member_id));
+		
+		model.addAttribute("paging", paging);
+		int end_no = paging.getEnd_no();
+		int start_no = paging.getStart_no();
+		
+		model.addAttribute("viewAll", blogDAO.blogSelectList(start_no, end_no, member_id));
+		
+		return "blog/blog/main";
 	} 
 	
 	//게시글 상세 조회
@@ -100,5 +105,4 @@ public class BlogController {
 	public String blog_follow() {
 		return "blog/blog/following";
 	}
-	
 }

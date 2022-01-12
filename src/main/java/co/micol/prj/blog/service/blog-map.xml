@@ -80,25 +80,21 @@
 
 	<!-- 페이징 기능 -->
 	<!-- 총 게시글 갯수 출력 -->
-	<select id="countReveiw" resultType="int">
-		SELECT COUNT(*) FROM BLOG
-		WHERE MEMBER_ID={member_id}
+	<select id="countReview" parameterType="String" 
+			resultType="int">
+		SELECT COUNT(*) AS N FROM BLOG WHERE MEMBER_ID = #{member_id}
 	</select>
 
 	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="blogSelectList"
 		resultType="co.micol.prj.blog.service.BlogVO">
-		SELECT *FROM (
-		SELECT ROWNUM RN, A. *
+		SELECT * FROM (
+		SELECT ROWNUM RN, A.*
 		FROM (
-		SELECT
-		K.BOOK.NAME, BOOK_PICTURE, BOOK_PFILE,
-		B.REVIEW_TITLE, B.REVIEW_DATE
-		FROM BLOG B, BOOK K
-		WHERE (B.BOOK_ID = K.BOOK_ID) AND B.MEMBER_ID =
-		#{memberId}) A
+		SELECT * FROM BLOG WHERE MEMBER_ID = #{member_id}
+		) A
 		)
-		WHERE RN BETWEEN #{start} AND #{end}
+		WHERE RN BETWEEN #{start_no} AND #{end_no}
 	</select>
 
 	<!-- 리뷰 검색 -->

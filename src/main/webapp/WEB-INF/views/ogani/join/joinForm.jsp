@@ -18,6 +18,13 @@
 				$(this).prop('checked', true);
 			}
 		});
+		
+		$('input[type="checkbox"][name="genre_id"]').click(function(){
+			if($(this).prop('checked')){
+				$('input[type="checkbox"][name="genre_id"]').prop('checked', false);
+				$(this).prop('checked', true);
+			}
+		});
 	});
 
 </script>
