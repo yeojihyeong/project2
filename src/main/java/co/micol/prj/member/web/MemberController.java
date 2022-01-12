@@ -120,10 +120,11 @@ public class MemberController {
 		
 		return memberDao.memberUpdate(member);
 	}
-	
+  
 	@RequestMapping("/memberSelectList.do")
 	   public String memberSelectList(Model model) {
 	      model.addAttribute("members", memberDao.memberSelectList());
 	      return "admin/member/memberSelectList";
 	}
 }
+
