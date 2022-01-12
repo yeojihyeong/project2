@@ -37,7 +37,7 @@
 						</c:if>
 						<c:if test="${member_id eq null }">
 						<div class="header__top__right__auth">
-								<a href="joinForm.do"><i class="fa fa-user"></i> Join</a>
+								<a href="joinForm.do">&nbsp;<i class="fa fa-user"></i> Join</a>
 						</div>
 						</c:if>
 						
@@ -82,7 +82,13 @@
 								<li><a href="./blog-details.html">Blog Details</a></li>
 							</ul></li>
 						<li><a href="./blog.html">Blog</a></li>
-						<li><a href="contact.do">Contact</a></li>
+						<li><a href="#">Community</a>
+							<ul class="header__menu__dropdown">
+								<li><a href="noticeList.do">공지사항</a></li>
+								<li><a href="boardList.do">자유게시판</a></li>
+								<li><a href="faqList.do">FAQ</a></li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</div>

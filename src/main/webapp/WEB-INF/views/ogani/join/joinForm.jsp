@@ -5,9 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
+<script>
+
+	$(document).ready(function(){
+		$('input[type="checkbox"][name="member_gender"]').click(function(){
+			if($(this).prop('checked')){
+				$('input[type="checkbox"][name="member_gender"]').prop('checked', false);
+				$(this).prop('checked', true);
+			}
+		});
+	});
+
+</script>
 
 <section class="breadcrumb-section set-bg" data-setbg="resources/ogani/img/breadcrumb.jpg">
         <div class="container">
@@ -86,8 +99,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
+                                <div class="checkout__input">
+                                	<p>성별<span>*</span></p>
+                                </div>
                                     <div class="checkout__input__checkbox">
-                                    <p>성별<span>*</span></p>
                                     <label for="member_gender1">남자
                                         <input type="checkbox" id="member_gender1" name="member_gender" value="남"><span class="checkmark"></span></label>
                                     </div>
@@ -100,19 +115,36 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="checkout__input">
-                                        <p>생년월일*</p>
+                                        <p>생년월일<span>*</span></p>
                                         <input type="text" id="member_bir" name="member_bir" required="required" placeholder="ex)19990101">
                                     </div>
                                 </div>
                                 
                                 <div class="col-lg-12 col-md-12">
+                                <div class="checkout__input">
+                                <p>선호하는 장르<span>*</span></p>
+                                </div>
                                     <div class="checkout__input__checkbox">
-                                    <p>선호하는 장르<span>*</span></p>
-                                    <label for="genre1">문학
+                                    <label for="genre0">총류&emsp;
+                                        <input type="checkbox" id="genre0" name="genre_id" value="0"><span class="checkmark"></span></label>
+                                    <label for="genre1">철학&emsp;
                                         <input type="checkbox" id="genre1" name="genre_id" value="1"><span class="checkmark"></span></label>
-                                    
-                                    <label for="genre2">비문학
+                                    <label for="genre2">종교&emsp;
                                         <input type="checkbox" id="genre2" name="genre_id" value="2"><span class="checkmark"></span></label>
+                                    <label for="genre3">사회과학&emsp;
+                                        <input type="checkbox" id="genre3" name="genre_id" value="3"><span class="checkmark"></span></label>
+                                    <label for="genre4">자연과학&emsp;
+                                        <input type="checkbox" id="genre4" name="genre_id" value="4"><span class="checkmark"></span></label>
+                                    <label for="genre5">기술과학&emsp;
+                                        <input type="checkbox" id="genre5" name="genre_id" value="5"><span class="checkmark"></span></label>
+                                    <label for="genre6">예술&emsp;
+                                        <input type="checkbox" id="genre6" name="genre_id" value="6"><span class="checkmark"></span></label>
+                                    <label for="genre7">언어&emsp;
+                                        <input type="checkbox" id="genre7" name="genre_id" value="7"><span class="checkmark"></span></label>
+                                    <label for="genre8">문학&emsp;
+                                        <input type="checkbox" id="genre8" name="genre_id" value="8"><span class="checkmark"></span></label>
+                                    <label for="genre9">역사&emsp;
+                                        <input type="checkbox" id="genre9" name="genre_id" value="9"><span class="checkmark"></span></label>
                                     </div>
                                 </div>
                                 

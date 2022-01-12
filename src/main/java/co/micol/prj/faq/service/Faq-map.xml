@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.faq.service.FaqMapper">
+	<select id="faqSelectList" resultType="co.micol.prj.faq.service.FaqVO">
+		SELECT * FROM FAQ ORDER BY FAQ_ID DESC
+	</select>
+	
+	<select id="faqSelect" resultType="co.micol.prj.faq.service.FaqVO">
+		SELECT * FROM FAQ WHERE FAQ_ID = #{faq_id}
+	</select>
+	
+	<insert id="faqInsert" parameterType="co.micol.prj.faq.service.FaqVO">
+		INSERT INTO FAQ(FAQ_ID, FAQ_QUESTION, FAQ_ANSWER)
+		VALUES(faq_seq.nextval, #{faq_question}, #{faq_answer})
+	</insert>
+	
+	<update id="faqUpdate" parameterType="co.micol.prj.faq.service.FaqVO">
+		UPDATE FAQ
+			<set>
+				<if test="faq_question != null"> FAQ_QUESTION = #{faq_question}, </if>
+				<if test="faq_answer != null"> FAQ_ANSWER = #{faq_answer}, </if>
+			</set>
+		WHERE FAQ_ID = #{faq_id}
+	</update>
+	
+	<delete id="faqDelete" parameterType="co.micol.prj.faq.service.FaqVO">
+		DELETE FROM FAQ WHERE FAQ_ID = #{faq_id}
+	</delete>
+</mapper>
