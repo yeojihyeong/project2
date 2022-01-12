@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.micol.prj.blog.service.blog-map">
+<mapper namespace="co.micol.prj.blog.service.BlogMapper">
 
-	<!--<select id="memberSelect" parameterType="co.micol.prj.member.service.MemberVO"
-			resultType="co.micol.prj.member.service.MemberVO">
-		select * from  member
-		where member_id = #{member_id}
-	</select>  -->
-
-	<!--리뷰 상세 조회-->
+	<!--<select id="memberSelect" parameterType="co.micol.prj.member.service.MemberVO" 
+		resultType="co.micol.prj.member.service.MemberVO"> select * from member where 
+		member_id = #{member_id} </select> -->
+	
+	<!-- <resultMap type="blog" id="review">
+		<result property="" column=""/>
+		<result property="" column=""/>
+		
+	
+	</resultMap>
+	
+	<collection property="bookNo" ofType="book">
+	
+	</collection> -->
+	
 
 	<select id="blogSelect"
 		resultType="co.micol.prj.blog.service.BlogVO">
@@ -19,11 +27,20 @@
 		K.BOOK_ISBN) AND B.MEMBER_ID = #{member_id}
 	</select>
 
+	<!-- 블로그 상세 조회 -->
+	<select id="reviewDetailSelect" parameterType="String"
+		resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT K.BOOK_NAME, K.BOOK_PICTURE, K.BOOK_PFILE,
+		B.REVIEW_TITLE, B.REVIEW_CONTENT, B.REVIEW_DATE, B.REVIEW_CNT,
+		B.REVIEW_LIKE FROM BLOG B, BOOK K WHERE (B.BOOK_ISBN = K.BOOK_ISBN)
+		AND B.BLOG_ID=#{blog_id};
+	</select>
 
 	<insert id="blogInsert">
 		INSERT INTO BLOG (BLOG_ID, MEMBER_ID, BOOK_ID,
 		REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE, REVIEW_RATING, REVIEW_CNT)
-		VALUES (blog_seq.nextval, #{member_id}, #{book_id}, #{review_title}, #{review_content}, sysdate, #{review_rating}, #{review_cnt})
+		VALUES (blog_seq.nextval, #{member_id}, #{book_id}, #{review_title},
+		#{review_content}, sysdate, #{review_rating}, #{review_cnt})
 	</insert>
 
 	<update id="blogUpdate">
@@ -52,17 +69,20 @@
 	<!-- 조회수 높운 리뷰 -->
 	<select id="likedReview"
 		resultType="co.micol.prj.blog.service.BlogVO">
-		SELECT * FROM
-		(SELECT * RANK() OVER(ORDER BY REVIEW_CNT) AS RV
+		SELECT *
 		FROM
-		BLOG) AS VIEWED
-		<![CDATA[WHERE VIEWED.RV <= 4]]>
+		(SELECT *
+		FROM BLOG
+		ORDER BY review_cnt DESC
+		)
+		<![CDATA[WHERE ROWNUM <= 5]]>
 	</select>
 
 	<!-- 페이징 기능 -->
 	<!-- 총 게시글 갯수 출력 -->
 	<select id="countReveiw" resultType="int">
-		SELECT COUNT(*) FROM BLOG WHERE MEMBER_ID={member_id}
+		SELECT COUNT(*) FROM BLOG
+		WHERE MEMBER_ID={member_id}
 	</select>
 
 	<!-- 페이징 처리 후 게시글 조회 -->
@@ -88,8 +108,10 @@
 		b.review_date
 		FROM blog b JOIN book k
 		USING (book_id)
-		WHERE review_title LIKE CONCAT('%',#{searchValue},'%')
-		OR review_content LIKE CONCAT('%',#{searchValue},'%')
+		WHERE review_title
+		LIKE CONCAT('%',#{searchValue},'%')
+		OR review_content LIKE
+		CONCAT('%',#{searchValue},'%')
 	</select>
 
 	<!-- 댓글 입력 기능 -->

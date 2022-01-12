@@ -70,7 +70,7 @@
                         <li><a href="./blog-details.html">Blog Details</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.do">Blog</a></li>
+                <li><a href="./list">Blog</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>

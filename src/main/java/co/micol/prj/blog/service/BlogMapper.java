@@ -5,34 +5,36 @@ import java.util.List;
 import co.micol.prj.utils.PagingVO;
 
 public interface BlogMapper {
-	//°Ô½Ã¹° ÃÑ °¹¼ö
+	// ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int countReview();
-	
-	// ÀüÃ¼Á¶È¸
+
+	// ï¿½ï¿½Ã¼ï¿½ï¿½È¸
 	List<BlogVO> blogSelectList(PagingVO vo);
 
-	// ´Ü°ÇÁ¶È¸(»ó¼¼Á¶È¸)
+	// ï¿½Ü°ï¿½ï¿½ï¿½È¸(ï¿½ï¿½ï¿½ï¿½È¸)
 	BlogVO blogSelect(BlogVO blog);
 
-	// ¸®ºä ÀÛ¼º(ÀÎ¼­Æ®)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½(ï¿½Î¼ï¿½Æ®)
 	int blogInsert(BlogVO blog);
 
-	// ¸®ºä ¼öÁ¤
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int blogUpdate(BlogVO blog);
 
-	// ¸®ºä »èÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int blogDelete(BlogVO blog);
-	
-	// ¸®ºä Á¶È¸¼ö
+
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½
 	int updateReviewCnt(String blog_id);
 
-	// Á¶È¸¼ö ³ôÀº ¸®ºä Á¶È¸
-	BlogVO likedReview(BlogVO blog);
-	
-	// ¸®ºä °Ë»ö
+	// ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+	List<BlogVO> likedReview();
+
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	List<BlogVO> reviewSearch(BlogVO blog);
-	
-	
-	// ´ñ±Û ÀÔ·Â
-	
+
+	// ê°œë³„ ë¦¬ë·° ìƒì„¸ ì¡°íšŒ
+	BlogVO reviewDetailSelect(String blog_id);
+
+	// ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
+
 }

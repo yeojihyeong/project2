@@ -19,49 +19,49 @@ public class BlogServiceImpl implements BlogService {
 	private BlogMapper map;
 	private MemberMapper memberMap;
 
-	// ·Î±×ÀÎ ¿©ºÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public MemberVO memberSelect(MemberVO member) {
 		// TODO Auto-generated method stub
 		return memberMap.memberSelect(member);
 	}
 
-	// ¸®ºä ÀüÃ¼ Á¶È¸
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸
 	public List<BlogVO> blogSelectList(PagingVO blog) {
 		return map.blogSelectList(blog);
 	}
 
-	// »ó¼¼ Á¶È¸
+	// ï¿½ï¿½ ï¿½ï¿½È¸
 	public BlogVO blogSelectList(BlogVO blog) {
 		return map.blogSelect(blog);
 	}
 
-	// ¸®ºä ÀÛ¼º
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
 	public int blogInsert(BlogVO blog) {
 		return map.blogInsert(blog);
 	}
 
-	// ¸®ºä ¼öÁ¤
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int blogUpdate(BlogVO blog) {
 		return map.blogUpdate(blog);
 	}
 
-	// ¸®ºä »èÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int blogDelete(BlogVO blog) {
 		return map.blogDelete(blog);
 	}
 
-	// ¸®ºä Á¶È¸¼ö Áõ°¡
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int updateReviewCnt(String blog_id) {
 		return map.updateReviewCnt(blog_id);
 	}
 
-	// Á¶È¸¼ö ¸¹Àº ¸®ºä Á¶È¸(¸ÞÀÎ ÆäÀÌÁö¿¡ µé¾î°¥ °Í)
-	public BlogVO likedReview(BlogVO blog) {
-		return map.likedReview(blog);
+	// ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½)
+	public List<BlogVO> likedReview(){
+		return map.likedReview();
 	}
 
-	// ¸®ºä °Ë»ö
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	public List<BlogVO> reviewSearch(BlogVO blog) {
 		return map.reviewSearch(blog);
 	}
@@ -78,8 +78,16 @@ public class BlogServiceImpl implements BlogService {
 		return null;
 	}
 
+	@Override
+	public BlogVO reviewDetailSelect(String blog_id) {
+		// TODO Auto-generated method stub
+		return map.reviewDetailSelect(blog_id);
+	}
 
 	
 
-	// ´ñ±Û ÀÛ¼º
+
+	
+
+	// ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
 }
