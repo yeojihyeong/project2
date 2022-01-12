@@ -29,7 +29,7 @@
 				<i class="fas fa-table me-1"></i> 도서목록
 			</div>
 			<div class="card-body">
-				<form action="bookSearch.do" id='frd' method="get">
+				<form action="bookSearch.do" id='frd' method="post">
 				<input type="hidden" name="book_isbn" id='book_isbn'>
 				<table id="datatablesSimple">
 					<thead>

@@ -6,11 +6,11 @@ public interface BookMapper {
 
 	List<BookVO> bookSelectList();
 
-	String bookInsert(BookVO book);
+	int bookInsert(BookVO book);
 
-	String bookDelete(BookVO book);
+	int bookDelete(String book_isbn);
 
-	String bookUpdate(BookVO book);
+	int bookUpdate(BookVO book);
 	
-	String bookSearch(String book_isbn);
+	BookVO bookSearch(String book_isbn);
 }

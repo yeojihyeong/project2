@@ -4,15 +4,15 @@ import java.util.List;
 
 public interface BookService {
 
-	
 	List<BookVO> bookSelectList();
+
+	int bookInsert(BookVO book);
+
+	int bookDelete(String book_isbn);
+
+	int bookUpdate(BookVO book);
 	
-	String bookInsert(BookVO book);
-	
-	String bookDelete(BookVO book);
-	
-	String bookUpdate(BookVO book);
-	
-	String bookSearch(String book_isbn);
-	
+	BookVO bookSearch(String book_isbn);
 }
+
+

@@ -21,22 +21,22 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public String bookInsert(BookVO book) {
+	public int bookInsert(BookVO book) {
 		return map.bookInsert(book);
 	}
 
 	@Override
-	public String bookDelete(BookVO book) {
-		return map.bookDelete(book);
+	public int bookDelete(String book_isbn) {
+		return map.bookDelete(book_isbn);
 	}
 
 	@Override
-	public String bookUpdate(BookVO book) {
+	public int bookUpdate(BookVO book) {
 		return map.bookUpdate(book);
 	}
 
 	@Override
-	public String bookSearch(String book_isbn) {
+	public BookVO bookSearch(String book_isbn) {
 		return map.bookSearch(book_isbn);
 	}
 	
