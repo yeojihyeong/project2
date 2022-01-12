@@ -9,34 +9,25 @@ public interface BlogService {
 
 	MemberVO memberSelect(MemberVO member);
 
-
 	int countReview(String member_id);
-
 
 	List<BlogVO> blogSelectList(int start_no, int end_no, String member_id);
 
-
 	BlogVO blogSelect(BlogVO blog);
-
 
 	int blogInsert(BlogVO blog);
 
-
 	int blogUpdate(BlogVO blog);
-
 
 	int blogDelete(BlogVO blog);
 
-
 	int updateReviewCnt(String blog_id);
 
-
-	BlogVO likedReview(BlogVO blog);
-	
+	List<BlogVO> likedReview();
 
 	List<BlogVO> reviewSearch(BlogVO blog);
 
+	//개별 리뷰 상세 조회
+	BlogVO reviewDetailSelect(String blog_id);
 
-
-	
 }
