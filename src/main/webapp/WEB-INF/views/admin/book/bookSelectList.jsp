@@ -6,7 +6,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-/* 여기 변경하기 */
 	$(document).ready(function() {
 		$('.actionTd').on('click', function(e) {
 			console.log(e.target.parentNode.children[0].data);
