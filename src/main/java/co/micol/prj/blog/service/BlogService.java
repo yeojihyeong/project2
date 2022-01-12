@@ -37,5 +37,6 @@ public interface BlogService {
 	List<BlogVO> reviewSearch(BlogVO blog);
 
 
+
 	// ╢Я╠ш ют╥б
 }

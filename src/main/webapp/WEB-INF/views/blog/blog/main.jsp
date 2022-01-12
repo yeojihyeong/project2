@@ -1,64 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
+<script>
+	function selChange() {
+		var sel = document.getElementById('cntPerPage').value;
+		location.href = "boardList?nowPage=${paging.nowPage}&cntPerPage=" + sel;
+	}
+</script>
 <div class="col-lg-8">
-	<!-- Featured blog post-->
-
 	<!-- Nested row for non-featured blog posts-->
 	<div class="row">
 		<div class="col-lg-6">
 			<!-- Blog post-->
+			<c:forEach items="${viewAll }" var="list">
 			<div class="card mb-4">
 				<a href="#!"><img class="card-img-top"
 					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
 				<div class="card-body">
-					<div class="small text-muted">January 1, 2021</div>
-					<h2 class="card-title h4">Post Title</h2>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+					<div class="small text-muted">${list.review_date }</div>
+					<h2 class="card-title h4">${list.review_title }</h2>
 					<a class="btn btn-primary" href="#!">Read more ¡æ</a>
 				</div>
 			</div>
-			<!-- Blog post-->
-			<div class="card mb-4">
-				<a href="#!"><img class="card-img-top"
-					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-				<div class="card-body">
-					<div class="small text-muted">January 1, 2021</div>
-					<h2 class="card-title h4">Post Title</h2>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-					<a class="btn btn-primary" href="#!">Read more ¡æ</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-6">
-			<!-- Blog post-->
-			<div class="card mb-4">
-				<a href="#!"><img class="card-img-top"
-					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-				<div class="card-body">
-					<div class="small text-muted">January 1, 2021</div>
-					<h2 class="card-title h4">Post Title</h2>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-					<a class="btn btn-primary" href="#!">Read more ¡æ</a>
-				</div>
-			</div>
-			<!-- Blog post-->
-			<div class="card mb-4">
-				<a href="#!"><img class="card-img-top"
-					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-				<div class="card-body">
-					<div class="small text-muted">January 1, 2021</div>
-					<h2 class="card-title h4">Post Title</h2>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex
-						quis soluta, a laboriosam.</p>
-					<a class="btn btn-primary" href="#!">Read more ¡æ</a>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
 	<!-- Pagination-->

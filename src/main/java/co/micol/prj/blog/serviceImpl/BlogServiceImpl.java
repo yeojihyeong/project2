@@ -78,5 +78,8 @@ public class BlogServiceImpl implements BlogService {
 		return null;
 	}
 
+
+	
+
 	// ¥Ò±€ ¿€º∫
 }

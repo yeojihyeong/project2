@@ -8,7 +8,7 @@ public class PagingVO {
 	@Getter
 	@Setter
 	// 현재 페이지, 시작 페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막 페이지, sql 쿼리에 쓸 start, end
-	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
+	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start_no, end_no;
 	private int cntPage = 5;
 
 	public PagingVO() {
@@ -42,7 +42,7 @@ public class PagingVO {
 
 	// DB 쿼리에서 사용할 start, end값 계산
 	public void calcStartEnd(int nowPage, int cntPerPage) {
-		setEnd(nowPage * cntPerPage);
-		setStart(getEnd() - cntPerPage + 1);
+		setEnd_no(nowPage * cntPerPage);
+		setStart_no(getEnd_no() - cntPerPage + 1);
 	}
 }

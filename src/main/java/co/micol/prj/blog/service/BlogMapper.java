@@ -32,6 +32,7 @@ public interface BlogMapper {
 	// ¸®ºä °Ë»ö
 	List<BlogVO> reviewSearch(BlogVO blog);
 	
+	
 	// ´ñ±Û ÀÔ·Â
 	
 }

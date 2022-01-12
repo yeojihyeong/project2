@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.micol.prj.blog.service.BlogService;
 import co.micol.prj.member.service.MemberService;
+import co.micol.prj.member.service.MemberVO;
 import co.micol.prj.utils.PagingVO;
 
 @Controller
@@ -26,14 +27,26 @@ public class BlogController {
 	}
 	
 	@RequestMapping("/blog_home.do")
-	public String blog_home(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		if(session.equals(null)) {
-			return "ogani/login/loginForm";
-		} else {
-			return "blog/blog/main";
+	public String blog_home(PagingVO vo, Model model, @RequestParam(value="nowPage", required=false)String nowPage, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
+		
+		int total = blogDAO.countReview();
+		
+		if(nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "4";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "4";
 		}
-	}
+		
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", vo);
+		model.addAttribute("viewAll", blogDAO.blogSelectList(vo));
+		return "blog/blog/main";
+
+	} 
+		
 	
 	@RequestMapping("/reviewPaging.do")
 	public String blog_review() {
