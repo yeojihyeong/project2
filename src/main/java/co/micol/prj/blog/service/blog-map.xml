@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.blog.service.BlogMapper">
+
+	<!--<select id="memberSelect" parameterType="co.micol.prj.member.service.MemberVO"
+			resultType="co.micol.prj.member.service.MemberVO">
+		select * from  member
+		where member_id = #{member_id}
+	</select>  -->
+
+	<!--리뷰 상세 조회-->
+
+	<select id="blogSelect"
+		resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT K.BOOK.NAME, BOOK_PICTURE, BOOK_PFILE,
+		B.REVIEW_TITLE, B.REVIEW_DATE
+		FROM BLOG B, BOOK K
+		WHERE (B.BOOK_ISBN =
+		K.BOOK_ISBN) AND B.MEMBER_ID = #{member_id}
+	</select>
+
+
+	<insert id="blogInsert">
+		INSERT INTO BLOG (BLOG_ID, MEMBER_ID, BOOK_ID,
+		REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE, REVIEW_RATING, REVIEW_CNT)
+		VALUES (blog_seq.nextval, #{member_id}, #{book_id}, #{review_title}, #{review_content}, sysdate, #{review_rating}, #{review_cnt})
+	</insert>
+
+	<update id="blogUpdate">
+		UPDATE BLOG
+		SET BOOK_ID = #{book_id}
+		review_title =
+		#{book_title}
+		review_content = #{review_content}
+		review_rating =
+		#{review_rating}
+		WHERE blog_id = #{blog_id}
+	</update>
+
+	<delete id="blogDelete">
+		DELETE FROM BLOG WHERE blog_id = #{blog_id}
+	</delete>
+
+	<!-- 조회수 증가 -->
+	<update id="updateReviewCnt">
+		UPDATE BLOG
+		SET REVIEW_CNT = REVIEW_CNT + 1
+		WHERE
+		BLOG_ID = #{blog_id}
+	</update>
+
+	<!-- 조회수 높운 리뷰 -->
+	<select id="likedReview"
+		resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT * FROM
+		(SELECT * RANK() OVER(ORDER BY REVIEW_CNT) AS RV
+		FROM
+		BLOG) AS VIEWED
+		<![CDATA[WHERE VIEWED.RV <= 4]]>
+	</select>
+
+	<!-- 페이징 기능 -->
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countReview" parameterType="String" 
+			resultType="int">
+		SELECT COUNT(*) AS N FROM BLOG WHERE MEMBER_ID = #{member_id}
+	</select>
+
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="blogSelectList"
+		resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT * FROM (
+		SELECT ROWNUM RN, A.*
+		FROM (
+		SELECT * FROM BLOG WHERE MEMBER_ID = #{member_id}
+		) A
+		)
+		WHERE RN BETWEEN #{start_no} AND #{end_no}
+	</select>
+
+	<!-- 리뷰 검색 -->
+	<select id="reviewSearch"
+		resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT k.book_picture, k.book_pfile, b.review_title,
+		b.review_date
+		FROM blog b JOIN book k
+		USING (book_id)
+		WHERE review_title LIKE CONCAT('%',#{searchValue},'%')
+		OR review_content LIKE CONCAT('%',#{searchValue},'%')
+	</select>
+
+	<!-- 댓글 입력 기능 -->
+
+</mapper>
