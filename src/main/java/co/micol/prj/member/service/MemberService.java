@@ -11,5 +11,7 @@ public interface MemberService {
 	
 	boolean isIdCheck(String member_id);
 	List<MemberVO> memberSearch(String key, String data);
+
 	MemberVO memberOne(String member_id);
+
 }

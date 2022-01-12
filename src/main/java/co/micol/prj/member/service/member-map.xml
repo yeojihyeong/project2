@@ -22,6 +22,7 @@
 	
 	<update id="memberUpdate" parameterType="co.micol.prj.member.service.MemberVO">
 		update member
+
 		<set>
 			<if test="member_password != null">member_password = #{member_password},</if>
 			<if test="member_name != null">member_name = #{member_name},</if>
@@ -52,10 +53,10 @@
 		<if test="key == 'name'"> WHERE NAME LIKE '%'|| #{data} ||'%' </if>
 		<if test="key == 'tel'"> WHERE TEL LIKE '%'|| #{data} ||'%' </if>
 	</select>
+
 	
 	<select id="memberOne" resultType="co.micol.prj.member.service.MemberVO">
 		select * from member
 		where member_id = #{member_id}
 	</select>
-	
 </mapper>
