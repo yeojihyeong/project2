@@ -82,8 +82,6 @@
 								<li><a href="./blog-details.html">Blog Details</a></li>
 							</ul></li>
 						<li><a href="blog_list.do">Blog</a></li>
-						<li><a href="contact.do">Contact</a></li>
-						<li><a href="./blog.html">Blog</a></li>
 						<li><a href="#">Community</a>
 							<ul class="header__menu__dropdown">
 								<li><a href="noticeList.do">공지사항</a></li>

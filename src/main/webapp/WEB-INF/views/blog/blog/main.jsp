@@ -27,6 +27,7 @@
 				</div>
 			</div>
 			</c:forEach>
+			<a href="reviewInsertForm.do"><button>±Û¾²±â</button></a>
 		</div>
 	</div>
 	<!-- Pagination-->
