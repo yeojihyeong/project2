@@ -24,8 +24,6 @@ public class BookController {
 	@Autowired
 	private BookService bookDao;
 	
-	
-	
 	@Autowired
 	ServletContext sc;
 	
@@ -117,11 +115,11 @@ public class BookController {
 		String originalFileName = file.getOriginalFilename();
 				
 		if(!originalFileName.isEmpty()) {
-			String uuid = UUID.randomUUID().toString();//¹°¸®ÆÄÀÏ¸íÀ» À§ÇÑ ±³À¯ÇÑ ¾ÆÀÌµð »ý¼º
+			String uuid = UUID.randomUUID().toString();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 			String saveFileName = uuid + originalFileName.substring(originalFileName.lastIndexOf("."));
 			
 		try {
-			file.transferTo(new File(saveDir,saveFileName)); //ÆÄÀÏÀúÀå
+			file.transferTo(new File(saveDir,saveFileName)); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			book.setBook_picture(originalFileName);
 			book.setBook_pfile(originalFileName);
 		} catch(Exception e) {
@@ -133,9 +131,9 @@ public class BookController {
 		
 		 int n= bookDao.bookInsert(book);
 		 if(n != 0 ) {
-			 model.addAttribute("message","µµ¼­µî·Ï ½ÇÆÐÇØ¿´½À´Ï´Ù");
+			 model.addAttribute("message","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 		 } else {
-			 model.addAttribute("message","µµ¼­µî·Ï ¼º°øµÇ¾ú½À´Ï´Ù.");
+			 model.addAttribute("message","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		 
 		 }
 		 model.addAttribute("books",bookDao.bookSelectList());
