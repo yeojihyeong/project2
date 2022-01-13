@@ -9,7 +9,9 @@
 </head>
 <body>
 <h3>API 테스트</h3>
-<input id="bookInput">
+<input id="bookTitle">
+<input id="bookAuthor">
+
 <button id="searchBtn">검색</button>
 <p></p>
 <script type="text/javascript">
@@ -19,19 +21,24 @@
 		
 		$.ajax({
 			method:"GET",
-			url: "https://www.nl.go.kr/NL/search/openApi/search.do?key="+key,
-			data: { kwd : $("#bookInput").val()},
+			url: "http://seoji.nl.go.kr/landingPage/SearchApi.do?cert_key="+key+"&result_style=json&page_no=1&page_size=10",
+			data: { title : $("#bookTitle").val(), author: $("#bookAuthor").val()},
 			success : function(data){
 				console.log(data);
+				console.log(data.docs[0].title);
 				
 				alert("성공");
 				
-				$(data).find('item').each(function() {
+				
+				/* $("p").append("<strong>"+data.docs[0].title+"</strong>");
+				$("p").append("<img src='"+data.docs[0].title_url+ "'/>"); */
+				
+				/* $(data).find('item').each(function() {
 					var title = $(this).find("title_info").text();
 					var image = $(this).find("image_url").text();
 					$("p").append("<strong>" + title + "</strong>");
 					$("p").append("<img src='" + image + "'/>");					
-				})
+				})*/
 				
 				
 			},
