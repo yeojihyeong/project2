@@ -10,37 +10,37 @@
 		$('.actionTd').on('click', function(e) {
 			console.log(e.target.parentNode.children[0].data);
 			e.preventDefault();
-			$('#book_isbn').val(e.target.parentNode.children[0].data);  
+			$('#notice_num').val(e.target.parentNode.children[0].data);  
 			$('#frd').submit();
 		});
 	});
 </script>
 <main>
 	<div class="container-fluid px-4">
-		<h1 class="mt-4">도서목록</h1>
+		<h1 class="mt-4">공지사항목록</h1>
 		<div class="card mb-4">
 			<div class="card-header">
-				<i class="fas fa-table me-1"></i> 도서목록
+				<i class="fas fa-table me-1"></i> 공지사항목록
 			</div>
 			<div class="card-body">
-				<form action="bookSearch.do" id='frd' method="post">
-				<input type="hidden" name="book_isbn" id='book_isbn'>
+				<form action="noticeSearch.do" id='frd' method="post">
+				<input type="hidden" name="notice_num" id='notice_num'>
 				<table id="datatablesSimple">
 					<thead>
 						<tr>
-							<th>Isbn</th>
-							<th>도서 이름</th>
-							<th>저자</th>
-							<th>출판사</th>
+							<th>순번</th>
+							<th>공지사항 제목</th>
+							<th>내용</th>
+							<th>작성일</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${books }" var="book">
+						<c:forEach items="${notices }" var="notice">
 							<tr>
-								<td class='actionTd'>${book.book_isbn }</td>
-								<td class='actionTd'>${book.book_name }</td>
-								<td class='actionTd'>${book.book_write }</td>
-								<td class='actionTd'>${book.book_publis }</td>
+								<td class='actionTd'>${notice.notice_num }</td>
+								<td class='actionTd'>${notice.notice_title }</td>
+								<td class='actionTd'>${notice.notice_content }</td>
+								<td class='actionTd'>${notice.notice_date }</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -48,7 +48,7 @@
 				</form>
 			</div>
 			<div>
-			<button><a id="btn" href="bookInsertForm.do"> 등록</a></button>
+			<button><a id="btn" href=".do"> 등록</a></button>
 			</div>
 		</div>
 	</div>
