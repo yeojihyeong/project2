@@ -28,22 +28,12 @@
 	<select id="reviewDetailSelect"
 		parameterType="co.micol.prj.blog.service.BlogVO" resultMap="BlogVO">
 		select
-		K.BOOK_NAME, K.BOOK_PICTURE, K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_CONTENT, B.REVIEW_DATE, B.REVIEW_CNT, B.REVIEW_LIKE
+		K.BOOK_NAME, K.BOOK_WRITE, K.BOOK_PUBLIS, K.BOOK_PICTURE, K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_CONTENT, B.REVIEW_DATE, B.REVIEW_CNT, B.REVIEW_LIKE
 		FROM BLOG B
 		LEFT JOIN BOOK K
 		ON B.BOOK_ISBN = K.BOOK_ISBN
 		WHERE B.BLOG_ID=#{blog_id}
 	</select>
-
-	<select id="blogSelect"
-		resultType="co.micol.prj.blog.service.BlogVO">
-		SELECT K.BOOK.NAME, BOOK_PICTURE, BOOK_PFILE,
-		B.REVIEW_TITLE, B.REVIEW_DATE
-		FROM BLOG B, BOOK K
-		WHERE (B.BOOK_ISBN =
-		K.BOOK_ISBN) AND B.MEMBER_ID = #{member_id}
-	</select>
-
 
 	<insert id="blogInsert">
 		INSERT INTO BLOG (BLOG_ID, MEMBER_ID, BOOK_ID,

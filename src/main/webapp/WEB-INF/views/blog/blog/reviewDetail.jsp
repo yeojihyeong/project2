@@ -3,10 +3,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
 	<div class="col-lg-8">
 		<!-- Post content-->
@@ -14,10 +10,15 @@
 			<!-- Post header-->
 			<header class="mb-4">
 				<!-- Post title-->
-				<h1 class="fw-bolder mb-1">${blog.review_title }</h1>
+				<h1 class="fw-bolder mb-1">${review.review_title }</h1>
 				<!-- Post meta content-->
-				<div class="text-muted fst-italic mb-2">Posted on ${blog.review_date }</div>
-				
+				<div class="text-muted fst-italic mb-2">Posted on
+					${review.review_date }</div>
+				<h6>조회수 (${review.review_cnt }) 좋아요 (${review.review_like })</h6>
+
+				<div>${review.bookVO.book_write }</div>
+
+
 			</header>
 			<!-- Preview image figure-->
 			<figure class="mb-4">
@@ -26,7 +27,9 @@
 			</figure>
 			<!-- Post content-->
 			<section class="mb-5">
-				<p class="fs-5 mb-4">${blog.review_content }</p>
+				<p class="fs-5 mb-4">${review.review_content }</p>
+
+
 			</section>
 		</article>
 		<!-- Comments section-->
