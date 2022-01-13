@@ -62,7 +62,7 @@
 				<div class="collapse" id="collapseLayouts"
 					aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">공지사항</a>
+						<a class="nav-link" href="adminNoticeSelectList.do">공지사항</a>
 						<a class="nav-link" href="#">FAQ</a>
 						<a class="nav-link" href="#">게시글</a>
 					</nav>

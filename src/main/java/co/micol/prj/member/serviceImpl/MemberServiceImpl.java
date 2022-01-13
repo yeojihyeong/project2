@@ -54,4 +54,19 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO memberOne(String member_id) {
 		return map.memberOne(member_id);
 	}
+
+	@Override
+	public MemberVO memberSearch1(String member_id) {
+		return map.memberSearch1(member_id);
+	}
+
+	@Override
+	public int memberDelete1(String member_id) {
+		return map.memberDelete1(member_id);
+	}
+
+	@Override
+	public int memberUpdate1(String member_id) {
+		return map.memberUpdate1(member_id);
+	}
 }

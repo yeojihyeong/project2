@@ -54,4 +54,10 @@ public class NoticeController {
 		model.addAttribute(noticeDao.noticeDelete(notice));
 		return "ogani/notice/noticeDeleteSuccess";
 	}
+	
+	@RequestMapping("/adminNoticeSelectList.do")
+	public String adminNoticeSelectList(Model model) {
+		model.addAttribute("notices", noticeDao.noticeSelectList());
+		return "admin/notice/noticeSelectList";
+	}
 }
