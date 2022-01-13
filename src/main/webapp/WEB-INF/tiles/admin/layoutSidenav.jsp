@@ -21,14 +21,14 @@
 					</div>
 				</a>
 				<!-- 아래 div id 영향을 받음 css 에서 찾을것  -->
-				<div class="collapse" id="collapseLayouts"  
+				<div class="collapse" id="collapseLayouts"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="bookSelectList.do">도서목록</a> <a
 							class="nav-link" href="layout-sidenav-light.html">통계</a>
 					</nav>
 				</div>
-				
+
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 					data-bs-target="#collapsePages" aria-expanded="false"
 					aria-controls="collapsePages">
@@ -48,9 +48,9 @@
 					</nav>
 				</div>
 
-	
+
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-					data-bs-target="#collapseLayouts" aria-expanded="false"   
+					data-bs-target="#collapseLayouts" aria-expanded="false"
 					aria-controls="collapseLayouts"> <!-- target 확인할것 -->
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-columns"></i>
@@ -62,30 +62,15 @@
 				<div class="collapse" id="collapseLayouts"
 					aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="adminNoticeSelectList.do">공지사항</a>
-						<a class="nav-link" href="#">FAQ</a>
-						<a class="nav-link" href="#">게시글</a>
+						<a class="nav-link" href="adminNoticeSelectList.do">공지사항</a> <a
+							class="nav-link" href="#">FAQ</a> <a class="nav-link" href="#">게시글</a>
 					</nav>
 				</div>
-
-
-
-
-				<div class="sb-sidenav-menu-heading">Addons</div>
-				<a class="nav-link" href="charts.html">
-					<div class="sb-nav-link-icon">
-						<i class="fas fa-chart-area"></i>
-					</div> Charts
-				</a> <a class="nav-link" href="tables.html">
-					<div class="sb-nav-link-icon">
-						<i class="fas fa-table"></i>
-					</div> Tables
-				</a>
 			</div>
 		</div>
-		<div class="sb-sidenav-footer">
+	<!-- 	<div class="sb-sidenav-footer">
 			<div class="small">Logged in as:</div>
 			Start Bootstrap
-		</div>
+		</div> -->
 	</nav>
 </div>

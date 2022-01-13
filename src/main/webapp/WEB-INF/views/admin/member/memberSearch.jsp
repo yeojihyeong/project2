@@ -60,19 +60,6 @@
 	<section class="product-details spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-5">
-					<div class="sidebar">
-						<div class="sidebar__item">
-							<h4>회원정보</h4>
-							<ul>
-								<li><a href="#">내정보</a></li>
-								<li><a href="#">비밀번호 변경</a></li>
-								<li><a href="#">회원탈퇴</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
 				<div class="col-lg-9 col-md-7">
 					<div class="blog__details__author">
 						<div class="blog__details__author__pic">
@@ -212,15 +199,15 @@
 									</div>
 								</div>
 								<br>
-								<div class="col-lg-12 col-md-12">
-									<button type="button" onclick="infoUpdate()" class="site-btn"
-										style="float: right;">수정하기</button>
-
-									<form action="memberDelete1.do" method="post">
+								<div>
+								<form action="memberDelete1.do" method="post">
 										<input type="hidden" name="member_id" id="member_id"
-											value="${member.member_id }"> <input type="submit"
-											value="탈퇴">
+											value="${member.member_id }">
+											<input type="submit" class="site-btn"
+										style="float: right;" value="탈퇴">
 									</form>
+									<button type="button" onclick="infoUpdate()" class="site-btn"
+										style="float: right; margin-right: 10px; ">수정</button>
 								</div>
 							</div>
 						</div>
