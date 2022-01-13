@@ -14,6 +14,7 @@ public class BcommentServiceImpl implements BcommentService {
 
 	@Override
 	public List<BcommentVO> bcommentSelectList() {
+		System.out.println(map.bcommentSelectList());
 		return map.bcommentSelectList();
 	}
 
