@@ -23,10 +23,14 @@ public interface BlogMapper {
 	int updateReviewCnt(String blog_id);
   
 	List<BlogVO> likedReview();
+	
+	List<BlogVO> recentReview();
   
 	List<BlogVO> reviewSearch(BlogVO blog);
 	
 	// 개별 리뷰 상세 조회
 	BlogVO reviewDetailSelect(String blog_id);
+	
+	
 	
 }

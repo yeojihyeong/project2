@@ -75,4 +75,10 @@ public class BlogServiceImpl implements BlogService {
 		return map.reviewDetailSelect(blog_id);
 	}
 
+	@Override
+	public List<BlogVO> recentReview() {
+		// TODO Auto-generated method stub
+		return map.recentReview();
+	}
+
 }

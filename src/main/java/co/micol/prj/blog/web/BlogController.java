@@ -62,6 +62,15 @@ public class BlogController {
 		return "ogani/blog/blog";
 	}
 
+	// 최근 리뷰
+	@RequestMapping("/blog_recent.do")
+	public String blog_recent(Model model) {
+		List<BlogVO> list = mapper.recentReview();
+		model.addAttribute("list", list);
+		return "ogani/blog/blogRecent";
+
+	}
+
 	@RequestMapping("/blog_home.do")
 	public String blog_home(PagingVO paging, Model model,
 			@RequestParam(defaultValue = "1", required = false) String nowPage,

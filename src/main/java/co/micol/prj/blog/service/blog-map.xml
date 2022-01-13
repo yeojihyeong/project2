@@ -76,6 +76,16 @@
 		)
 		<![CDATA[WHERE ROWNUM <= 5]]>
 	</select>
+	
+	<select id="recentReview" resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT *
+		FROM
+		(SELECT *
+		FROM BLOG
+		ORDER BY review_date DESC
+		)
+		<![CDATA[WHERE ROWNUM <= 5]]>
+	</select>
 
 	<!-- 페이징 기능 -->
 	<!-- 총 게시글 갯수 출력 -->

@@ -24,6 +24,8 @@ public interface BlogService {
 	int updateReviewCnt(String blog_id);
 
 	List<BlogVO> likedReview();
+	
+	List<BlogVO> recentReview();
 
 	List<BlogVO> reviewSearch(BlogVO blog);
 
