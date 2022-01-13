@@ -18,7 +18,6 @@ public class BlogVO {
 	private int review_cnt;
 	private int review_like;
 	
-	//�˻���
 	private String searchValue;
 	
 	public String getSearchValue() {
