@@ -60,4 +60,17 @@ public class NoticeController {
 		model.addAttribute("notices", noticeDao.noticeSelectList());
 		return "admin/notice/noticeSelectList";
 	}
+	
+	@RequestMapping("/noticeSearch.do")
+	public String noticeSearch(NoticeVO notice, Model model){
+		model.addAttribute("notice", noticeDao.noticeSelect(notice));
+		System.out.println(notice);
+		return "admin/notice/noticeSearch";
+	}
+	
+	@RequestMapping("/adminNoticeUpdate1.do")
+	public String adminNoticeUpdate1(NoticeVO notice, Model model) {
+
+		return "admin/notice/noticeUpdateForm";
+	}
 }
