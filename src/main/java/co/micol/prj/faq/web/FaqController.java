@@ -3,6 +3,7 @@ package co.micol.prj.faq.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.micol.prj.faq.service.FaqService;
@@ -27,7 +28,7 @@ public class FaqController {
 	@RequestMapping("faqInsert.do")
 	public String faqInsert(Model model, FaqVO faq) {
 		model.addAttribute("faqInsert", faqDao.faqInsert(faq));
-		return "ogani/faq/faqInsert";
+		return "redirect:faqList.do";
 	}
 	
 	@RequestMapping("faqDelete.do")
@@ -35,4 +36,6 @@ public class FaqController {
 		model.addAttribute(faqDao.faqDelete(faq));
 		return "ogani/faq/faqDelete";
 	}
+	
+	
 }

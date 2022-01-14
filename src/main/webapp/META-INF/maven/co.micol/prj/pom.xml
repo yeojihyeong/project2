@@ -124,7 +124,6 @@
     <version>2.9.0</version>
 </dependency>
 
-		
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
