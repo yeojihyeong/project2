@@ -16,15 +16,15 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<!-- Blog post-->
-				<c:forEach items="${viewAll }" var="list">
+				<c:forEach items="${viewAll }" var="wish">
 					<div class="card mb-4">
 						<a href="#!"><img class="card-img-top"
 							src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
 						<div class="card-body">
 							<div class="small text-muted">${wish.book_name }</div>
 							<h2 class="card-title h4">${wish.book_write }</h2>
-							${wish.wish_id }
-							<a class="btn btn-primary" href="#!">Read more ¡æ</a>
+							<a class="btn btn-primary" href="#!">detail ¡æ</a>
+							<a class="btn btn-primary" href="#!">delete</a>
 						</div>
 					</div>
 				</c:forEach>
