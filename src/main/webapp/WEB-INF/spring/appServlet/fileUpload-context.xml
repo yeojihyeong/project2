@@ -7,7 +7,4 @@
 		<property name="maxUploadSize" value="1073741824"/>
 		<property name="defaultEncoding" value="utf-8"/>
 	</bean>
-	
-	
-	
 </beans>

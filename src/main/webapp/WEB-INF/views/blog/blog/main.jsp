@@ -22,11 +22,12 @@
 					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
 				<div class="card-body">
 					<div class="small text-muted">${list.review_date }</div>
-					<h2 class="card-title h4">${list.review_title}</h2>
+					<h2 class="card-title h4">${list.review_title }</h2>
 					<a class="btn btn-primary" href="#!">Read more ¡æ</a>
 				</div>
 			</div>
 			</c:forEach>
+			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">±Û¾²±â</button></a>
 		</div>
 	</div>
 	<!-- Pagination-->

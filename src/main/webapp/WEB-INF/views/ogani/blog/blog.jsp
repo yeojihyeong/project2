@@ -30,15 +30,17 @@
 	<section class="blog spad">
 		<div class="container"></div>
 		<div class="col-lg-8 col-md-7">
-			<a href="#">인기 포스팅</a>
-			<div class="row">
+			<h2>
+				<a href="blog_list.do">화제의 포스팅</a> &nbsp;&nbsp;&nbsp; <a
+					href="blog_recent.do">최신 포스팅</a>
+			</h2>
 
-
+			<div class="row" style="margin-top: 40px;">
 				<c:forEach items="${list }" var="list">
-					<div class="col-lg-6 col-md-6 col-sm-6">
+					<div class="col-lg-4 col-md-4 col-sm-4">
 						<div class="blog__item">
 							<div class="blog__item__pic">
-								<img src="resources/ogani/img/blog/blog-2.jpg" alt="">
+								<img src="resources/ogani/img/blog/1.jpg" alt="">
 							</div>
 							<div class="blog__item__text">
 								<ul>
@@ -46,35 +48,45 @@
 											value="${list.review_date}" /></li>
 								</ul>
 								<h5>
-									<a href="#"><c:out value="${list.review_title}" /></a>
+									<c:out value="${list.review_title}" />
 								</h5>
 
 								<form action="reviewDetailSelect.do" method="get">
 									<input type="hidden" name="blog_id" id="blog_id"
-										value="${list.blog_id }"> 
-										<input type="submit"
-										value="READ MORE"> <span class="arrow_right"></span>
+										value="${list.blog_id }"> <input type="submit"
+										value="READ MORE">
 								</form>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
-
-
-
-				<c:if test="${member_id ne null }">
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6">
-							<a href="blog_home.do" class="blog__btn">Go to my booklog </a>
-						</div>
-					</div>
-				</c:if>
 			</div>
+		</div>
+		<div id="aside_home" class="col-lg-3"
+			style="float: right; top: -1700px; margin-right: 10px">
+			<a href="blog_home.do" class="blog__btn">Go to my booklog </a>
+			<form name="blogForm" action="reviewSearch.do" method="get">
+				<input class="form-control" type="text" value="${searchValue }"
+					placeholder="Enter search term..."
+					aria-label="Enter search term..." aria-describedby="button-search" />
+				<input type="submit" class="btn btn-primary" id="button-search" type="button">Go!
+			</form>
+			<img src="resources/ogani/img/blog/3.jpg" alt="">
+
+
 		</div>
 
 	</section>
+
+
+
 	<!-- Blog Section End -->
 
 </body>
+<script>
+
+	
+
+</script>
 
 </html>

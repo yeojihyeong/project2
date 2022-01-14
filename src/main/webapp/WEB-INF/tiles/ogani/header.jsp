@@ -30,19 +30,19 @@
 								<li><a href="#">English</a></li>
 							</ul>
 						</div>
-						<c:if test="${member_id eq null }">
-							<div class="header__top__right__auth">
-								<a href="loginForm.do"><i class="fa fa-user"></i> Login</a>
-							</div>
-						</c:if>
-						<c:if test="${member_id eq null }">
-						<div class="header__top__right__auth">
-								<a href="joinForm.do">&nbsp;<i class="fa fa-user"></i> Join</a>
-						</div>
-						</c:if>
 						
-						<c:if test="${member_id ne null }">
+						<c:choose>
+						<c:when test="${member_id ne null && member_author == 'admin'}">
 							<div class="header__top__right__language">
+							<div>&nbsp;<i class="fa fa-user"></i> MyPage</div>
+							<span class="arrow_carrot-down"></span>
+								<ul>
+									<li><a href="main.do"> Management</a></li>
+								</ul>
+							</div>
+						</c:when>
+						<c:when test="${member_id ne null && member_author == 'user'}">
+						<div class="header__top__right__language">
 							<div>&nbsp;<i class="fa fa-user"></i> MyPage</div>
 							<span class="arrow_carrot-down"></span>
 								<ul>
@@ -50,7 +50,16 @@
 									<li><a href="#"> Blog</a></li>
 								</ul>
 							</div>
-						</c:if>
+						</c:when>
+						<c:otherwise>
+							<div class="header__top__right__auth">
+								<a href="loginForm.do"><i class="fa fa-user"></i> Login</a>
+							</div>
+							<div class="header__top__right__auth">
+								<a href="joinForm.do">&nbsp;<i class="fa fa-user"></i> Join</a>
+							</div>
+						</c:otherwise>
+						</c:choose>
 						
 						<c:if test="${member_id ne null }">
 							<div class="header__top__right__auth">
@@ -82,8 +91,6 @@
 								<li><a href="./blog-details.html">Blog Details</a></li>
 							</ul></li>
 						<li><a href="blog_list.do">Blog</a></li>
-						<li><a href="contact.do">Contact</a></li>
-						<li><a href="./blog.html">Blog</a></li>
 						<li><a href="#">Community</a>
 							<ul class="header__menu__dropdown">
 								<li><a href="noticeList.do">공지사항</a></li>

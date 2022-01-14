@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -126,5 +127,35 @@ public class MemberController {
 	      model.addAttribute("members", memberDao.memberSelectList());
 	      return "admin/member/memberSelectList";
 	}
+	
+	@RequestMapping("/adminMemberSearch.do")
+		public String memberSearch(@Param("member_id") String member_id, Model model) {
+		System.out.println(member_id);
+		model.addAttribute("member",memberDao.memberSearch1(member_id));
+		return "admin/member/memberSearch";
+		
+	}
+	
+	@RequestMapping("/adminMemberUpdate1.do")
+	public String adminmemberUpdate1(@Param("member_id") String member_id, Model model) {
+		model.addAttribute("member",memberDao.memberUpdate1(member_id));
+		System.out.println(member_id);
+		
+		model.addAttribute("member",memberDao.memberSelectList());
+		return "admin/book/bookUpdateForm";
+	}
+	
+	
+	@RequestMapping("/memberDelete1.do")
+	public String memberDelete1(@Param("member_id") String member_id, Model model) {
+		System.out.println(member_id);
+		
+		model.addAttribute("member",memberDao.memberDelete1(member_id));
+		
+		
+		model.addAttribute("members", memberDao.memberSelectList());
+		return "admin/member/memberSelectList";
+	}
+	
 }
 

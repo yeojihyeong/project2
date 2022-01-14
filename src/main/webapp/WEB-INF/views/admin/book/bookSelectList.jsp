@@ -6,7 +6,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-/* 여기 변경하기 */
 	$(document).ready(function() {
 		$('.actionTd').on('click', function(e) {
 			console.log(e.target.parentNode.children[0].data);
@@ -17,11 +16,6 @@
 	});
 </script>
 <main>
-	<%
-	String book_isbn = (String)session.getAttribute("book_isbn");
-	
-	%>
-
 	<div class="container-fluid px-4">
 		<h1 class="mt-4">도서목록</h1>
 		<div class="card mb-4">
@@ -53,8 +47,8 @@
 				</table>
 				</form>
 			</div>
-			<div>
-			<button><a id="btn" href="bookInsertForm.do"> 등록</a></button>
+			<div class="col-lg-12 col-md-12">
+			<button class="site-btn" onclick="location.href = 'bookInsertForm.do'" style="float: right;" >등록 <br> </button>
 			</div>
 		</div>
 	</div>

@@ -11,6 +11,10 @@ public interface MemberMapper {
 	int memberUpdate(MemberVO member);
 	int memberDelete(MemberVO member);
 	
+	
+	MemberVO memberSearch1(String member_id);
+	int memberDelete1(String member_id);
+	int memberUpdate1(String member_id);
 	boolean isIdCheck(String member_id);
 	List<MemberVO> memberSearch(@Param("key") String key, @Param("data") String data);
 	MemberVO memberOne(String member_id);

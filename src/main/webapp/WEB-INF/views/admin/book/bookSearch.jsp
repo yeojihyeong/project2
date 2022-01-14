@@ -8,13 +8,14 @@
 			<div class="col-lg-6 col-md-6">
 				<div class="product__details__pic">
 					<div class="product__details__pic__item">
-					<!-- 큰 이미지 -->
+						<!-- 큰 이미지 -->
 						<img class="product__details__pic__item--large"
-							src="resources/admin/ogani/img/product/details/product-details-1.jpg" alt=""> 
+							src="resources/admin/ogani/img/product/details/product-details-1.jpg"
+							alt="">
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
-					<!-- 작은 이미지 -->
-					<!-- 	<img data-imgbigurl="resources/admin/ogani/img/product/details/product-details-2.jpg" src="resources/admin/ogani/img/product/details/thumb-1.jpg" alt="">
+						<!-- 작은 이미지 -->
+						<!-- 	<img data-imgbigurl="resources/admin/ogani/img/product/details/product-details-2.jpg" src="resources/admin/ogani/img/product/details/thumb-1.jpg" alt="">
 						<img data-imgbigurl="resources/admin/ogani/img/product/details/product-details-3.jpg" src="resources/admin/ogani/img/product/details/thumb-2.jpg" alt="">
 						<img data-imgbigurl="resources/admin/ogani/img/product/details/product-details-5.jpg" src="resources/admin/ogani/img/product/details/thumb-3.jpg" alt="">
 						<img data-imgbigurl="resources/admin/ogani/img/product/details/product-details-4.jpg" src="resources/admin/ogani/img/product/details/thumb-4.jpg" alt=""> -->
@@ -23,11 +24,11 @@
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="product__details__text">
-					<h3>${book.book_name } </h3>
+					<h3>${book.book_name }</h3>
 					<div class="product__details__rating">
-						<i class="fa fa-star"></i> <i class="fa fa-star"></i>
-						<i class="fa fa-star"></i> <i class="fa fa-star"></i>
-						<i class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
+						<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+							class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+							class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
 					</div>
 					<!-- <div class="product__details__price">$50.00</div> -->
 					<p>${book.book_content }</p>
@@ -41,31 +42,34 @@
 					<a href="#" class="primary-btn">ADD TO CARD</a> <a href="#"
 						class="heart-icon"><span class="icon_heart_alt"></span></a> -->
 					<ul>
+						<li><b>총 페이지 수</b> <span>${book.book_page } </span></li>
+						<li><b>저자</b> <span>${book.book_write }</span></li>
+						<li><b>출판사</b> <span>${book.book_publis }</span></li>
+
 						<li>
-							<b>총 페이지 수</b>
-							<span>${book.book_page }
-							</span>
+							<div>
+								<form action="bookDelete.do" method="post">
+									<input type="hidden" name="book_isbn" id="book_isbn"
+										value="${book.book_isbn }">
+										<input type="submit" class="primary-btn" style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; float: right;"
+										value="삭제">
+								</form>
+							</div>
+							<div>
+								<form action="bookUpdateForm.do" method="post">
+									<input type="hidden" name="book_isbn" id="book_isbn"
+										value="${book.book_isbn }">
+										 <input type="submit"
+										class="primary-btn"
+										style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; float: right;"
+										value="수정">
+								</form>
+							</div>
+
+
+
 						</li>
-						<li>
-							<b>저자</b>
-							<span>${book.book_write }</span>
-						</li>
-						<li>
-							<b>출판사</b>
-							<span>${book.book_publis }</span>
-						</li>
-						
-						<li>
-						<form action="bookUpdateForm.do" method="post">
-							<input type="hidden" name="book_isbn" id="book_isbn" value="${book.book_isbn }">
-							<input type="submit" value="수정">
-						</form >
-						<form action="bookDelete.do" method="post">
-						<input type="hidden" name="book_isbn" id="book_isbn" value="${book.book_isbn }">
-							<input type="submit" value="삭제">
-						</form>
-						</li>
-						
+
 						<!-- <li>
 							<b>Share on</b>
 							<div class="share">
