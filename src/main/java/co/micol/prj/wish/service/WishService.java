@@ -3,12 +3,12 @@ package co.micol.prj.wish.service;
 import java.util.List;
 
 public interface WishService {
-	//ÀüÃ¼ Á¶È¸
-	List<ViewWishVO> wishSelectList();
+	//ï¿½ï¿½Ã¼ ï¿½ï¿½È¸
+	List<ViewWishVO> wishSelectList(String id);
 	
-	//µî·Ï
+	//ï¿½ï¿½ï¿½
 	int wishInsert(WishVO wish);
 	
-	//»èÁ¦
+	//ï¿½ï¿½ï¿½ï¿½
 	int wishDelete(WishVO wish);
 }

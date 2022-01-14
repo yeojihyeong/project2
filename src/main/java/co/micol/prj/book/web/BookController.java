@@ -24,8 +24,6 @@ public class BookController {
 	@Autowired
 	private BookService bookDao;
 	
-	
-	
 	@Autowired
 	ServletContext sc;
 	
