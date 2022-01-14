@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import co.micol.prj.blog.service.BlogMapper;
 import co.micol.prj.blog.service.BlogService;
@@ -47,9 +48,9 @@ public class BlogController {
 		HttpSession session = request.getSession();
 
 		String id = (String) session.getAttribute("member_id");
-
+		System.out.println(id);
 		model.addAttribute("wish", wishDAO.wishSelectList(id));
-
+		System.out.println(model);
 		return "blog/blog/wishBook";
 	}
 
@@ -68,7 +69,6 @@ public class BlogController {
 		List<BlogVO> list = mapper.recentReview();
 		model.addAttribute("list", list);
 		return "ogani/blog/blogRecent";
-
 	}
 
 	@RequestMapping("/blog_home.do")
@@ -97,15 +97,28 @@ public class BlogController {
 		return "blog/blog/main";
 	}
 
-	// 게시글 상세 조회
-	@GetMapping("/reviewDetailSelect.do")
-	public String reviewDetailSelect(@Param("blog_id") String blog_id, Model model) {
+	// 게시글 상세 조회 + 조회수 증가
+	@GetMapping(value="/reviewDetailSelect.do")
+	public ModelAndView detail(@RequestParam("blog_id") String blog_id, Model model) {
 		System.out.println(blog_id);
-		model.addAttribute("review", blogDAO.reviewDetailSelect(blog_id));
-
-		return "blog/blog/reviewDetail";
+		
+		blogDAO.updateReviewCnt(blog_id);
+		
+		return new ModelAndView("blog/blog/reviewDetail", "review", blogDAO.reviewDetailSelect(blog_id));
 	}
 
+	// 검색 - 블로그 홈에서
+	@RequestMapping("/reviewSearch.do")
+	public String reviewSearch(@Param("searchValue") String searchValue, Model model) {
+		List<BlogVO> search = mapper.reviewSearch(searchValue);
+		model.addAttribute("search", search);
+		System.out.println(search);
+		return "blog/blog/reviewSearch";
+	}
+	
+	// 검색 - 개별 블로그에서
+	
+	
 	@RequestMapping("/readingBook.do")
 	public String blog_reading() {
 		return "blog/blog/readingBook";

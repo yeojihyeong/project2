@@ -25,11 +25,14 @@ public interface BlogMapper {
 	List<BlogVO> likedReview();
 	
 	List<BlogVO> recentReview();
-  
-	List<BlogVO> reviewSearch(BlogVO blog);
+ 
+	
+	List<BlogVO> blogReviewSearch(BlogVO blog);
 	
 	// 개별 리뷰 상세 조회
 	BlogVO reviewDetailSelect(String blog_id);
+
+	List<BlogVO> reviewSearch(String searchValue);
 	
 	
 	

@@ -24,7 +24,6 @@
 						<li><a href="wishBook.do">읽고 싶은 책</a></li>
 						<li><a href="readingBook.do">읽고 있는 책</a></li>
 						<li><a href="readBook.do">읽은 책</a></li>
-						<li><a href="readingStat.do">독서 통계</a></li>
 					</ul>
 				</div>
 			</div>

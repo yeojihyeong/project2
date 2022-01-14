@@ -23,7 +23,7 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${members }" var="member">
-							<tr onclick="bookSearch()">
+							<tr>
 								<td>${member.member_id }</td>
 								<td>${member.member_name }</td>
 								<td>${member.member_tel }</td>

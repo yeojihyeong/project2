@@ -45,6 +45,7 @@ public class BlogServiceImpl implements BlogService {
 		return map.blogDelete(blog);
 	}
 
+	//조회수 증가
 	public int updateReviewCnt(String blog_id) {
 		return map.updateReviewCnt(blog_id);
 	}
@@ -53,20 +54,14 @@ public class BlogServiceImpl implements BlogService {
 		return map.likedReview();
 	}
 
-	public List<BlogVO> reviewSearch(BlogVO blog) {
-		return map.reviewSearch(blog);
+	public List<BlogVO> reviewSearch(String searchValue) {
+		return map.reviewSearch(searchValue);
 	}
 
 	@Override
 	public int countReview(String member_id) {
 		// TODO Auto-generated method stub
 		return map.countReview(member_id);
-	}
-
-	@Override
-	public BlogVO blogSelect(BlogVO blog) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -81,4 +76,15 @@ public class BlogServiceImpl implements BlogService {
 		return map.recentReview();
 	}
 
+	@Override
+	public BlogVO blogSelect(BlogVO blog) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BlogVO> blogReviewSearch(BlogVO blog) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -16,15 +16,25 @@
 					${review.review_date }</div>
 				<h6>조회수 (${review.review_cnt }) 좋아요 (${review.review_like })</h6>
 
-				<div>${review.bookVO.book_write }</div>
-
-
 			</header>
 			<!-- Preview image figure-->
-			<figure class="mb-4">
-				<img class="img-fluid rounded"
-					src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." />
-			</figure>
+
+			<table border="1">
+				<tr>
+					<td rowspan="4">${review.bookVO.book_picture }</td>
+					<td>${review.bookVO.book_name }</td>
+				</tr>
+				<tr>
+					<td>${review.bookVO.book_write }</td>
+				</tr>
+				<tr>
+					<td>${review.bookVO.book_publis }</td>
+				</tr>
+				<tr>
+					<td>${review.review_rating }</td>
+				</tr>
+			</table>
+
 			<!-- Post content-->
 			<section class="mb-5">
 				<p class="fs-5 mb-4">${review.review_content }</p>
@@ -33,6 +43,10 @@
 			</section>
 		</article>
 		<!-- Comments section-->
+		
+		<h3>Comments</h3>
+		<hr>
+		
 		<section class="mb-5">
 			<div class="card bg-light">
 				<div class="card-body">
