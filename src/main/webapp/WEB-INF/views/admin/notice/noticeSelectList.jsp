@@ -47,8 +47,8 @@
 				</table>
 				</form>
 			</div>
-			<div>
-			<button><a id="btn" href=".do"> 등록</a></button>
+			<div class="col-lg-12 col-md-12">
+			<button class="site-btn" onclick="location.href = 'noticeInsertForm.do'" style="float: right;" >등록</button>
 			</div>
 		</div>
 	</div>

@@ -131,9 +131,9 @@ public class BookController {
 		
 		 int n= bookDao.bookInsert(book);
 		 if(n != 0 ) {
-			 model.addAttribute("message","������� �����ؿ����ϴ�");
+			 model.addAttribute("message","성공인가");
 		 } else {
-			 model.addAttribute("message","������� �����Ǿ����ϴ�.");
+			 model.addAttribute("message","실패인가");
 		 
 		 }
 		 model.addAttribute("books",bookDao.bookSelectList());

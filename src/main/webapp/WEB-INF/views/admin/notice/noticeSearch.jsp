@@ -26,15 +26,17 @@
 									</div>
 									<br>
 									<div class="col-lg-12 col-md-12">
-										<form action="adminNoticeUpdate1.do" method="post">
-											<input type="hidden" name="notice_num" id="notice_num" value="${notice.notice_num }">
-											<input type="submit" value="수정" class="site-btn" style="float: right;">
-										</form> 
-
-										<form action="memberDelete1.do" method="post">
+									<form action="memberDelete1.do" method="post">
 											<input type="hidden" name="notice_num" id="notice_num" value="${notice.notice_num }">
 											<input type="submit" value="삭제" class="site-btn" style="float: right;">
 										</form>
+									
+										<form action="adminNoticeUpdate1.do" method="post">
+											<input type="hidden" name="notice_num" id="notice_num" value="${notice.notice_num }">
+											<input type="submit" value="수정" class="site-btn" style="float: right; margin-right: 10px; ">
+										</form> 
+
+										
 									</div>
 								</div>
 							</div>

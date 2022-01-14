@@ -47,8 +47,8 @@
 				</table>
 				</form>
 			</div>
-			<div>
-			<button><a id="btn" href="bookInsertForm.do"> 등록</a></button>
+			<div class="col-lg-12 col-md-12">
+			<button class="site-btn" onclick="location.href = 'bookInsertForm.do'" style="float: right;" >등록 <br> </button>
 			</div>
 		</div>
 	</div>
