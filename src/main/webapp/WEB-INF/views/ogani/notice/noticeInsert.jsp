@@ -24,13 +24,19 @@
         </div>
     </section>
     
-	<h1>글쓰기</h1>
-	<form action="noticeInsert.do" id="noticeInsert" name="noticeInsert">
-		제목: <input type="text" name="notice_title" id="notice_title">
-	
-		내용: <input type="text" name="notice_content" id="notice_content">
-	<input type="submit" value="등록">
-	</form>
-	
+    <div class="container">
+    	<div class="col-lg-12">
+    		<div style="margin-top:50px; margin-bottom:30px;">
+				<h3>글쓰기</h3>
+			</div>
+			<div class="insert">
+				<form action="noticeInsert.do" id="noticeInsert" name="noticeInsert">
+					제목: <input type="text" name="notice_title" id="notice_title"><br><br>
+					내용: <input type="text" name="notice_content" id="notice_content"><br><br>
+					<input type="submit" class="site-btn" value="등록">
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

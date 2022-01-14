@@ -1,10 +1,12 @@
 package co.micol.prj.blog.service;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Data
 public class BlogVO {
 	private String blog_id;
 	private String member_id;
@@ -14,14 +16,10 @@ public class BlogVO {
 	private String review_date;
 	private String review_rating;
 	private int review_cnt;
+	private int review_like;
 	
 	private String searchValue;
 	
-	public String getSearchValue() {
-		return searchValue;	
-	}
-	
-	public void setSearchValue(String searchValue) {
-		this.searchValue = searchValue;
-	}
+
+	private BookVO bookVO;
 }

@@ -16,11 +16,6 @@ public class WishServiceImpl implements WishService{
 	@Autowired
 	private WishMapper map;
 	
-	//전체 조회
-	@Override
-	public List<ViewWishVO> wishSelectList(){
-		return map.wishSelectList();
-	}
 
 	@Override
 	public int wishInsert(WishVO wish) {
@@ -32,6 +27,12 @@ public class WishServiceImpl implements WishService{
 	public int wishDelete(WishVO wish) {
 		// TODO Auto-generated method stub
 		return map.wishDelete(wish);
+	}
+
+	@Override
+	public List<ViewWishVO> wishSelectList(String id) {
+		// TODO Auto-generated method stub
+		return map.wishSelectList(id);
 	}
 	
 }

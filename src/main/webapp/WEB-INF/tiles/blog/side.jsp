@@ -20,11 +20,10 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<ul class="list-unstyled mb-0">
-						<li><a href="reviewPaging.do">ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</a></li>
-						<li><a href="wishBook.do">ï¿½Ð°ï¿½ ï¿½ï¿½ï¿½ Ã¥</a></li>
-						<li><a href="readingBook.do">ï¿½Ð°ï¿½ ï¿½Ö´ï¿½ Ã¥</a></li>
-						<li><a href="readBook.do">ï¿½Ïµï¿½ï¿½ï¿½ Ã¥</a></li>
-						<li><a href="readingStat.do">ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½</a></li>
+						<li><a href="blog_home.do">ÀÛ¼ºÇÑ ¸®ºä</a></li>
+						<li><a href="wishBook.do">ÀÐ°í ½ÍÀº Ã¥</a></li>
+						<li><a href="readingBook.do">ÀÐ°í ÀÖ´Â Ã¥</a></li>
+						<li><a href="readBook.do">ÀÐÀº Ã¥</a></li>
 					</ul>
 				</div>
 			</div>
@@ -34,6 +33,6 @@
 	<div class="card mb-4">
 		<div class="card-header">Following</div>
 		<div class="card-body">my following list</div>
-		<a href="following.do">ï¿½Ì¿ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½</a>
+		<a href="following.do">ÀÌ¿ô ¸ñ·ÏÀ¸·Î °¡±â</a>
 	</div>
 </div>

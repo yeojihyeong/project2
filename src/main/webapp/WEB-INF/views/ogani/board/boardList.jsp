@@ -7,6 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.row>div:nth-child(1) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#board {
+		margin 0;
+	}
+	
+	.btn {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 13px 30px 12px;
+    background: #7fad39;
+    border: none;
+	}
+	
+</style>
 </head>
 <body>
 <section class="blog-details-hero set-bg" data-setbg="resources/ogani/img/book.jpg">
@@ -25,14 +47,18 @@
             </div>
         </div>
     </section>
-    
+
 <section class="blog spad">
         <div class="container">
             <div class="row">
-	<div class="col-lg-8 col-md-7">
-                    <div class="row">
+            <div class="container-fluid px-4" style="display: flex; justify-content: space-between;">
+				<h3 style="margin-bottom: 30px">자유게시판</h3>
+				<button type="button" class="btn" onclick="location.href='boardInsertPage.do'">글쓰기</button>
+				</div>
+	<div class="col-lg-12 col-md-12" id="board" style="margin:0;">
+                    <div class="row" style="width:100%;">
                     <c:forEach items="${boards }" var="board">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
                             <div class="blog__item">
                                 <div class="blog__item__pic">
                                     <img src="/resources/ogani/img/board/${board.board_pfile }" width="" height="" alt="">
@@ -49,20 +75,25 @@
                             </div>
                         </div>
                     </c:forEach>
+                    
+                    
                         
-                        <div class="col-lg-12">
-                            <div class="product__pagination blog__pagination">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
                             </div>
-                        </div>
+						        
+						    </div>
+						    
+							<div>
+	                            <div class="product__pagination blog__pagination">
+	                                <a href="#">1</a>
+	                                <a href="#">2</a>
+	                                <a href="#">3</a>
+	                                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+	                            </div>
+	                        </div>
+						
                     </div>
                 </div>
-        </div>
-        <button type="button" onclick="location.href='boardInsertPage.do'">글쓰기</button>
-        </div>
+        
         </section>
 </body>
 </html>

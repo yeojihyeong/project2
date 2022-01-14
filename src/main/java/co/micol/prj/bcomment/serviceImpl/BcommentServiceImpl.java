@@ -3,17 +3,20 @@ package co.micol.prj.bcomment.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import co.micol.prj.bcomment.service.BcommentMapper;
 import co.micol.prj.bcomment.service.BcommentService;
 import co.micol.prj.bcomment.service.BcommentVO;
 
+@Repository("bcommentDao")
 public class BcommentServiceImpl implements BcommentService {
 	@Autowired
 	private BcommentMapper map;
 
 	@Override
 	public List<BcommentVO> bcommentSelectList() {
+		System.out.println(map.bcommentSelectList());
 		return map.bcommentSelectList();
 	}
 

@@ -16,9 +16,13 @@ import co.micol.prj.bcomment.service.BcommentService;
 import co.micol.prj.bcomment.service.BcommentVO;
 import co.micol.prj.board.service.BoardService;
 import co.micol.prj.board.service.BoardVO;
+import co.micol.prj.member.service.MemberService;
+import co.micol.prj.member.service.MemberVO;
 
 @Controller
 public class BoardController {
+	@Autowired
+	private MemberService memberDao;
 	
 	@Autowired
 	private BoardService boardDao;
@@ -39,23 +43,23 @@ public class BoardController {
 	}
 	
 	@RequestMapping("boardInsert.do")
-	public String boardInsert(@RequestParam("file") MultipartFile file, BoardVO board, Model model, HttpSession session) {
+	public String boardInsert(BoardVO board, Model model, HttpSession session, MemberVO member) {
 		
-		session.setAttribute("member_id", "test@abc.com");
+		session.setAttribute("member_id", member.getMember_id());
 		//board = (BoardVO)session.getAttribute("");
 		board.setBoard_id((String) session.getAttribute("member_id"));
 		int r = boardDao.boardInsert(board);
 		if(r > 0) {
-			model.addAttribute("message", "�벑濡앹꽦怨�");
+			model.addAttribute("message", "등록성공");
 		} else {
-			model.addAttribute("message", "�벑濡앹떎�뙣");
+			model.addAttribute("message", "등록실패");
 		}
 		model.addAllAttributes(boardDao.boardSelectList());
 		return "ogani/board/boardList";
 	}
 	
 	@RequestMapping("boardDetailPage.do")
-	public String boardDetailPage(BoardVO board, Model model, BcommentVO bcomment) {
+	public String boardDetailPage(BoardVO board, Model model) {
 		model.addAttribute("boardDetail", boardDao.boardSelect(board));
 		model.addAttribute("bcommDetail", bcommentDao.bcommentSelectList());
 		return "ogani/board/boardDetailPage";
