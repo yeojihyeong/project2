@@ -27,6 +27,7 @@
 				</div>
 			</div>
 			</c:forEach>
+			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">±Û¾²±â</button></a>
 		</div>
 	</div>
 	<!-- Pagination-->
