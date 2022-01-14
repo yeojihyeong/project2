@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.main.service.main-map">
+ 
+<resultMap type="co.micol.prj.main.service.GenreVO" id="GenreVO">
+	<result column="genre_id" property="genre_id"/>
+	<result column="genre_name" property="genre_name"/>
+	
+	<association property="bookVO" javaType="co.micol.prj.main.service.BookVO">
+	<id property="book_cheonggu" column="book_cheonggu" />
+	</association>
+</resultMap>
+
+
+	<select id= "selectBook" parameterType="co.micol.prj.main.service.GenreVO" resultMap="GenreVO">
+		select g.genre_name, g.genre_id As Cnt
+		from book k, genre g
+		where k.book_cheonggu = g.genre_id
+		group by g.genre_id, g.genre_name;
+	</select>
+
+</mapper>

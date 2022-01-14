@@ -6,16 +6,16 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BookVO {
-	private String book_isbn; //µµ¼­ ISBN P.K(ÀÏ·Ã¹øÈ£)
-	private String book_name; // µµ¼­ ÀÌ¸§
-	private String book_content; //µµ¼­ ³»¿ë
-	private String book_write; // ±Û¾´ÀÌ
-	private int book_page; //ÃÑ ÆäÀÌÁö ¼ö
-	private String book_publis; //ÃâÆÇ»ç
-	private String book_picture; //ÀÌ¹ÌÁö ÀÌ¸§
-	private String book_pfile; //ÀÌ¹ÌÁö ÀúÀåÀÌ¸§
-	private double book_review; //µµ¼­ÆòÁ¡
-	private int book_cnt; //Á¶È¸¼ö
-	private String book_cheonggu; //Àå¸£
+	private String book_isbn; //ï¿½ï¿½ï¿½ï¿½ ISBN P.K(ï¿½Ï·Ã¹ï¿½È£)
+	private String book_name; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	private String book_content; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String book_write; // ï¿½Û¾ï¿½ï¿½ï¿½
+	private int book_page; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	private String book_publis; //ï¿½ï¿½ï¿½Ç»ï¿½
+	private String book_picture; //ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	private String book_pfile; //ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+	private double book_review; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int book_cnt; //ï¿½ï¿½È¸ï¿½ï¿½
+	private String book_cheonggu; //ï¿½å¸£
 	
 }
