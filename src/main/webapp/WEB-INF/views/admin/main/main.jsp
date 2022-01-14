@@ -17,11 +17,7 @@
 				<div class="card-body">
 					<canvas id="myBarChart" width="100%" height="50" >"${main }"</canvas>
 					
-				 <%-- 	<c:forEach items="${search }" var="s">
-					${s.genre_id }
-					${s.genre_name }	
-				
-				</c:forEach>  --%>
+		
 				</div>
 				<div class="card-footer small text-muted"><%= sf.format(nowTime) %></div>
 				<c:forEach items="${search }" var="list">
