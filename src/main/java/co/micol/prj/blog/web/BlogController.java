@@ -117,8 +117,8 @@ public class BlogController {
 		return "blog/blog/following";
 	}
 	
-	@RequestMapping("/reviewInsertForm.do")
+	@RequestMapping("/reviewForm.do")
 	public String reviewInsertForm() {
-		return "blog/blog/reviewInsertForm";
+		return "blog/blog/reviewForm";
 	}
 }

@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			</c:forEach>
-			<a href="reviewInsertForm.do"><button>글쓰기</button></a>
+			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">글쓰기</button></a>
 		</div>
 	</div>
 	<!-- Pagination-->
