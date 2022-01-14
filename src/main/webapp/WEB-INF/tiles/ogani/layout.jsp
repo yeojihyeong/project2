@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="resources/ogani/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="resources/ogani/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="resources/ogani/css/style.css" type="text/css">
+    
 </head>
 
 <body>
@@ -70,7 +71,7 @@
                         <li><a href="./blog-details.html">Blog Details</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./list">Blog</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>

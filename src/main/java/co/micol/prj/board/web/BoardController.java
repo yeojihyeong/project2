@@ -16,9 +16,13 @@ import co.micol.prj.bcomment.service.BcommentService;
 import co.micol.prj.bcomment.service.BcommentVO;
 import co.micol.prj.board.service.BoardService;
 import co.micol.prj.board.service.BoardVO;
+import co.micol.prj.member.service.MemberService;
+import co.micol.prj.member.service.MemberVO;
 
 @Controller
 public class BoardController {
+	@Autowired
+	private MemberService memberDao;
 	
 	@Autowired
 	private BoardService boardDao;
@@ -26,8 +30,6 @@ public class BoardController {
 	@Autowired
 	private BcommentService bcommentDao;
 	
-	@Autowired
-	private String saveDir; //파일저장 경로를 자동 주입
 	
 	@RequestMapping("boardList.do")
 	public String boardSelectList(Model model) {
@@ -41,22 +43,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping("boardInsert.do")
-	public String boardInsert(@RequestParam("file") MultipartFile file, BoardVO board, Model model, HttpSession session) {
-		String originalFileName = file.getOriginalFilename();
-		//String saveDir = "fileUpload" + File.separatorChar; //실서버로 베포할때 저장공간, 그때 열면됨
-		if(!originalFileName.isEmpty()) {
-			String uuid = UUID.randomUUID().toString();
-			//uuid에 파일확장자 추가하여 물리적 파일명을 만듬
-			String saveFileName = uuid + originalFileName.substring(originalFileName.lastIndexOf("."));
-			try {
-				file.transferTo(new File(saveDir, saveFileName));
-				board.setBoard_picture(originalFileName);
-				board.setBoard_pfile(saveFileName);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		session.setAttribute("member_id", "test@abc.com");
+	public String boardInsert(BoardVO board, Model model, HttpSession session, MemberVO member) {
+		
+		session.setAttribute("member_id", member.getMember_id());
 		//board = (BoardVO)session.getAttribute("");
 		board.setBoard_id((String) session.getAttribute("member_id"));
 		int r = boardDao.boardInsert(board);
@@ -70,7 +59,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("boardDetailPage.do")
-	public String boardDetailPage(BoardVO board, Model model, BcommentVO bcomment) {
+	public String boardDetailPage(BoardVO board, Model model) {
 		model.addAttribute("boardDetail", boardDao.boardSelect(board));
 		model.addAttribute("bcommDetail", bcommentDao.bcommentSelectList());
 		return "ogani/board/boardDetailPage";
@@ -78,20 +67,7 @@ public class BoardController {
 	
 	@RequestMapping("boardUpdate.do")
 	public String boardUpdate(@RequestParam("file") MultipartFile file, Model model, BoardVO board) {
-		String originalFileName = file.getOriginalFilename();
-		//String saveDir = "fileUpload" + File.separatorChar; //실서버로 베포할때 저장공간, 그때 열면됨
-		if(!originalFileName.isEmpty()) {
-			String uuid = UUID.randomUUID().toString();
-			//uuid에 파일확장자 추가하여 물리적 파일명을 만듬
-			String saveFileName = uuid + originalFileName.substring(originalFileName.lastIndexOf("."));
-			try {
-				file.transferTo(new File(saveDir, saveFileName));
-				board.setBoard_picture(originalFileName);
-				board.setBoard_pfile(saveFileName);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
+		
 		
 		model.addAttribute(boardDao.boardUpdate(board));
 		return "ogani/board/boardUpdateSuccess";

@@ -8,8 +8,6 @@
 		<property name="defaultEncoding" value="utf-8"/>
 	</bean>
 	
-	<bean class="java.lang.String" id="saveDir">
-		<constructor-arg value="C:\Users\admin\git\project2\src\main\webapp\resources\ogani\img\board\"/>
-	</bean>
+	
 	
 </beans>
