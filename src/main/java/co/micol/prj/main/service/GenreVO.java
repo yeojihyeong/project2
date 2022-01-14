@@ -12,6 +12,5 @@ public class GenreVO {
 
 	private String genre_id;
 	private String genre_name;
-	
-	private BookVO bookVO;
+
 }

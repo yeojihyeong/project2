@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
@@ -14,9 +15,19 @@
 					<i class="fas fa-chart-bar me-1"></i> 도서 현황
 				</div>
 				<div class="card-body">
-					<canvas id="myBarChart" width="100%" height="50"></canvas>
+					<canvas id="myBarChart" width="100%" height="50" >"${main }"</canvas>
+					
+				 <%-- 	<c:forEach items="${search }" var="s">
+					${s.genre_id }
+					${s.genre_name }	
+				
+				</c:forEach>  --%>
 				</div>
 				<div class="card-footer small text-muted"><%= sf.format(nowTime) %></div>
+				<c:forEach items="${search }" var="list">
+					
+				
+				</c:forEach> 
 			</div>
 		</div>
 		<div class="col-lg-6">
