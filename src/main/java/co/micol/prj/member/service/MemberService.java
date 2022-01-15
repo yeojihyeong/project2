@@ -11,7 +11,7 @@ public interface MemberService {
 	
 	MemberVO memberSearch1(String member_id);
 	int memberDelete1(String member_id);
-	int memberUpdate1(String member_id);
+	int memberUpdate1(MemberVO member);
 	boolean isIdCheck(String member_id);
 	List<MemberVO> memberSearch(String key, String data);
 	MemberVO memberOne(String member_id);
