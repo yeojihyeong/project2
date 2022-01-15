@@ -6,6 +6,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('input[type="checkbox"][id="book_select"]').click(function(){
+		if($(this).prop('checked')){
+			$('input[type="checkbox"][id="book_select"]').prop('checked', false);
+			$(this).prop('checked', true);
+		}
+	});
+});
+</script>
 </head>
 <style>
 table{
@@ -46,11 +57,12 @@ textarea:focus{
 </style>
 <body>
 <div class="col-lg-8">
-		<form>
-			<p><textarea id="ta_title" placeholder="제목"></textarea></p>
+		<form class="review" action="reviewInsert.do" method="post">
+			<p><input id="ta_title" name="review_title"placeholder="제목"></p>
 			<hr>
-			<p><textarea id="ta_content" placeholder="내용을 입력하세요"></textarea></p>
-			<p><input id="book_img"></p>
+			<p><input id="ta_content" name="review_content" placeholder="내용을 입력하세요"></p>
+			<p><input id="book__title" disabled></p>
+			<p><input id="book__isbn" name="book_isbn" type="hidden"></p>
 			<p><button type="button" class="btn btn-secondary" id="book_search_btn">책 검색하기</button>
 			<button type="submit" class="btn btn-dark">작성</button></p>
 		</form>
@@ -64,8 +76,8 @@ textarea:focus{
 					<h3 class="modal-title">책 검색하기</h3>
 				</div>	
 				<div class="modal-body">
-					<input id="booktitle">
-					<input id="bookauthor">
+					<input id="query">
+					
 					<button id="searchBtn" type="button">검색</button>
 					<div id="list_show"></div>	
 					
@@ -101,34 +113,54 @@ textarea:focus{
 			var tr = book_select.parent().parent().eq(i);
 			console.log(tr.children());
 			var td = tr.children();
-			console.log(td.eq(1).text());
-			console.log(td.eq(2).text());
+			console.log("title="+td.eq(1).text());
 			col1 = td.eq(1).text();
-			col2 = td.eq(2).text();
+			col8 = td.eq(8).text();
+			var src = $('#book_image').attr("src");
+			console.log("src="+src);
+			col2 = src;
+			console.log("author="+td.eq(3).text());
+			col3 = td.eq(3).text();
+			console.log("publisher="+td.eq(4).text());
+			col4 = td.eq(4).text();
+			console.log("isbn="+td.eq(5).text());
+			col5 = td.eq(5).text();
+			console.log("subject="+td.eq(6).text());
+			col6 = td.eq(6).text();
+			console.log("content="+td.eq(7).text());
+			col7 = td.eq(7).text();
 			
-			/* console.log("확인2");
-			if($('#book_select').is(":checked") == true) {
-				var book_select = $('#book_select');
-				console.log(book_select.parent().parent());
-				var tr = book_select.parent().parent();
-				console.log(tr.children());
-				var td = tr.children();
-				console.log(td[0].eq(1).val());
-				var title = td.eq(1).children().val();
-			} */
-		});  
+		});
+		
+		var bookData = [col1, col2, col3, col4, col5, col6, col7];
+		console.log(bookData);
+		
+		
+		
+		$.ajax({
+			url: "bookSearchInsert.do",
+			type: "POST",
+			traditional:true,
+			data:{
+				bookData: bookData
+			},
+			
+			success:function(data){
+				alert("등록되었습니다.");
+				$('input[id=book__title]').attr('value', col1);
+				$('input[id=book__isbn]').attr('value', col5);
+				
+			},
+			error:function(error){
+				console.log(error);
+				alert("실패");
+			}
+		})
+		
 	});
 
 	
-	function delCheck(e) {
-	    var check = document.querySelectorAll('.check');
-	    for (var i = 0; i < check.length; i++) {
-	        console.log(check[i].checked);
-	        if (check[i].checked == true) {
-	            check[i].parentNode.parentNode.remove();
-	        }
-	    }
-	}
+	
 	/* 모달창 띄우기 */
 	$('#book_search_btn').click(function(e){
 		e.preventDefault();
@@ -137,17 +169,22 @@ textarea:focus{
 
 	
 	/* API 받아오기 */
-	var key = "1bb9f67168e685c06c2f289d814b676f6b7792fbbf48db9c5862c003bdd0779c";
-	
+	var key = "B74329D6C33E8EECAE1CA1C54895210EAA9A446F2EA95B43B80AA0C4C02931EE";
+	var json = "json";
 	$("#searchBtn").click(function(){
+		
+		var tableExist = $('#book_list');
+		if(tableExist){
+			tableExist.remove();
+		}
 		
 		$.ajax({
 			method:"GET",
-			url: "http://seoji.nl.go.kr/landingPage/SearchApi.do?cert_key="+key+"&result_style=json&page_no=1&page_size=100",
-			data: { title : $("#booktitle").val(), author: $("#bookauthor").val()},
+			url: "https://cors-anywhere.herokuapp.com/http://book.interpark.com/api/search.api?key="+key,
+			data: { query : $("#query").val()},
 			success : function(data){
 				console.log(data);
-				/* console.log(data.docs[0].TITLE); */
+				
 				
 				alert("성공");
 				
@@ -166,89 +203,47 @@ textarea:focus{
 					$('<th>').text('저자'),
 					$('<th>').text('출판사'),
 					$('<th>').text('ISBN'),
-					$('<th>').text('주제'),
-					$('<th>').text('내용').attr('style', "display:none;")
+					$('<th>').text('카테고리'),
+					$('<th>').text('내용').attr('style', "display:none;"),
 				);
 				thead.append(tr);
 				var tbody = $('<tbody>');
 				
-				for(var i = 0; i < data.docs.length; i++){
-					if(data.docs[i].TITLE_URL !== "" && data.docs[i].TITLE_URL !== "" && data.docs[i].AUTHOR !== "" && data.docs[i].EA_ISBN !== ""){
-						
-						var tr = $('<tr>');
-						tr.append(
-							$('<td>').append($('<input>').attr({
-								'type' : 'checkbox',
-								'id' : 'book_select'
-							})),
+				$(data).find('item').each(function(){
+					
+					var tr = $('<tr>');
+					var title = $(this).find("title").text();
+					var coverLargeUrl = $(this).find("coverLargeUrl").text();
+					var author = $(this).find("author").text();
+					var publisher = $(this).find("publisher").text();
+					var isbn = $(this).find("isbn").text();
+					var categoryId = $(this).find("categoryId").text();
+					var description = $(this).find("description").text();
+					
+					tr.append(
+						$('<td>').append($('<input>').attr({
+							'type' : 'checkbox',
+							'id' : 'book_select'
+						})),
+						$('<td>').text(title),
+						$('<td>').append($('<img>').attr({
+							'src' : coverLargeUrl,
+							'id' : 'book_image'
 							
-							$('<td>').text(data.docs[i].TITLE),
-							$('<td>').append('<img src="'+ data.docs[i].TITLE_URL +'" />'),
-							$('<td>').text(data.docs[i].AUTHOR),
-							$('<td>').text(data.docs[i].PUBLISHER),
-							$('<td>').text(data.docs[i].EA_ISBN),
-							$('<td>').text(data.docs[i].SUBJECT),
-							$('<td>').text(data.docs[i].BOOK_SUMMARY_URL).attr('style', "display:none;")
-						);
-						tbody.append(tr);
-					}
-				}
+						})),						
+						$('<td>').text(author),
+						$('<td>').text(publisher),
+						$('<td>').text(isbn),
+						$('<td>').text(categoryId),
+						$('<td>').text(description).attr('style', "display:none;"),
+						
+					);
+					tbody.append(tr);
+				})
 					
 				table.append(thead, tbody);
 				$('#list_show').append(table);
 				
-				/* var form = $('<form>').attr({
-					'action': 'bookInsert.do',
-					'method': 'post'
-				});
-				
-				
-				
-				form.append(
-					$('<input>').attr({
-						'type':'hidden',
-						'id':'book_isbn',
-						'name':'book_isbn',
-						'value':data.docs[i].EA_ISBN
-					}),
-					
-					$('<button>').attr({
-						'type':'submit'
-					})
-				);
-				 */
-
-				/* var table = $('<table>').attr({
-					'id':'booklist'
-				}).addClass('tbl');
-				
-				var thead = $('<thead>');
-				var tr = $('<tr>');
-				tr.append(
-					$('<input>').attr({
-						'type' : 'checkbox'
-					}),
-					$('<th>').text('책제목'),
-					$('<th>').text('표지')
-				);
-				thead.append(tr);
-				
-				var tbody = $('<tbody>');
-				$.each(data, function(index, item){
-					if(item.docs[index].TITLE !== "" && item.docus[index].TITLE_URL !== ""){
-					
-					var tr = $('<tr>');
-					tr.append(
-						$('<td>').text(TITLE),
-						$('<td>').text(TITLE_URL)
-					);
-					
-					tbody.append(tr);
-					}
-				});
-				
-				table.append(thead, tbody);
-				$('#list_show').append(table); */
 			},
 			error : function(error){
 				console.log(error);

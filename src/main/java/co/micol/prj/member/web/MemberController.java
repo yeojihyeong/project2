@@ -65,7 +65,7 @@ public class MemberController {
 	
 	@PostMapping("/join.do")
 	public String join(MemberVO member, Model model) {
-		System.out.println(member.getGenre_id());
+		
 		int insert = memberDao.memberInsert(member);
 		if(insert != 0) {
 			model.addAttribute("message", "가입이 완료되었습니다.");

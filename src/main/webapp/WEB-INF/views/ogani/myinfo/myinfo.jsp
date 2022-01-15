@@ -26,6 +26,19 @@
 				$(this).prop('checked', true);
 			}
 		});
+		
+		$('input[type="checkbox"][name="member_gender"]').each(function(){
+			if($(this).val() == ${member.member_gender}){
+				$(this).prop('checked', true);
+			}
+		})
+		
+		$('input[type="checkbox"][name="genre_id"]').each(function(){
+			if($(this).val() == ${member.genre_id}){
+				$(this).prop('checked', true);
+			}
+		})
+		
 	});
 
 </script>
@@ -126,13 +139,13 @@
 											</p>
 										</div>
 										<div class="checkout__input__checkbox">
-											<label for="member_gender1">남자 <input type="checkbox" id="member_gender1" name="member_gender" value="남">
+											<label for="member_gender1">남자 <input type="checkbox" id="member_gender1" name="member_gender" value="1">
 											<span class="checkmark"></span></label>
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12">
 										<div class="checkout__input__checkbox">
-											<label for="member_gender2">여자 <input type="checkbox" id="member_gender2" name="member_gender" value="여">
+											<label for="member_gender2">여자 <input type="checkbox" id="member_gender2" name="member_gender" value="2">
 											<span class="checkmark"></span></label>
 										</div>
 									</div>
@@ -224,9 +237,11 @@
 			success: function(result){
 				console.log(result);
 				if(result != 0){
-					alert("정보가 수정되었습니다.");				
+					alert('정보가 수정되었습니다.');
+					location.replace('myinfo.do');
+					
 				}else{
-					alert("정보를 확인하세요.")
+					alert("정보를 확인하세요.");
 				}
 			},
 			error: function(error){

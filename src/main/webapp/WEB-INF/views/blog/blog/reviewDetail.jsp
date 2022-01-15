@@ -21,7 +21,8 @@
 
 			<table border="1">
 				<tr>
-					<td rowspan="4">${review.bookVO.book_picture }</td>
+					<%-- <td rowspan="4">${review.bookVO.book_picture }</td> --%>
+					<td rowspan="4"><img alt="" src="${review.bookVO.book_picture }"></td><br>
 					<td>${review.bookVO.book_name }</td>
 				</tr>
 				<tr>
