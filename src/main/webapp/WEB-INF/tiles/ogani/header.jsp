@@ -7,28 +7,28 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6">
 					<div class="header__top__left">
-						<ul>
+						<!-- <ul>
 							<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
 							<li>Free Shipping for all Order of $99</li>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6">
 					<div class="header__top__right">
 						<div class="header__top__right__social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+							<!-- <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
 								class="fa fa-twitter"></i></a> <a href="#"><i
 								class="fa fa-linkedin"></i></a> <a href="#"><i
-								class="fa fa-pinterest-p"></i></a>
+								class="fa fa-pinterest-p"></i></a> -->
 						</div>
 						<div class="header__top__right__language">
-							<img src="resources/ogani/img/language.png" alt="">
+							<!-- <img src="resources/ogani/img/language.png" alt="">
 							<div>English</div>
 							<span class="arrow_carrot-down"></span>
 							<ul>
 								<li><a href="#">Spanis</a></li>
 								<li><a href="#">English</a></li>
-							</ul>
+							</ul> -->
 						</div>
 						
 						<c:choose>
@@ -75,21 +75,14 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="header__logo">
-					<a href="home.do"><img src="resources/ogani/img/logo.png" alt=""></a>
+					<a href="home.do"><img src="resources/ogani/img/logo.png" alt=""></a>   <!--  로고 -->
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
 						<li class="active"><a href="home.do">Home</a></li>
-						<li><a href="shop.do">Shop</a></li>
-						<li><a href="#">Pages</a>
-							<ul class="header__menu__dropdown">
-								<li><a href="./shop-details.html">Shop Details</a></li>
-								<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-								<li><a href="./checkout.html">Check Out</a></li>
-								<li><a href="./blog-details.html">Blog Details</a></li>
-							</ul></li>
+
 						<li><a href="blog_list.do">Blog</a></li>
 						<li><a href="#">Community</a>
 							<ul class="header__menu__dropdown">
@@ -103,13 +96,13 @@
 			</div>
 			<div class="col-lg-3">
 				<div class="header__cart">
-					<ul>
+					<!-- <ul>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
 						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-					</ul>
-					<div class="header__cart__price">
+					</ul> -->
+					<!-- <div class="header__cart__price">
 						item: <span>$150.00</span>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -125,11 +118,11 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="hero__categories">
-                        <div class="hero__categories__all">
+                        <!-- <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
-                        </div>
-                        <ul>
+                        </div> -->
+                        <!-- <ul>
                             <li><a href="#">Fresh Meat</a></li>
                             <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
@@ -141,7 +134,7 @@
                             <li><a href="#">Papayaya & Crisps</a></li>
                             <li><a href="#">Oatmeal</a></li>
                             <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -157,13 +150,13 @@
                             </form>
                         </div>
                         <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
+                            <!-- <div class="hero__search__phone__icon">
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>+65 11.188.888</h5>
                                 <span>support 24/7 time</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
