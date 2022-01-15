@@ -66,7 +66,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int memberUpdate1(String member_id) {
-		return map.memberUpdate1(member_id);
+	public int memberUpdate1( MemberVO member) {
+		return map.memberUpdate1(member);
 	}
 }

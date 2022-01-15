@@ -10,7 +10,7 @@
 					<div class="product__details__pic__item">
 						<!-- 큰 이미지 -->
 						<img class="product__details__pic__item--large"
-							src="resources/admin/ogani/img/product/details/product-details-1.jpg"
+							src="${book.book_picture }"
 							alt="">
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
