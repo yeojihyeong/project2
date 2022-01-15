@@ -63,7 +63,7 @@ public class MemberController {
 
 	@PostMapping("/join.do")
 	public String join(MemberVO member, Model model) {
-		System.out.println(member.getGenre_id());
+		
 		int insert = memberDao.memberInsert(member);
 		if (insert != 0) {
 			model.addAttribute("message", "媛��엯�씠 �셿猷뚮릺�뿀�뒿�땲�떎.");

@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,7 +106,24 @@ public class BookController {
 	}
 	
 	
-	
+	@PostMapping("/bookSearchInsert.do")
+	@ResponseBody
+	public String ajaxBookInsert(HttpServletRequest request) {
+		String[] ajaxData = request.getParameterValues("bookData");
+		
+		BookVO book = new BookVO();
+		book.setBook_name(ajaxData[0]);
+		book.setBook_picture(ajaxData[1]);
+		book.setBook_write(ajaxData[2]);
+		book.setBook_publis(ajaxData[3]);
+		book.setBook_isbn(ajaxData[4]);
+		book.setBook_cheonggu(ajaxData[5]);
+		book.setBook_content(ajaxData[6]);
+		
+		bookDao.bookInsert(book); 
+		
+		return "blog/blog/reviewForm";
+	}
 	
 	
 	

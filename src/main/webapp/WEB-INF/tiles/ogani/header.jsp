@@ -47,7 +47,7 @@
 							<span class="arrow_carrot-down"></span>
 								<ul>
 									<li><a href="myinfo.do"> Info</a></li>
-									<li><a href="#"> Blog</a></li>
+									<li><a href="blog_home.do"> Blog</a></li>
 								</ul>
 							</div>
 						</c:when>

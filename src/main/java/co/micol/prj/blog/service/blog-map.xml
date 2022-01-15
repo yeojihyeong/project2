@@ -40,9 +40,9 @@
 	</select>
 
 	<insert id="blogInsert">
-		INSERT INTO BLOG (BLOG_ID, MEMBER_ID, BOOK_ID,
+		INSERT INTO BLOG (BLOG_ID, MEMBER_ID, BOOK_ISBN,
 		REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE, REVIEW_RATING, REVIEW_CNT)
-		VALUES (blog_seq.nextval, #{member_id}, #{book_id}, #{review_title},
+		VALUES (blog_seq.nextval, #{member_id}, #{book_isbn}, #{review_title},
 		#{review_content}, sysdate, #{review_rating}, #{review_cnt})
 	</insert>
 
