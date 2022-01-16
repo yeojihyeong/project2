@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link rel="stylesheet" href="resources/blog/css/fontawesome-stars.css">
+<script type="text/javascript" src="resources/blog/js/jquery.barrating.min.js"></script>
+
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -13,6 +17,15 @@ $(document).ready(function(){
 		if($(this).prop('checked')){
 			$('input[type="checkbox"][id="book_select"]').prop('checked', false);
 			$(this).prop('checked', true);
+		}
+	});
+	
+	$('#example').barrating({
+		theme:'fontawesome-stars'
+		, onSelect: function(value, text, event){
+			if(typeof(event) !== 'undifined'){
+				$('#star_value').attr('value', value);
+			}
 		}
 	});
 });
@@ -58,10 +71,19 @@ textarea:focus{
 <body>
 <div class="col-lg-8">
 		<form class="review" action="reviewInsert.do" method="post">
-			<p><input id="ta_title" name="review_title"placeholder="제목"></p>
+			<p><textarea id="ta_title" name="review_title"placeholder="제목"></textarea>
 			<hr>
-			<p><input id="ta_content" name="review_content" placeholder="내용을 입력하세요"></p>
+			<p><textarea id="ta_content" name="review_content" placeholder="내용을 입력하세요"></textarea>
 			<p><input id="book__title" disabled></p>
+			
+			<select id="example">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<p><input id="star_value" name="review_rating" type="hidden"></p>
 			<p><input id="book__isbn" name="book_isbn" type="hidden"></p>
 			<p><button type="button" class="btn btn-secondary" id="book_search_btn">책 검색하기</button>
 			<button type="submit" class="btn btn-dark">작성</button></p>
@@ -78,7 +100,7 @@ textarea:focus{
 				<div class="modal-body">
 					<input id="query">
 					
-					<button id="searchBtn" type="button">검색</button>
+					<button id="searchBtn" type="button" class="btn btn-dark">검색</button>
 					<div id="list_show"></div>	
 					
 				</div>

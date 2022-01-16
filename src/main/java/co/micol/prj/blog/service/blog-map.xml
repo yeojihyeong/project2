@@ -13,6 +13,7 @@
 		<result property="review_date" column="review_date" />
 		<result property="review_cnt" column="review_cnt" />
 		<result property="review_like" column="review_like" />
+		<result property="review_rating" column="review_rating" />
 
 		<association property="bookVO"
 			javaType="co.micol.prj.blog.service.BookVO">
@@ -31,7 +32,7 @@
 		select
 		K.BOOK_NAME, K.BOOK_WRITE, K.BOOK_PUBLIS, K.BOOK_PICTURE,
 		K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_CONTENT, B.REVIEW_DATE,
-		B.REVIEW_CNT, B.REVIEW_LIKE
+		B.REVIEW_CNT, B.REVIEW_LIKE, B.REVIEW_RATING
 		FROM BLOG B
 		LEFT JOIN BOOK K
 		ON B.BOOK_ISBN =

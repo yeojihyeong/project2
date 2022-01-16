@@ -18,4 +18,6 @@ public class BookVO {
 	private int book_cnt; //��ȸ��
 	private String book_cheonggu; //�帣
 	
+	private String type;
+	private String keyword;
 }
