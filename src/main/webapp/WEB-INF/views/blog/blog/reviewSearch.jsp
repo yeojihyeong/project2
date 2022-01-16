@@ -49,9 +49,8 @@
 								</h5>
 
 								<form action="reviewDetailSelect.do" method="get">
-									<input type="hidden" name="blog_id" id="blog_id"
-										value="${search.blog_id }"> <input type="submit"
-										value="READ MORE">
+									<input type="hidden" name="blog_id" id="blog_id" value="${search.blog_id }">
+										<input class="blog__btn" type="submit" value="READ MORE">
 								</form>
 							</div>
 						</div>

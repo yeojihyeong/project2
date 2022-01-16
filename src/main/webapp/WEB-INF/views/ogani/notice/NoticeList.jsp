@@ -66,7 +66,6 @@ thead>tr, tfoot>tr {
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
-				
 				<div class="container-fluid px-4" style="display: flex; justify-content: space-between;">
 				<h3 style="margin-bottom: 30px">공지사항</h3>
 				<button type="button" style="margin-bottom: 50px;" class="btn" onclick=notice()>글쓰기</button>
@@ -75,35 +74,28 @@ thead>tr, tfoot>tr {
 					<div id="layoutSidenav_content" >
 						<main>
 							<div class="container-fluid px-4">
-								<div class="card mb-4">
-									<div class="card-header">
-										<i class="fas fa-table me-1"></i> DataTable Example
-									</div>
-									
+								<div class="card mb-4">			
 									<div class="card-body">
 										<table id="datatablesSimple">
 											<colgroup>
 												<col style="width: 20%">
-												<col style="width: 80%">
+												<col style="width: 60%">
+												<col style="width: 20%">
 											</colgroup>
 											<thead>
 												<tr>
 													<th>번호</th>
 													<th>제목</th>
+													<th>작성일</th>
 												</tr>
 											</thead>
-											<tfoot>
-												<tr>
-													<th>번호</th>
-													<th>제목</th>
-												</tr>
-											</tfoot>
 											<tbody>
 												<c:forEach items="${notices }" var="notice">
 													<tr>
 														<td>${notice.notice_num }</td>
 														<td
 															onclick="location.href='noticeDetailPage.do?notice_num=${notice.notice_num}'">${notice.notice_title }</td>
+															<td>${notice.notice_date }</td>
 													</tr>
 												</c:forEach>
 											</tbody>

@@ -86,8 +86,7 @@ public class BookController {
 		System.out.println(book_isbn);
 		model.addAttribute("book", bookDao.bookDelete(book_isbn));
 		
-		
-		
+
 		model.addAttribute("books",bookDao.bookSelectList());
 		
 		return "admin/book/bookSelectList";

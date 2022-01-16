@@ -7,12 +7,12 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: myLineChart.labels,
+    labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [{
-      label: "도서현황",
+      label: "Revenue",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: myLineChart.dataSets,
+      data: [4215, 5312, 6251, 7841, 9821, 14984],
     }],
   },
   options: {

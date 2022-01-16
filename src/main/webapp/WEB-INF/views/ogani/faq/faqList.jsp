@@ -8,6 +8,13 @@
 <title>Insert title here</title>
 <link ref="stylesheet" href="resources/ogani/css/faq/faq-main.css"
 	type="text/css">
+<link
+	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+	rel="stylesheet" />
+<!-- <link href="resources/admin/css/styles.css" rel="stylesheet" /> -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+	crossorigin="anonymous"></script>
 <style type="text/css">
 .btn {
 	font-size: 14px;
@@ -36,15 +43,15 @@ nav#main_nav {
 	width: 80%;
 }
 
-input#menu:checked + nav#main_nav {
+input#menu:checked+nav#main_nav {
 	display: block;
 }
 
 ul {
-	list-style:none;
+	list-style: none;
 }
 
-#main_nav> ul> li:nth-child(1) {
+#main_nav>ul>li:nth-child(1) {
 	border: 1px solid grey;
 }
 </style>
@@ -69,38 +76,50 @@ ul {
 	</section>
 
 
-	<section id="tabs" class="project-tab" style="margin-top: 50px">
+	<section class="blog spad">
 		<div class="container">
 			<div class="row">
 				<div class="container-fluid px-4"
 					style="display: flex; justify-content: space-between;">
-					<h3 style="margin-bottom: 30px">자주하는 질문</h3>
+					<h3 style="margin-bottom: 30px">F A Q</h3>
 					<button type="button" class="btn" style="margin-bottom: 50px;"
 						onclick="location.href='faqInsertPage.do'">글쓰기</button>
 				</div>
-				<div class="col-md-12">
-					<div class="tab-pane fade show active" id="nav-home"
-						role="tabpanel" aria-labelledby="nav-home-tab">
-						<table class="table" cellspacing="0">
+				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
+					<div id="layoutSidenav_content">
+						<main>
+							<div class="container-fluid px-4">
+								<div class="card mb-4">
+									<div class="card-body">
+										<table id="datatablesSimple">
+											<colgroup>
+												<col style="width: 20%">
+												<col style="width: 60%">
+												<col style="width: 20%">
+											</colgroup>
+											<thead>
+												<tr>
+													<th>번호</th>
+													<th>제목</th>
+													<th>작성일</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${faqs }" var="faq">
 
-							<tbody>
-								<c:forEach items="${faqs }" var="faq">
-									<label class="menu" for="${faq.faq_id }">Q: ${faq.faq_question }</label>
-									<input id="${faq.faq_id }" type="checkbox">
-									<nav id="main_nav">
-										<ul>
-											<li>A: ${faq.faq_answer }</li>
-											<li><button type="submit" class="btn" style="margin-top: 15px;" onclick="location.href='faqDelete.do?faq_id=${faq.faq_id}'">삭제</button></li>
-										</ul>
-									</nav>
-								</c:forEach>
-
-							</tbody>
-						</table>
+													<tr>
+														<td>${faq.faq_id }</td>
+														<td>${faq.faq_question }</td>
+														<td>${faq.faq_date }</td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</main>
 					</div>
-
-
-
 				</div>
 			</div>
 		</div>
@@ -116,5 +135,17 @@ ul {
 			}
 		}}
 	</script>
+	<script type="text/javascript">
+		function notice() {
+			location.href = "noticeInsertPage.do";
+		}
+	</script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<script src="resources/admin/js/scripts.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
+		crossorigin="anonymous"></script>
+	<script src="resources/admin/js/datatables-simple-demo.js"></script>
 </body>
 </html>
