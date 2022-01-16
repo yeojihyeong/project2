@@ -82,8 +82,6 @@ ul {
 				<div class="container-fluid px-4"
 					style="display: flex; justify-content: space-between;">
 					<h3 style="margin-bottom: 30px">F A Q</h3>
-					<button type="button" class="btn" style="margin-bottom: 50px;"
-						onclick="location.href='faqInsertPage.do'">글쓰기</button>
 				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content">
@@ -109,12 +107,17 @@ ul {
 
 													<tr>
 														<td>${faq.faq_id }</td>
-														<td>${faq.faq_question }</td>
+														<td
+														onclick="location.href='noticeDetailPage.do?notice_num=${faq.faq_id}'">${faq.faq_question }</td>
 														<td>${faq.faq_date }</td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
+										<div class="button" style="display: flex; justify-content: flex-end;">
+										<button type="button" class="btn" style="margin-bottom: 50px;"
+						onclick="location.href='faqInsertPage.do'">글쓰기</button>
+										</div>
 									</div>
 								</div>
 							</div>

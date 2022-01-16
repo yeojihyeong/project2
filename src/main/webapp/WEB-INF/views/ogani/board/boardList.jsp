@@ -15,25 +15,6 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
 	crossorigin="anonymous"></script>
 <style>
-.row>div:nth-child(1) {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#board {margin 0;
-	
-}
-
-.btn {
-	font-size: 14px;
-	color: #ffffff;
-	font-weight: 800;
-	text-transform: uppercase;
-	display: inline-block;
-	padding: 13px 30px 12px;
-	background: #7fad39;
-	border: none;
-}
 thead>tr, tfoot>tr {
 	text-align: center;
 }
@@ -47,14 +28,25 @@ thead>tr, tfoot>tr {
 	float: right;
 }
 
-.title> button {
+.title>button {
 	float: left;
-}s
+}
+
+.btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: #7fad39;
+	border: none;
+}
 </style>
 </head>
 <body>
 	<section class="blog-details-hero set-bg"
-		data-setbg="resources/ogani/img/book.jpg">
+		data-setbg="resources/ogani/img/book.jpg" style="margin-bottom: 50px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -76,7 +68,6 @@ thead>tr, tfoot>tr {
 			<div class="row">
 				<div class="container-fluid px-4" style="display: flex; justify-content: space-between;">
 					<h3 style="margin-bottom: 30px">자유게시판</h3>
-					<button type="button" class="btn" onclick="location.href='boardInsertPage.do'">글쓰기</button>
 				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content">
@@ -89,7 +80,7 @@ thead>tr, tfoot>tr {
 												<col style="width: 20%">
 												<col style="width: 40%">
 												<col style="width: 20%">
-												<col style="width: 20%"> 
+												<col style="width: 20%">
 											</colgroup>
 											<thead>
 												<tr>
@@ -112,11 +103,14 @@ thead>tr, tfoot>tr {
 												</c:forEach>
 											</tbody>
 										</table>
+										<div class="button" style="display: flex; justify-content: flex-end;">
+										<button type="button" class="btn" onclick="location.href='boardInsertPage.do'">글쓰기</button>
+										</div>
 									</div>
 								</div>
 							</div>
-							</main>
-							
+						</main>
+
 					</div>
 
 					<div>
@@ -128,8 +122,8 @@ thead>tr, tfoot>tr {
 
 				</div>
 			</div>
-			</div>
-			
+		</div>
+
 	</section>
 	<script type="text/javascript">
 		function notice() {

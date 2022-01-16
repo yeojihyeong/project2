@@ -68,7 +68,6 @@ thead>tr, tfoot>tr {
 			<div class="row">
 				<div class="container-fluid px-4" style="display: flex; justify-content: space-between;">
 				<h3 style="margin-bottom: 30px">공지사항</h3>
-				<button type="button" style="margin-bottom: 50px;" class="btn" onclick=notice()>글쓰기</button>
 				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content" >
@@ -100,13 +99,16 @@ thead>tr, tfoot>tr {
 												</c:forEach>
 											</tbody>
 										</table>
+										<div class="button" style="display: flex; justify-content: flex-end;">
+										<button type="button" style="margin-bottom: 50px;" class="btn" onclick=notice()>글쓰기</button>
+										</div>
 									</div>
 								</div>
 							</div>
 						</main>
 					</div>
 				</div>
-				
+		
 			</div>
 		</div>
 	</section>
