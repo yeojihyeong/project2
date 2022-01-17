@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>삭제 성공하였습니다.</h1>
+	<h3 align="center">수정 성공하였습니다.</h3>
 </body>
 </html>
