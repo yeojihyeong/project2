@@ -3,6 +3,26 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
+<script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link rel="stylesheet" href="resources/blog/css/fontawesome-stars.css">
+<script type="text/javascript" src="resources/blog/js/jquery.barrating.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$('#example').barrating({
+		theme:'fontawesome-stars'
+		, readonly: true
+	});
+	
+	$('#example').barrating('set', ${review.review_rating })
+	
+});
+</script>
+
 <body>
 	<div class="col-lg-8">
 		<!-- Post content-->
@@ -32,7 +52,15 @@
 					<td>${review.bookVO.book_publis }</td>
 				</tr>
 				<tr>
-					<td>${review.review_rating }</td>
+					<td>
+					<select id="example">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					</td>
 				</tr>
 			</table>
 

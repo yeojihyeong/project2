@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.prj.book.service.BookMapper">
+
+	<select id="bookSearchList"
+	resultType="co.micol.prj.main.service.BookVO">
+		SELECT * FROM BOOK
+			WHERE 1 = 1
+			
+			<if test="type == 'all'"> and book_name LIKE '%'||#{keyword}||'%' or book_write LIKE '%'||#{keyword}||'%' or book_publis LIKE '%'||#{keyword}||'%'</if>
+			<if test="type == 'book_name'"> and book_name LIKE '%'||#{keyword}||'%'</if>
+			<if test="type == 'book_write'"> and book_write LIKE '%'||#{keyword}||'%'</if>
+			<if test="type == 'book_publis'"> and book_publis LIKE '%'||#{keyword}||'%'</if>
+
+	</select>
+
 	<select id="bookSelectList"
 		resultType="co.micol.prj.book.service.BookVO">
 		SELECT * FROM BOOK

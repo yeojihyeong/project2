@@ -13,6 +13,8 @@ public interface BookService {
 	int bookUpdate(BookVO book);
 	
 	BookVO bookSearch(String book_isbn);
+	
+	List<BookVO> bookSearchList(BookVO book);
 }
 
 

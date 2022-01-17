@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <header class="header">
 	<div class="header__top">
 		<div class="container">
@@ -140,12 +141,20 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
+                            <form name="search-form" action="mainBookSearchList.do" method="post">
+                                <!-- <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                </div> -->
+                                <input type="text" placeholder="검색어를 입력하세요" name="keyword" value="">
+                                <select name="type">
+                                	<option value="all">전체</option>
+                                	<option value="book_name">제목</option>
+                                	<option value="book_write">작가</option>
+                                	<option value="book_publis">출판사</option>
+                                	
+                                </select>
+                               
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -163,4 +172,5 @@
             </div>
         </div>
     </section>
+
     <!-- Hero Section End -->

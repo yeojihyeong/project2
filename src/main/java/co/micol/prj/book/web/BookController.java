@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import co.micol.prj.book.service.BookService;
 import co.micol.prj.book.service.BookVO;
+import co.micol.prj.utils.PagingVO;
 
 @Controller
 public class BookController {
@@ -29,7 +30,24 @@ public class BookController {
 	ServletContext sc;
 	
 	private String saveDir;
+
+	@RequestMapping("/bookDetail.do")
+	public String bookDetail(@Param("book_isbn") String book_isbn, Model model) {
+		model.addAttribute("book", bookDao.bookSearch(book_isbn));
+		return "ogani/search/bookDetail";
+	}
 	
+	@RequestMapping("/mainBookSearchList.do")
+	public String mainBookSearchList(@RequestParam("type") String type, @RequestParam("keyword") String keyword, Model model) {
+
+	BookVO book = new BookVO();
+	book.setType(type);
+	book.setKeyword(keyword);
+	
+	model.addAttribute("list", bookDao.bookSearchList(book));
+		
+		return "ogani/search/bookSearchList";
+	}
 	
 	@RequestMapping("bookUpdateForm.do")
 	public String bookUpdateForm(@Param("book_isbn") String book_isbn, Model model ){
