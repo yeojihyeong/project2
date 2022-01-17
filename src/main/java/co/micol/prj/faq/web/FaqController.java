@@ -34,8 +34,25 @@ public class FaqController {
 	@RequestMapping("faqDelete.do")
 	public String faqDelete(Model model, FaqVO faq) {
 		model.addAttribute(faqDao.faqDelete(faq));
-		return "ogani/faq/faqDelete";
+		return "ogani/faq/faqDeleteSuccess";
 	}
 	
+	@RequestMapping("faqDetailPage.do")
+	public String faqDetailPage(FaqVO faq, Model model) {
+		model.addAttribute("faqDetail", faqDao.faqSelect(faq));
+		return "ogani/faq/faqDetailPage";
+	}
+	
+	@RequestMapping("faqUpdatePage.do")
+	public String faqUpdatePage(Model model, FaqVO faq) {
+		model.addAttribute("faq", faqDao.faqSelect(faq));
+		return "ogani/faq/faqUpdate";
+	}
+	
+	@RequestMapping("faqUpdate.do")
+	public String faqUpdate(FaqVO faq, Model model) {
+		model.addAttribute(faqDao.faqUpdate(faq));
+		return "ogani/faq/faqUpdateSuccess";
+	}
 	
 }

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -39,8 +39,8 @@
 		<div class="container"></div>
 		<div class="col-lg-8 col-md-7">
 			<h2>
-				<a href="blog_list.do">È­Á¦ÀÇ Æ÷½ºÆÃ</a> &nbsp;&nbsp;&nbsp; <a
-					href="blog_recent.do">ÃÖ½Å Æ÷½ºÆÃ</a>
+				<a href="blog_list.do">í™”ì œì˜ í¬ìŠ¤íŒ…</a> &nbsp;&nbsp;&nbsp; <a
+					href="blog_recent.do">ìµœì‹  í¬ìŠ¤íŒ…</a>
 			</h2>
 
 			<div class="row" style="margin-top: 40px;">
@@ -72,7 +72,9 @@
 		</div>
 		<div id="aside_home" class="col-lg-3"
 			style="float: right; top: -1700px; margin-right: 10px">
+			<c:if test="${member_id  ne null}">
 			<a href="blog_home.do" class="blog__btn">Go to my booklog </a>
+			</c:if>
 			<form name="blogForm" action="reviewSearch.do" method="get">
 				<input class="form-control" type="text" value="${searchValue }"
 					placeholder="Enter search term..."

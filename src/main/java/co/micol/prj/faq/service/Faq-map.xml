@@ -17,8 +17,8 @@
 	<update id="faqUpdate" parameterType="co.micol.prj.faq.service.FaqVO">
 		UPDATE FAQ
 			<set>
-				<if test="faq_question != null"> FAQ_QUESTION = #{faq_question}, </if>
-				<if test="faq_answer != null"> FAQ_ANSWER = #{faq_answer}, </if>
+				 <if test="faq_question != null"> FAQ_QUESTION = #{faq_question}, </if>
+				 <if test="faq_answer != null"> FAQ_ANSWER = #{faq_answer}, </if>
 			</set>
 		WHERE FAQ_ID = #{faq_id}
 	</update>

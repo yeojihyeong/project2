@@ -43,7 +43,7 @@ nav#main_nav {
 	width: 80%;
 }
 
-input#menu:checked+nav#main_nav {
+input#menu:checked + nav#main_nav {
 	display: block;
 }
 
@@ -108,7 +108,7 @@ ul {
 													<tr>
 														<td>${faq.faq_id }</td>
 														<td
-														onclick="location.href='noticeDetailPage.do?notice_num=${faq.faq_id}'">${faq.faq_question }</td>
+														onclick="location.href='faqDetailPage.do?faq_id=${faq.faq_id}'">${faq.faq_question }</td>
 														<td>${faq.faq_date }</td>
 													</tr>
 												</c:forEach>
@@ -127,7 +127,7 @@ ul {
 			</div>
 		</div>
 	</section>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		function openCloseToc() {
 			if (document.getElementById('toc-content').style.display === 'block') {
 				document.getElementById('toc-content').style.display = 'none';
@@ -137,7 +137,7 @@ ul {
 				document.getElementById('toc-toggle').textContent = '-';
 			}
 		}}
-	</script>
+	</script> -->
 	<script type="text/javascript">
 		function notice() {
 			location.href = "noticeInsertPage.do";

@@ -8,5 +8,5 @@ public interface WishMapper {
 
 	int wishInsert(WishVO wish);
 	
-	int wishDelete(WishVO wish);
+	int wishDelete(String wish_id);
 }

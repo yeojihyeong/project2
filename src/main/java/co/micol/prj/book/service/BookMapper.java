@@ -16,6 +16,7 @@ public interface BookMapper {
 	
 	List<BookVO> bookSearchList(BookVO book);
 	
+
 	//가장많은 도서 장르 
 	List<BookVO> bookSearchOne();
 
@@ -24,5 +25,8 @@ public interface BookMapper {
 	
 	//세번째로 많은 도서 장르
 	List<BookVO> bookSearchThree();
+
+
+	boolean isBookCheck(String book_isbn);
 
 }

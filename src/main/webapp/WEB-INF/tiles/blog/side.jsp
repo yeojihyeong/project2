@@ -2,17 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <div class="col-lg-4">
 	<!-- Search widget-->
-	<div class="card mb-4">
-		<div class="card-header">Search</div>
-		<div class="card-body">
-			<div class="input-group">
-				<input class="form-control" type="text"
-					placeholder="Enter search term..."
-					aria-label="Enter search term..." aria-describedby="button-search" />
-				<button class="btn btn-primary" id="button-search" type="button">Go!</button>
-			</div>
-		</div>
-	</div>
 	<!-- Categories widget-->
 	<div class="card mb-4">
 		<div class="card-header">Categories</div>
@@ -20,10 +9,10 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<ul class="list-unstyled mb-0">
-						<li><a href="blog_home.do" style="color: inherit">ÀÛ¼ºÇÑ ¸®ºä</a></li>
-						<li><a href="wishBook.do" style="color: inherit" >ÀÐ°í ½ÍÀº Ã¥</a></li>
-						<li><a href="readingBook.do"style="color: inherit" >ÀÐ°í ÀÖ´Â Ã¥</a></li>
-						<li><a href="readBook.do" style="color: inherit" >ÀÐÀº Ã¥</a></li>
+						<li><a href="blog_home.do" style="color: inherit">ìž‘ì„±í•œ ë¦¬ë·°</a></li>
+						<li><a href="wishBook.do" style="color: inherit" >ì½ê³  ì‹¶ì€ ì±…</a></li>
+						<li><a href="readingBook.do"style="color: inherit" >ì½ê³  ìžˆëŠ” ì±…</a></li>
+						<li><a href="readBook.do" style="color: inherit" >ì½ì€ ì±…</a></li>
 					</ul>
 				</div>
 			</div>
@@ -33,7 +22,9 @@
 	<div class="card mb-4">
 		<div class="card-header">Following</div>
 		<div class="card-body">my following list</div>
-		<div class="card-body" ><a style="color: inherit" href="following.do">ÀÌ¿ô ¸ñ·ÏÀ¸·Î °¡±â </a></div>
+
+		<div class="card-body" ><a style="color: inherit" href="following.do">ì´ì›ƒ ëª©ë¡ìœ¼ë¡œ ê°€ê¸° </a></div>
 	
+
 	</div>
 </div>

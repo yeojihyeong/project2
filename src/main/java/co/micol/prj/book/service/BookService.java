@@ -24,6 +24,9 @@ public interface BookService {
 	
 	//세번째로 많은 도서 장르
 	List<BookVO> bookSearchThree();
+
+	boolean isBookCheck(String book_isbn);
+
 }
 
 

@@ -14,7 +14,7 @@
 	
 	<delete id="wishDelete">
 		DELETE FROM WISHLIST
-		WHERE WISH_ID = {#wish_id}
+		WHERE WISH_ID = #{wish_id}
 	</delete>
 
 </mapper>

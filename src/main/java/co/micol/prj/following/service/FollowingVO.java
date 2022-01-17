@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class FollowingVO {
 	private String follow_id;
-	private String follwer;
-	private String follwee;
+	private String follower;
+	private String followee;
 }
