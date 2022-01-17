@@ -80,8 +80,8 @@
 			</c:forEach>
 
 
-			<div class="comm-comm">
-				<!-- 	<div class="grid1_of_2 left"> -->
+			<!-- <div class="comm-comm">
+					<div class="grid1_of_2 left">
 				<div class="grid_img">
 					<a href=""><img src="images/pic10.jpg" alt=""></a>
 				</div>
@@ -99,26 +99,44 @@
 					<a href="" class="btn1">Click to Reply</a>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div> -->
 
 			<div class="artical-commentbox">
 				<h4>댓글입력</h4>
 				<div class="table-form">
-					<form action="grpInsert.do" method="post" id="comm-comm"
-						name="comm-comm">
+				
+					<form action="" method="post" id="commInsert"
+						name="commInsert">
 						<div>
 							Comment <input type="text" id="content" name="content"> <input
-								type="hidden" value="${boardDetail.board_num }"> <input
-								type="hidden" value="${boardDetail.board_id }">
+								type="hidden" value="${boardDetail.board_num }" id="board_num" name="board_num"> <input
+								type="hidden" value="${boardDetail.board_id }" id="writer" name="writer">
 
 						</div>
-						<input type="submit" class="btn" value="댓글등록">
+						<input type="button" class="btn" onclick="commentInsert()" value="댓글등록">
 					</form>
-
+					
 				</div>
 				<div class="clear"></div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function commentInsert() {
+			console.log($("#content").val());
+			$.ajax ({
+				url : "commentInsert.do",
+				type : "post",
+				data : {"content" : $("#content").val(), "board_num" : $("#board_num").val(), "writer" : $("#writer").val()},
+				//dataType : "json",
+				success : function() {
+					alert("성공")
+					location.reload();
+				}
+				
+			});
+		}
+		
+	</script>
 </body>
 </html>

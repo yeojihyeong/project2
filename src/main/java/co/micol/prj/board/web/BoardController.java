@@ -61,7 +61,8 @@ public class BoardController {
 	@RequestMapping("boardDetailPage.do")
 	public String boardDetailPage(BoardVO board, Model model) {
 		model.addAttribute("boardDetail", boardDao.boardSelect(board));
-		model.addAttribute("bcommDetail", bcommentDao.bcommentSelectList());
+		String number = board.getBoard_num();
+		model.addAttribute("bcommDetail", bcommentDao.bcommentSelectList(number));
 		return "ogani/board/boardDetailPage";
 	}
 	
