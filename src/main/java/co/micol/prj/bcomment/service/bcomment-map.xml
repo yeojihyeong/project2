@@ -10,8 +10,8 @@
 	</select>
 	
 	<insert id="bcommentInsert" parameterType="co.micol.prj.bcomment.service.BcommentVO">
-		INSERT INTO B_COMMENT(COMMENT_NO, BOARD_NUM, GRP, GRPS, GRPL, WRITER, CONTENT, WDATE)
-		VALUES(B_COMMENT_SEQ.NEXTVAL, #{board_num}, #{grp}, #{grps}, #{grpl}, #{writer}, #{content}, SYSDATE)
+		INSERT INTO B_COMMENT(COMMENT_NO, BOARD_NUM, WRITER, CONTENT, WDATE)
+		VALUES(B_COMMENT_SEQ.NEXTVAL, #{board_num}, #{writer}, #{content}, SYSDATE)
 	</insert>
 	
 	<update id="grpUpdate" parameterType="co.micol.prj.bcomment.service.BcommentVO">

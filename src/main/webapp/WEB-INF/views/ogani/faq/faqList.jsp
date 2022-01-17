@@ -43,7 +43,7 @@ nav#main_nav {
 	width: 80%;
 }
 
-input#menu:checked+nav#main_nav {
+input#menu:checked + nav#main_nav {
 	display: block;
 }
 
