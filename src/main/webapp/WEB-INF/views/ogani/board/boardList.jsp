@@ -95,7 +95,7 @@ thead>tr, tfoot>tr {
 													<tr>
 														<td>${board.board_num }</td>
 														<td
-															onclick="location.href='noticeDetailPage.do?notice_num=${board.board_num}'">${board.board_title }
+															onclick="location.href='boardDetailPage.do?board_num=${board.board_num}'">${board.board_title }
 														</td>
 														<td>${board.board_id }</td>
 														<td>${board.board_date }</td>

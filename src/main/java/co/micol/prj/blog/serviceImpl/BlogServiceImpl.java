@@ -85,4 +85,9 @@ public class BlogServiceImpl implements BlogService {
 	public List<BlogVO> blogReviewSearch(BlogVO blog) {
 		return null;
 	}
+
+	@Override
+	public List<BlogVO> searchList() {
+		return map.searchList();
+	}
 }

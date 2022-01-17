@@ -34,5 +34,8 @@ public interface BlogService {
 
 	//개별 리뷰 상세 조회
 	BlogVO reviewDetailSelect(String blog_id);
+	
+	//블로그 조회수 상위 조회
+	List<BlogVO> searchList();
 
 }

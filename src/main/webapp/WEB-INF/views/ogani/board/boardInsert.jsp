@@ -41,7 +41,9 @@
 							cols="130"></textarea>
 						<br> 사진: <input type="file" id="file" name="file"><br>
 					</div>
-					<br> <input type="submit" class="site-btn" value="등록">
+					<div class="button" style="display: flex; justify-content: flex-end;">
+					 <input type="submit" class="site-btn" value="등록">
+					 </div>
 				</form>
 			</div>
 		</div>

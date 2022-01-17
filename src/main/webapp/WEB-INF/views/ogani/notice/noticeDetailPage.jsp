@@ -48,16 +48,17 @@
 		<div class="col-lg-12">
 			<div style="margin-top: 50px; margin-bottom: 30px;">
 				<h3>공지사항</h3>
-</div>
+			</div>
 
+			<div>
 				<div>
-					<div>
-						제목: <input type="text" id="notice_title" name="notice_title" value="${noticeDetail.notice_title }" readonly="readonly" ><br>
-						내용<br>
-						 <textarea name="notice_content" id="notice_content" rows="10"
-						cols="130" readonly="readonly" >${noticeDetail.notice_content }</textarea>
-						<br>
-					
+					제목: <input type="text" id="notice_title" name="notice_title"
+						value="${noticeDetail.notice_title }" readonly="readonly"><br>
+					내용<br>
+					<textarea name="notice_content" id="notice_content" rows="10"
+						cols="130" readonly="readonly">${noticeDetail.notice_content }</textarea>
+					<br>
+
 					<div class="button"
 						style="display: flex; justify-content: flex-end;">
 						<button type="submit" class="btn" style="margin-right: 7px"
@@ -68,7 +69,7 @@
 				</div>
 
 			</div>
-			</div>
 		</div>
+	</div>
 </body>
 </html>
