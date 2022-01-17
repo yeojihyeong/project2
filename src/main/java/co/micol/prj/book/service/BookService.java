@@ -15,8 +15,18 @@ public interface BookService {
 	BookVO bookSearch(String book_isbn);
 	
 	List<BookVO> bookSearchList(BookVO book);
+
+	//가장많은 도서 장르 
+	List<BookVO> bookSearchOne();
+
+	//두번째 많은 도서 장르
+	List<BookVO> bookSearchTwo();
 	
+	//세번째로 많은 도서 장르
+	List<BookVO> bookSearchThree();
+
 	boolean isBookCheck(String book_isbn);
+
 }
 
 

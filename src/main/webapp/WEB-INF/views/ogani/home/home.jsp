@@ -73,39 +73,7 @@
 	<!-- Categories Section End -->
 
 	<!-- Featured Section Begin -->
-	<section class="featured spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title">
-						<h2>베스트 셀러 or 리뷰많은 도서 꺼내오기</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row featured__filter">
-			<c:forEach items="${ searchbook}" var="book" >
-				<c:forEach items="${ searchBlog}" var="blog">
-				<c:if test="${blog.book_isbn eq book.book_isbn }">
-				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="${book.book_picture }">
-							<ul class="featured__item__pic__hover">
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-							<a href="#">${book.book_name }</a>
-							</h6>
-						</div>
-					</div>
-				</div>
-				</c:if>
-			</c:forEach>
-			</c:forEach>
-			</div>
-		</div>
-	</section>
+	
 	<!-- Featured Section End -->
 
 	<!-- Banner Begin -->
@@ -393,6 +361,40 @@
 		</div>
 	</section>
 	<!-- Blog Section End -->
+
+<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>추천 도서</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row featured__filter">
+			<c:forEach items="${ searchbook}" var="book" >
+				<c:forEach items="${ searchBlog}" var="blog">
+				<c:if test="${blog.book_isbn eq book.book_isbn }">
+				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+					<div class="featured__item">
+						<div class="featured__item__pic set-bg"
+							data-setbg="${book.book_picture }">
+							<ul class="featured__item__pic__hover">
+							</ul>
+						</div>
+						<div class="featured__item__text">
+							<h6>
+							<a href="#">${book.book_name }</a>
+							</h6>
+						</div>
+					</div>
+				</div>
+				</c:if>
+			</c:forEach>
+			</c:forEach>
+			</div>
+		</div>
+	</section>
 
 
 </body>

@@ -47,8 +47,22 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
+	public BookVO bookSearchOne(BookVO book) {
+		return map.bookSearchOne(book);
+	}
+
+	@Override
+	public BookVO bookSearchTwo(BookVO book) {
+		return map.bookSearchTwo(book);
+	}
+
+	@Override
+	public BookVO bookSearchThree(BookVO book) {
+		return map.bookSearchThree(book);
+
 	public boolean isBookCheck(String book_isbn) {
 		return map.isBookCheck(book_isbn);
+
 	}
 	
 
