@@ -14,27 +14,31 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-9 col-md-7">
-						<div class="row">
-							<div class="col-lg-12 col-md-12">
-								<div class="checkout__input">
-									<p>내용</p>
-									<input type="text" id="notice_content" name="notice_content"
-										required="required" value="${notice.notice_content}"
-										readonly="readonly">
+						<form action="noticeUpdate1.do" method="post">
+							<div class="row">
+								<div class="col-lg-12 col-md-12">
+
+									<div class="checkout__input">
+										<p>제목</p>
+										<input type="text" id="notice_title" name="notice_title"
+											required="required" value="${notice.notice_title}">
+									</div>
+									<div class="checkout__input">
+										<p>내용</p>
+										<input type="text" id="notice_content" name="notice_content"
+											required="required" value="${notice.notice_content}">
+									</div>
 								</div>
-							</div>
-							<br>
-							<div class="col-lg-12 col-md-12">
-								<form action="memberDelete1.do" method="post">
+								<br>
+								<div class="col-lg-12 col-md-12">
 									<input type="hidden" name="notice_num" id="notice_num"
 										value="${notice.notice_num }"> <input type="submit"
 										value="수정완료" class="site-btn" style="float: right;">
-								</form>
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>

@@ -13,6 +13,21 @@
         <link rel="icon" type="image/x-icon" href="resources/blog/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="resources/blog/css/styles.css" rel="stylesheet" />
+      
+      <!-- ogani -->
+      
+    <link rel="stylesheet" href="resources/ogani/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/style.css" type="text/css">
+      
+      
+      
+        
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -34,5 +49,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="resources/blog/js/scripts.js"></script>
+        
+        <!-- ogani -->
+        
+    <script src="resources/ogani/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/ogani/js/bootstrap.min.js"></script>
+    <script src="resources/ogani/js/jquery.nice-select.min.js"></script>
+    <script src="resources/ogani/js/jquery-ui.min.js"></script>
+    <script src="resources/ogani/js/jquery.slicknav.js"></script>
+    <script src="resources/ogani/js/mixitup.min.js"></script>
+    <script src="resources/ogani/js/owl.carousel.min.js"></script>
+    <script src="resources/ogani/js/main.js"></script>
+        
     </body>
 </html>

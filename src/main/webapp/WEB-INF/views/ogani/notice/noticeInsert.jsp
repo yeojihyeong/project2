@@ -27,12 +27,14 @@
     <div class="container">
     	<div class="col-lg-12">
     		<div style="margin-top:50px; margin-bottom:30px;">
-				<h3>글쓰기</h3>
+				<h3>공지사항</h3>
 			</div>
 			<div class="insert">
 				<form action="noticeInsert.do" id="noticeInsert" name="noticeInsert">
-					제목: <input type="text" name="notice_title" id="notice_title"><br><br>
-					내용: <input type="text" name="notice_content" id="notice_content"><br><br>
+					제목: <input type="text" name="notice_title" style="width: 350px" id="notice_title"><br><br>
+					내용<br> <textarea name="notice_content" id="notice_content" rows="10" cols="130"></textarea> 
+					<br>
+					<br>
 					<input type="submit" class="site-btn" value="등록">
 				</form>
 			</div>

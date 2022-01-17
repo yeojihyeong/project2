@@ -11,22 +11,29 @@
 	}
 </script>
 
+
+
+
 <div class="col-lg-8">
 	<!-- Nested row for non-featured blog posts-->
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-4">
 			<!-- Blog post-->
 			<c:forEach items="${viewAll }" var="list">
 			<div class="card mb-4">
 				<a href="#!"><img class="card-img-top"
 					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-				<div class="card-body">
+				
+				<div class="blog__item__text">
 					<div class="small text-muted">${list.review_date }</div>
 					<h2 class="card-title h4">${list.review_title }</h2>
-					<a class="btn btn-primary" href="#!">Read more ¡æ</a>
+					<a class="blog__btn" href="reviewDetailSelect.do?blog_id=${list.blog_id }" >Read more</a>
+				
 				</div>
 			</div>
+			<br>
 			</c:forEach>
+			<br>
 			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">±Û¾²±â</button></a>
 		</div>
 	</div>
@@ -55,4 +62,5 @@
 		</ul>
 	</nav>
 </div>
+
 </html>

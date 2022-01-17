@@ -26,7 +26,7 @@
 									</div>
 									<br>
 									<div class="col-lg-12 col-md-12">
-									<form action="memberDelete1.do" method="post">
+									<form action="noticeDelete1.do" method="post">
 											<input type="hidden" name="notice_num" id="notice_num" value="${notice.notice_num }">
 											<input type="submit" value="삭제" class="site-btn" style="float: right;">
 										</form>

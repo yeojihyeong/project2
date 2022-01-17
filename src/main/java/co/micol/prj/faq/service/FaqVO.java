@@ -9,4 +9,5 @@ public class FaqVO {
 	private String faq_id;
 	private String faq_question;
 	private String faq_answer;
+	private String faq_date;
 }

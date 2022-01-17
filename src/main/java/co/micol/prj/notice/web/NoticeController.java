@@ -1,5 +1,6 @@
 package co.micol.prj.notice.web;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,15 +63,58 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/noticeSearch.do")
-	public String noticeSearch(NoticeVO notice, Model model){
-		model.addAttribute("notice", noticeDao.noticeSelect(notice));
+	public String noticeSearch(@Param("notice_num") int notice_num, NoticeVO notice, Model model){
+		model.addAttribute("notice", noticeDao.noticeSearch(notice_num));
 		System.out.println(notice);
+		System.out.println(notice_num);
 		return "admin/notice/noticeSearch";
 	}
 	
 	@RequestMapping("/adminNoticeUpdate1.do")
-	public String adminNoticeUpdate1(NoticeVO notice, Model model) {
-
+	public String adminNoticeUpdate1(@Param("notice_num") int notice_num, NoticeVO notice, Model model) {
+	
+		model.addAttribute("notice",noticeDao.noticeSearch(notice_num));
 		return "admin/notice/noticeUpdateForm";
 	}
+	
+	@RequestMapping("/adminnoticeInsertForm.do")
+	public String adminnoticeInsertForm() {
+		return "admin/notice/noticeInserForm";
+	}
+
+	@RequestMapping("/adminnoticeInsert.do")
+	public String adminnoticeInsert(NoticeVO notice, Model model) {
+		
+		int n= noticeDao.noticeInsert(notice);
+		if(n != 0 ) {
+			 model.addAttribute("message","성공인가");
+		 } else {
+			 model.addAttribute("message","실패인가");
+		 
+		 }
+		
+		model.addAttribute("notices", noticeDao.noticeSelectList());
+		return "admin/notice/noticeSelectList";
+	}
+	
+	@RequestMapping("/noticeDelete1.do")
+	public String noticeDelete1(@Param("notice_num") int notice_num, Model model) {
+		model.addAttribute("notice", noticeDao.noticeDelete1(notice_num));
+		
+		model.addAttribute("notices", noticeDao.noticeSelectList());
+		
+		return "admin/notice/noticeSelectList";
+	}
+	
+	@RequestMapping("/noticeUpdate1.do")
+	public String noticeUpdate1(@Param("notice_num") int notice_num, Model model, NoticeVO notice) {
+		
+		model.addAttribute(noticeDao.noticeUpdate(notice));
+		
+		model.addAttribute("notice",noticeDao.noticeSearch(notice_num));
+		
+		System.out.println(notice_num);
+		return "admin/notice/noticeSearch";
+	}
+	
 }

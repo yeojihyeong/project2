@@ -45,7 +45,7 @@
 		</article>
 		<!-- Comments section-->
 		
-		<h3>Comments</h3>
+		<h3>댓글</h3>
 		<hr>
 		
 		<section class="mb-5">

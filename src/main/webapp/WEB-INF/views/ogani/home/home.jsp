@@ -96,9 +96,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-1.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -114,9 +112,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-2.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -132,9 +128,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-3.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -150,9 +144,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-4.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -168,9 +160,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-5.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -186,9 +176,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-6.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -204,9 +192,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-7.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -222,9 +208,7 @@
 						<div class="featured__item__pic set-bg"
 							data-setbg="resources/ogani/img/featured/feature-8.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">

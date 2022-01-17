@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.prj.bcomment.service.BcommentMapper">
 	<select id="bcommentSelectList" resultType="co.micol.prj.bcomment.service.BcommentVO">
-		SELECT * FROM B_COMMENT ORDER BY GRP DESC
+		SELECT * FROM B_COMMENT WHERE BOARD_NUM = #{board_num} ORDER BY GRP DESC
 	</select>
 	
 	<select id="bcommentSelect" resultType="co.micol.prj.bcomment.service.BcommentVO">
