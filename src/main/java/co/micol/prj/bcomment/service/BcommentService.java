@@ -3,7 +3,7 @@ package co.micol.prj.bcomment.service;
 import java.util.List;
 
 public interface BcommentService {
-	List<BcommentVO> bcommentSelectList();
+	List<BcommentVO> bcommentSelectList(String number);
 	BcommentVO bcommentSelect(BcommentVO bcomment);
 	int bcommentInsert(BcommentVO bcomment);
 	int grpUpdate(BcommentVO bcomment);

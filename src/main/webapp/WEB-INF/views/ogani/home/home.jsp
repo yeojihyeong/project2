@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,146 +80,29 @@
 					<div class="section-title">
 						<h2>베스트 셀러 or 리뷰많은 도서 꺼내오기</h2>
 					</div>
-					<div class="featured__controls">
-						<ul>
-							<li class="active" data-filter="*">All</li>
-							<li data-filter=".oranges">Oranges</li>
-							<li data-filter=".fresh-meat">Fresh Meat</li>
-							<li data-filter=".vegetables">Vegetables</li>
-							<li data-filter=".fastfood">Fastfood</li>
-						</ul>
-					</div>
 				</div>
 			</div>
 			<div class="row featured__filter">
+			<c:forEach items="${ searchbook}" var="book" >
+				<c:forEach items="${ searchBlog}" var="blog">
+				<c:if test="${blog.book_isbn eq book.book_isbn }">
 				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-1.jpg">
+							data-setbg="${book.book_picture }">
 							<ul class="featured__item__pic__hover">
-								
 							</ul>
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">Crab Pool Security</a>
+							<a href="#">${book.book_name }</a>
 							</h6>
-							<h5>$30.00</h5>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-2.jpg">
-							<ul class="featured__item__pic__hover">
-								
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-3.jpg">
-							<ul class="featured__item__pic__hover">
-								
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-4.jpg">
-							<ul class="featured__item__pic__hover">
-								
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-5.jpg">
-							<ul class="featured__item__pic__hover">
-								
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-6.jpg">
-							<ul class="featured__item__pic__hover">
-								
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-7.jpg">
-							<ul class="featured__item__pic__hover">
-								
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="resources/ogani/img/featured/feature-8.jpg">
-							<ul class="featured__item__pic__hover">
-								
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
+				</c:if>
+			</c:forEach>
+			</c:forEach>
 			</div>
 		</div>
 	</section>

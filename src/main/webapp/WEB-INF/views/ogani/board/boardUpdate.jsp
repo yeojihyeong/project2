@@ -33,7 +33,7 @@
 				<div>
 					제목: <input type="text" name="board_title" id="board_title"><br>
 					내용:<br>
-					<textarea name="notice_content" id="notice_content" rows="10"
+					<textarea name="board_content" id="board_content" rows="10"
 						cols="130"></textarea>
 					사진: <input type="file" name="file" id="file">
 				</div>

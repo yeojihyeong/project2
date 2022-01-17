@@ -12,7 +12,8 @@ import co.micol.prj.main.service.MainService;
 public class AdminController {
 
 	
-	  @Autowired private MainService mainDao;
+	  @Autowired 
+	  private MainService mainDao;
 	 
 	
 	@RequestMapping("/main.do")
