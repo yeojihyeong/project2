@@ -3,7 +3,44 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
+<script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
+<head>
+<style>
+
+.star-rating {
+  
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+/* .star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+} */
+
+</style>
+</head>
 <body>
+
 	<div class="col-lg-8">
 		<!-- Post content-->
 		<article>
@@ -32,7 +69,18 @@
 					<td>${review.bookVO.book_publis }</td>
 				</tr>
 				<tr>
-					<td>${review.review_rating }</td>
+					<td>
+					<div class="star-rating">
+						<c:forEach begin="1" end="${review.review_rating }">
+							<input type="radio" id="1-stars" name="review_rating" />
+							<label for="1-stars" class="star" style="color:#ccc;">&#9733;</label>
+						</c:forEach>
+						<c:forEach begin="1" end="${5 - review.review_rating }">
+							<input type="radio" id="2-stars" name="review_rating" />
+							<label for="1-stars" class="star" style="color:#fc0;">&#9733;</label>
+						</c:forEach>
+					</div>	
+					</td>
 				</tr>
 			</table>
 
@@ -45,7 +93,7 @@
 		</article>
 		<!-- Comments section-->
 		
-		<h3>Comments</h3>
+		<h3>댓글</h3>
 		<hr>
 		
 		<section class="mb-5">

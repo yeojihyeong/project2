@@ -6,6 +6,14 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+ <link rel="stylesheet" href="resources/ogani/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/ogani/css/style.css" type="text/css">
 </head>
 <body>
 	<!-- Breadcrumb Section Begin -->

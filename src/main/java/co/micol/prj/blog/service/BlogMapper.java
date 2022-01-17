@@ -34,6 +34,6 @@ public interface BlogMapper {
 
 	List<BlogVO> reviewSearch(String searchValue);
 	
-	
+	List<BlogVO> searchList();
 	
 }

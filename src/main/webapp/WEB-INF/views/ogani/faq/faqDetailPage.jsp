@@ -47,24 +47,24 @@
 	<div class="container">
 		<div class="col-lg-12">
 			<div style="margin-top: 50px; margin-bottom: 30px;">
-				<h3>공지사항</h3>
+				<h3>자주하는 질문</h3>
 			</div>
 
 			<div>
 				<div>
-					제목: <input type="text" id="notice_title" name="notice_title"
-						value="${noticeDetail.notice_title }" readonly="readonly"><br>
-					내용<br>
-					<textarea name="notice_content" id="notice_content" rows="10"
-						cols="130" readonly="readonly">${noticeDetail.notice_content }</textarea>
+					Question: <input type="text" id="faq_question" name="faq_question"
+						value="${faqDetail.faq_question }" readonly="readonly"><br>
+					Answer<br>
+					<textarea name="faq_answer" id="faq_answer" rows="10"
+						cols="130" readonly="readonly">${faqDetail.faq_answer }</textarea>
 					<br>
 
 					<div class="button"
 						style="display: flex; justify-content: flex-end;">
 						<button type="submit" class="btn" style="margin-right: 7px"
-							onclick="location.href='noticeUpdatePage.do?notice_num=${noticeDetail.notice_num}'">수정하기</button>
+							onclick="location.href='faqUpdatePage.do?faq_id=${faqDetail.faq_id}'">수정하기</button>
 						<button type="submit" class="btn"
-							onclick="location.href='noticeDelete.do?notice_num=${noticeDetail.notice_num}'">삭제하기</button>
+							onclick="location.href='faqDelete.do?faq_id=${faqDetail.faq_id}'">삭제하기</button>
 					</div>
 				</div>
 

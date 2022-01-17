@@ -23,11 +23,18 @@
             </div>
         </div>
     </section>
-	<h2>글쓰기</h2>
+    
+    <div class="container">
+    	<div class="col-lg-12">
+    		<div style="margin-top:50px; margin-bottom:30px;">
+				<h3>F A Q</h3>
+			</div>
+    <div class="insert">
 	<form action="faqInsert.do" id="faqInsert" name="faqInsert">
-		Question: <input type="text" id="faq_question" name="faq_question">
-		Answer: <input type="text" id="faq_answer" name="faq_answer">
-		<input type="submit" value="등록">
+		Question: <input type="text" style="width: 350px" id="faq_question" name="faq_question"><br>
+		Answer<br> <textarea name="faq_answer" id="faq_answer" rows="10" cols="130"></textarea> 
+					<br>
+		<br><input type="submit" class="site-btn" value="등록">
 	</form>
 </body>
 </html>

@@ -6,18 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
 <body>
-
 <section class="breadcrumb-section set-bg" data-setbg="resources/ogani/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Login</h2>
+                        <h2>회원탈퇴</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
-                            <span>Login</span>
+                            <span>회원탈퇴</span>
                         </div>
                     </div>
                 </div>
@@ -25,41 +23,45 @@
         </div>
     </section>
     
-    <section class="checkout spad">
+  <section class="checkout spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> 계정이 없으신가요? <a href="joinForm.do">지금 가입하기</a>
-                    </h6>
-                </div>       
+                    
+                </div>
             </div>
             <div class="row">
             <div class="col-lg-6" style="float: none; margin: 0 auto;">
             <div class="checkout__form">
-                <h4>Login</h4>
-                <form class="user" action="login.do" method="post">
+                <h4>회원탈퇴</h4>
+                <form class="userdelete" action="memberDelete.do" method="post">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="row">
+                        <div class="col-lg-12 col-md-12" style="text-align:center">
+                       탈퇴 전 본인인증을 위해 비밀번호를 입력해주십시오.<br>
+                        	<br>
+                        	<br>
+                        	
+                        	<div class="row">
                                 <div class="col-lg-12">
                                     <div class="checkout__input">
                                         <p>Email</p>
-                                        <input type="email" id="member_id" name="member_id" placeholder="Email">
+                                        <input type="email" id="member_id" name="member_id" value="${member.member_id}" readonly>
                                     </div>
                                 </div>
                             </div>
-                                <div class="row">
-	                                <div class="col-lg-12">
-	                                    <div class="checkout__input">
-	                                        <p>Password</p>
-	                                        <input type="password" id="member_password" name="member_password" placeholder="Password">
-	                                    </div>
+                        	
+                        	<div class="row">
+	                            <div class="col-lg-12">
+	                                <div class="checkout__input">
+	                                    <p>Password</p>
+	                                    <input type="password" id="member_password" name="member_password" placeholder="Password">
 	                                </div>
-                                </div>
+	                            </div>
+                            </div>
                         	<br>
-                        	
-                        	<button type="submit" class="btn btn-success btn-lg btn-block">LOGIN</button>
-                        	
+                        	<br>
+                        	<button type="submit" class="btn btn-success">탈퇴</button>
+                        	<button onclick="location.href='home.do'" type="button" class="btn btn-secondary">취소</button>
                         </div>
                     </div>
                 </form>
@@ -68,6 +70,5 @@
             </div>
         </div>
     </section>
-
 </body>
 </html>

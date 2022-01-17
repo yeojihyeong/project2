@@ -15,9 +15,9 @@ public class BcommentServiceImpl implements BcommentService {
 	private BcommentMapper map;
 
 	@Override
-	public List<BcommentVO> bcommentSelectList() {
-		System.out.println(map.bcommentSelectList());
-		return map.bcommentSelectList();
+	public List<BcommentVO> bcommentSelectList(String number) {
+		System.out.println(map.bcommentSelectList(number));
+		return map.bcommentSelectList(number);
 	}
 
 	@Override

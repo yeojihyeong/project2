@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<ul class="list-unstyled mb-0">
-						<li><a href="blog_home.do">ÀÛ¼ºÇÑ ¸®ºä</a></li>
-						<li><a href="wishBook.do">ÀÐ°í ½ÍÀº Ã¥</a></li>
-						<li><a href="readingBook.do">ÀÐ°í ÀÖ´Â Ã¥</a></li>
-						<li><a href="readBook.do">ÀÐÀº Ã¥</a></li>
+						<li><a href="blog_home.do" style="color: inherit">ìž‘ì„±í•œ ë¦¬ë·°</a></li>
+						<li><a href="wishBook.do" style="color: inherit" >ì½ê³  ì‹¶ì€ ì±…</a></li>
+						<li><a href="readingBook.do"style="color: inherit" >ì½ê³  ìžˆëŠ” ì±…</a></li>
+						<li><a href="readBook.do" style="color: inherit" >ì½ì€ ì±…</a></li>
 					</ul>
 				</div>
 			</div>
@@ -22,10 +22,9 @@
 	<div class="card mb-4">
 		<div class="card-header">Following</div>
 		<div class="card-body">my following list</div>
-		<tr>
-			<td></td>
-			<td></td>
-		</tr>
-		<a href="following.do">ÀÌ¿ô ¸ñ·ÏÀ¸·Î °¡±â</a>
+
+		<div class="card-body" ><a style="color: inherit" href="following.do">ì´ì›ƒ ëª©ë¡ìœ¼ë¡œ ê°€ê¸° </a></div>
+	
+
 	</div>
 </div>

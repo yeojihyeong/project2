@@ -48,7 +48,7 @@
 				</form>
 			</div>
 			<div class="col-lg-12 col-md-12">
-			<button class="site-btn" onclick="location.href = 'noticeInsertForm.do'" style="float: right;" >등록</button>
+			<button class="site-btn" onclick="location.href = 'adminnoticeInsertForm.do'" style="float: right;" >등록</button>
 			</div>
 		</div>
 	</div>

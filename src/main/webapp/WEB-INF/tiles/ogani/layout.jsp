@@ -99,7 +99,9 @@
 	<!-- Body Begin -->
     <tiles:insertAttribute name="body"/>
 	<!-- Body End -->
-
+<br>
+<br>
+<br>
     <!-- Footer Section Begin -->
     <tiles:insertAttribute name="footer"/>
     <!-- Footer Section End -->

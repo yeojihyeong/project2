@@ -66,7 +66,6 @@ public class BlogServiceImpl implements BlogService {
 
 	@Override
 	public BlogVO reviewDetailSelect(String blog_id) {
-		// TODO Auto-generated method stub
 		return map.reviewDetailSelect(blog_id);
 	}
 
@@ -84,7 +83,11 @@ public class BlogServiceImpl implements BlogService {
 
 	@Override
 	public List<BlogVO> blogReviewSearch(BlogVO blog) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<BlogVO> searchList() {
+		return map.searchList();
 	}
 }

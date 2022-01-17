@@ -9,24 +9,35 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-	<script
+<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
 	crossorigin="anonymous"></script>
 <style>
+
 .btn {
-    font-size: 14px;
-    color: #ffffff;
-    font-weight: 800;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 13px 30px 12px;
-    background: #7fad39;
-    border: none;
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: #7fad39;
+	border: none;
+}
+
+#commbtn {
+	margin-left: 10px;
+}
+
+#editbtn {
+	margin: 5px;
 }
 .button {
+	
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
 </style>
 </head>
 <body>
@@ -47,41 +58,64 @@
 			</div>
 		</div>
 	</section>
-	
-	<img src="resources/ogani/img/board/${boardDetail.board_picture }" width="" height="" alt="">
-	<h2>${boardDetail.board_title }</h2>
-	<h5>${boardDetail.board_content }</h5>
-	<div class="button">
-	<button type="submit" class="btn"
-		onclick="location.href='boardUpdatePage.do?board_num=${boardDetail.board_num }'">수정하기</button>
-	<button type="submit" class="btn"
-		onclick="location.href='boardDelete.do?board_num=${boardDetail.board_num }'">삭제하기</button>
-	</div>
-	<div class="comment-section">
-		<div class="grids_of_2">
-			<h2>Comments</h2>
-			<c:forEach items="${bcommDetail }" var="detail">
-				<div class="comm">
-					<!-- <div class="grid1_of_2"> -->
-					<div class="grid_img">
-						<a href=""><img src="images/pic10.jpg" alt=""></a>
-					</div>
-					<div class="grid_text">
-						<h6 class="style1 list">
-							<a href="#">${detail.writer }</a>
-						</h6>
-						<h6 class="style">${detail.content }</h6>
-						<p class="para top">${detail.wdate }</p>
-						<a href="" class="btn1">Click to Reply</a>
-					</div>
-					<div class="clear"></div>
 
+	<div class="container">
+		<div class="col-lg-12">
+			<div style="margin-top: 50px; margin-bottom: 30px;">
+				<h3>게시판</h3>
+			</div>
+			<div>
+				<div>
+					<img src="resources/ogani/img/board/${boardDetail.board_picture }"
+						width="" height="" alt=""> 제목: <input type="text"
+						id="board_title" name="board_title"
+						value="${boardDetail.board_title }" readonly="readonly"><br>
+					내용<br>
+					<textarea name="board_content" id="board_content" rows="10"
+						cols="130" readonly="readonly">${boardDetail.board_content }</textarea>
+					<br>
+					<div class="button"
+						style="display: flex; justify-content: flex-end;">
+						<button type="submit" class="btn" id="editbtn"
+							onclick="location.href='boardUpdatePage.do?board_num=${boardDetail.board_num }'">수정하기</button>
+						<button type="submit" class="btn" id="editbtn"
+							onclick="location.href='boardDelete.do?board_num=${boardDetail.board_num }'">삭제하기</button>
+					</div>
 				</div>
-			</c:forEach>
+			</div>
+		
+
+		<!-- 댓글 -->
 
 
-			<div class="comm-comm">
-				<!-- 	<div class="grid1_of_2 left"> -->
+      <div class="container">
+         <div class="col-lg-12">
+            <div style="margin-top: 50px; margin-bottom: 30px;">
+               <h3>댓글</h3>
+            </div>
+         </div>
+      </div>
+      <section class="mb-5">
+         <div class="card bg-light">
+            <div class="card-body">
+               <!-- Comment form-->
+            
+               <!-- Comment with nested comments-->
+               <c:forEach items="${bcommDetail }" var="detail">
+                  <div class="d-flex mb-4">
+                     <!-- Parent comment-->
+                     <div class="ms-3">
+                        <div class="fw-bold">${detail.writer }</div>
+                        ${detail.content }
+                     </div>
+                  </div>
+               </c:forEach>
+            </div>
+
+         </div>
+      </section> 
+			<!-- <div class="comm-comm">
+					<div class="grid1_of_2 left">
 				<div class="grid_img">
 					<a href=""><img src="images/pic10.jpg" alt=""></a>
 				</div>
@@ -99,26 +133,42 @@
 					<a href="" class="btn1">Click to Reply</a>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div> -->
 
 			<div class="artical-commentbox">
 				<h4>댓글입력</h4>
 				<div class="table-form">
-					<form action="grpInsert.do" method="post" id="comm-comm"
-						name="comm-comm">
+				
+					<form action="" method="post" id="commInsert"
+						name="commInsert">
 						<div>
-							Comment <input type="text" id="content" name="content"> <input
-								type="hidden" value="${boardDetail.board_num }"> <input
-								type="hidden" value="${boardDetail.board_id }">
-
+							Comment <input type="text" id="content" name="content"> 
+									<input type="hidden" value="${boardDetail.board_num }" id="board_num" name="board_num"> 
+									<input type="hidden" value="${boardDetail.board_id }" id="writer" name="writer">
+									<input type="button" class="btn" id="commbtn" onclick="commentInsert()" value="등록">
 						</div>
-						<input type="submit" class="btn" value="댓글등록">
 					</form>
-
+					
 				</div>
-				<div class="clear"></div>
 			</div>
-		</div>
 	</div>
+	</div>
+	<script type="text/javascript">
+		function commentInsert() {
+			console.log($("#content").val());
+			$.ajax ({
+				url : "commentInsert.do",
+				type : "post",
+				data : {"content" : $("#content").val(), "board_num" : $("#board_num").val(), "writer" : $("#writer").val()},
+				//dataType : "json",
+				success : function() {
+					alert("성공")
+					location.reload();
+				}
+				
+			});
+		}
+		
+	</script>
 </body>
 </html>

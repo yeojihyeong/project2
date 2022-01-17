@@ -41,9 +41,11 @@ public class MemberController {
 	public String login(MemberVO member, HttpSession session) {
 		member = memberDao.memberSelect(member);
 		if (member != null) {
+			session.setAttribute("member", member);
 			session.setAttribute("member_id", member.getMember_id());
 			session.setAttribute("member_author", member.getMember_author());
 			session.setAttribute("member_name", member.getMember_name());
+			session.setAttribute("member_password", member.getMember_password());
 		} else {
 			return "ogani/login/loginForm";
 		}
@@ -168,6 +170,29 @@ public class MemberController {
 		model.addAttribute("member", memberDao.memberSearch1(member_id));
 		
 		return "admin/member/memberUpdateForm";
+	}
+	
+	@RequestMapping("/memberDeleteForm.do")
+	public String memberDeleteForm() {
+		return "ogani/memberDelete/memberDeleteForm";
+	}
+	
+	@RequestMapping("/memberDelete.do")
+	public String memberDelete(MemberVO member, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		MemberVO member1 = (MemberVO) session.getAttribute("member");
+		
+		String sessionPw = member1.getMember_password();
+		String memberPw = member.getMember_password();
+		
+		if(!(sessionPw.equals(memberPw))) {
+			return "ogani/member/memberDeleteForm";
+		}
+		
+		memberDao.memberDelete(member);
+		session.invalidate();
+		
+		return "ogani/memberDelete/memberDelete";
 	}
 
 	@RequestMapping("/memberDelete1.do")

@@ -27,15 +27,14 @@
 	<div class="container">
 		<div class="col-lg-12">
 			<div style="margin-top: 50px; margin-bottom: 30px;">
-				<h3>자유게시판_수정하기</h3>
+				<h3>자주하는질문_수정하기</h3>
 			</div>
-			<form action="boardUpdate.do?board_num=${board.board_num }"	id="boardUpdate" name="boardUpdate" method="post"	enctype="multipart/form-data">
+			<form action="faqUpdate.do?faq_num=${faq.faq_id }" id="faqUpdate" name="faqUpdate"">
 				<div>
-					제목: <input type="text" name="board_title" id="board_title"><br>
-					내용:<br>
-					<textarea name="board_content" id="board_content" rows="10"
+					Question: <input type="text" name="faq_question" id="faq_question"><br>
+					Answer:<br>
+					<textarea name="faq_answer" id="faq_answer" rows="10"
 						cols="130"></textarea>
-					사진: <input type="file" name="file" id="file">
 				</div>
 				<div>
 					<input type="submit" value="수정하기">

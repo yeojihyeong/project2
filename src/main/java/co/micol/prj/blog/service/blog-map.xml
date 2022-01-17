@@ -13,6 +13,7 @@
 		<result property="review_date" column="review_date" />
 		<result property="review_cnt" column="review_cnt" />
 		<result property="review_like" column="review_like" />
+		<result property="review_rating" column="review_rating" />
 
 		<association property="bookVO"
 			javaType="co.micol.prj.blog.service.BookVO">
@@ -31,15 +32,16 @@
 		select
 		K.BOOK_NAME, K.BOOK_WRITE, K.BOOK_PUBLIS, K.BOOK_PICTURE,
 		K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_CONTENT, B.REVIEW_DATE,
-		B.REVIEW_CNT, B.REVIEW_LIKE
+		B.REVIEW_CNT, B.REVIEW_LIKE, B.REVIEW_RATING
 		FROM BLOG B
-		LEFT JOIN BOOK K
+		LEFT JOIN BOOK
+		K
 		ON B.BOOK_ISBN =
 		K.BOOK_ISBN
 		WHERE B.BLOG_ID=#{blog_id}
 	</select>
 
-	<insert id="blogInsert">
+	<insert id="blogInsert" parameterType="co.micol.prj.blog.service.BlogVO">
 		INSERT INTO BLOG (BLOG_ID, MEMBER_ID, BOOK_ISBN,
 		REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE, REVIEW_RATING, REVIEW_CNT)
 		VALUES (blog_seq.nextval, #{member_id}, #{book_isbn}, #{review_title},
@@ -81,6 +83,18 @@
 		<![CDATA[WHERE ROWNUM <= 5]]>
 	</select>
 
+	<select id="searchList"
+		resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT *
+		FROM
+		(SELECT *
+		FROM BLOG
+		ORDER BY REVIEW_CNT DESC
+		)
+	<![CDATA[WHERE ROWNUM<=8]]>	
+	</select>
+
+
 	<select id="recentReview"
 		resultType="co.micol.prj.blog.service.BlogVO">
 		SELECT *
@@ -113,19 +127,26 @@
 	</select>
 
 	<!-- 리뷰 검색(전체) -->
-	<select id="reviewSearch" parameterType="co.micol.prj.blog.service.BlogVO" resultMap="BlogVO">
-		SELECT K.BOOK_PICTURE, K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_DATE
-		FROM BLOG B JOIN BOOK K USING (BOOK_ISBN)
-		WHERE REVIEW_TITLE LIKE '%'||#{searchValue}||'%'
+	<select id="reviewSearch"
+		parameterType="co.micol.prj.blog.service.BlogVO" resultMap="BlogVO">
+		SELECT
+		K.BOOK_PICTURE, K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_DATE
+		FROM BLOG B
+		JOIN BOOK K USING (BOOK_ISBN)
+		WHERE REVIEW_TITLE LIKE
+		'%'||#{searchValue}||'%'
 	</select>
 
 	<!-- 리뷰 검색(블로그) -->
-	<select id="blogReviewSearch" resultType="co.micol.prj.blog.service.BlogVO">
+	<select id="blogReviewSearch"
+		resultType="co.micol.prj.blog.service.BlogVO">
 		SELECT K.BOOK_PICTURE, K.BOOK_PFILE,
-		B.REVIEW_TITLE, B.REVIEW_DATE
+		B.REVIEW_TITLE,
+		B.REVIEW_DATE
 		FROM BLOG B JOIN BOOK K
 		USING (BOOK_ISBN)
-		WHERE REVIEW_TITLE LIKE '%'||#{searchValue}||'%'
+		WHERE
+		REVIEW_TITLE LIKE '%'||#{searchValue}||'%'
 		AND MEMBER_ID=#{member_id}$;
 	</select>
 
