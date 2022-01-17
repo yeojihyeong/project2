@@ -28,19 +28,19 @@ th, td{
 </head>
 
 <script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/blog/css/fontawesome-stars.css">
-<script type="text/javascript" src="resources/blog/js/jquery.barrating.min.js"></script>
+<script type="text/javascript" src="resources/blog/js/jquery.barrating.min.js"></script> -->
 
 <body>
 
 <script>
 	$(document).ready(function() {
 		$('.actionTd').on('click', function(e) {
-			console.log(e.target.parentNode.children[0].data);
+			console.log(e.target.parentNode.children[0].textContent);
 			e.preventDefault();
-			$('#book_isbn').val(e.target.parentNode.children[0].data);  
-			$('#frd').submit();
+			$('#book_isbn').val(e.target.parentNode.children[0].textContent);  
+			$('#frd').submit(); 
 		});
 	});
 </script>
@@ -81,11 +81,11 @@ th, td{
 		                <tbody>
 		                	<c:forEach items="${list }" var="list">
 		                		<tr>
-		                			<td class='actionTd'> <c:out value="${list.book_isbn}"></c:out> </td>
-		                			<td class='actionTd'> <img id="book_cover" alt="" src="${list.book_picture}"> </td>
-		                			<td class='actionTd'> <c:out value="${list.book_name}"></c:out> </td>
-		                			<td> <c:out value="${list.book_write}"></c:out> </td>
-		                			<td> <c:out value="${list.book_publis}"></c:out> </td>
+		                			<td class='actionTd'>${list.book_isbn}</td>
+		                			<td class='actionTd'><img id="book_cover" alt="" src="${list.book_picture}"> </td>
+		                			<td class='actionTd'>${list.book_name}</td>
+		                			<td class='actionTd'>${list.book_write}</td>
+		                			<td class='actionTd'>${list.book_publis}</td>
 		                			<td>별점칸</td>
 		                	</c:forEach>
 		                </tbody>

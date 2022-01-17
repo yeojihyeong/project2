@@ -15,6 +15,8 @@ public interface BookService {
 	BookVO bookSearch(String book_isbn);
 	
 	List<BookVO> bookSearchList(BookVO book);
+	
+	boolean isBookCheck(String book_isbn);
 }
 
 
