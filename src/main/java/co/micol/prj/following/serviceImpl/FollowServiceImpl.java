@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
 import co.micol.prj.following.service.FollowingMapper;
@@ -12,6 +13,7 @@ import co.micol.prj.following.service.FollowingService;
 import co.micol.prj.following.service.FollowingVO;
 import co.micol.prj.following.service.ViewFollowVO;
 
+@Repository("followDAO")
 public class FollowServiceImpl implements FollowingService {
 
 	@Autowired
@@ -24,9 +26,9 @@ public class FollowServiceImpl implements FollowingService {
 	}
 
 	@Override
-	public List<ViewFollowVO> followeeSelect() {
+	public List<ViewFollowVO> followeeSelect(String member_id) {
 		// TODO Auto-generated method stub
-		return map.followeeSelect();
+		return map.followeeSelect(member_id);
 	}
 
 	@Override
@@ -51,6 +53,12 @@ public class FollowServiceImpl implements FollowingService {
 	public int deleteFollow(FollowingVO follow) {
 		// TODO Auto-generated method stub
 		return map.deleteFollow(follow);
+	}
+
+	@Override
+	public boolean isFollowCheck(FollowingVO follow) {
+		// TODO Auto-generated method stub
+		return map.isFollowCheck(follow);
 	}
 
 }

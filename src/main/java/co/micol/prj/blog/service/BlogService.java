@@ -20,7 +20,12 @@ public interface BlogService {
 	int blogUpdate(BlogVO blog);
 
 	int blogDelete(BlogVO blog);
-
+	
+	int calcStar(String book_isbn);
+	
+	String getBlogOwner(String blog_id);
+	String getBlogId(String member_id);
+	
 	//조회수 증가
 	int updateReviewCnt(String blog_id);
 

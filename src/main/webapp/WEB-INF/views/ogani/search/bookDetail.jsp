@@ -43,6 +43,8 @@
 						<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 							class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 							class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
+							
+							${bookstar.review_rating }
 					</div>
 					<!-- <div class="product__details__price">$50.00</div> -->
 					<p></p>

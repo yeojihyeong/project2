@@ -7,9 +7,11 @@ public interface FollowingService {
 	List<ViewFollowVO> followSelect();
 
 	// 팔로이 목록
-	List<ViewFollowVO> followeeSelect();
+	List<ViewFollowVO> followeeSelect(String member_id);
 
 	List<ViewFollowVO> followeeSelectSome();
+	
+	boolean isFollowCheck(FollowingVO follow);
 
 	// 팔로우 여부 확인
 	FollowingVO followSelectOne(FollowingVO follow);

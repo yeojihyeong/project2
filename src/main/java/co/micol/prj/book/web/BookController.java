@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import co.micol.prj.blog.service.BlogService;
 import co.micol.prj.book.service.BookService;
 import co.micol.prj.book.service.BookVO;
 import co.micol.prj.utils.PagingVO;
@@ -28,12 +29,16 @@ public class BookController {
 	private BookService bookDao;
 	
 	@Autowired
+	private BlogService blogDAO;
+	
+	@Autowired
 	ServletContext sc;
 	
 	private String saveDir;
 
 	@RequestMapping("/bookDetail.do")
 	public String bookDetail(@Param("book_isbn") String book_isbn, Model model) {
+		
 		model.addAttribute("book", bookDao.bookSearch(book_isbn));
 		return "ogani/search/bookDetail";
 	}

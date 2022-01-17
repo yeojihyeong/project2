@@ -7,21 +7,25 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+
+</style>
 </head>
 <body>
 	<h3>나의 이웃목록</h3>
-
-	<c:forEach items="${follower }" var="follower">
-					
-				${follower.member_picture }
-				${follower.member_name }
+	<div class="blog__details__author">
+		<div class="blog__details__author__pic">
+			<c:forEach items="${follower }" var="follower">
+				<img id="followee_picture" alt="" src="resources/ogani/upload/${follower.memberVO.member_picture }"><br>
+						${follower.memberVO.member_name }
 	</c:forEach>
-
-	<c:forEach items="${followee }" var="followee">
+</div>
+</div>
+	<%-- <c:forEach items="${followee }" var="followee">
 					
 				${followee.member_picture }
 				${followee.member_name }
-	</c:forEach>
+	</c:forEach> --%>
 
 </body>
 </html>

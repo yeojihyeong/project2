@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.micol.prj.blog.service.BlogMapper;
@@ -26,6 +27,7 @@ import co.micol.prj.book.service.BookService;
 import co.micol.prj.doneread.service.DonereadService;
 import co.micol.prj.following.service.FollowingMapper;
 import co.micol.prj.following.service.FollowingService;
+import co.micol.prj.following.service.FollowingVO;
 import co.micol.prj.following.service.ViewFollowVO;
 import co.micol.prj.member.service.MemberService;
 import co.micol.prj.member.service.MemberVO;
@@ -60,8 +62,8 @@ public class BlogController {
 	@Autowired
 	private FollowingService followDAO;
 
-	@Autowired
-	private FollowingMapper map;
+	//@Autowired
+	//private FollowingMapper map;
 
 	// 블로그 홈
 	@RequestMapping("/blog_list.do")
@@ -88,6 +90,7 @@ public class BlogController {
 		HttpSession session = request.getSession();
 
 		member_id = (String) session.getAttribute("member_id");
+		
 
 		int total = blogDAO.countReview(member_id);
 
@@ -164,9 +167,36 @@ public class BlogController {
 
 		System.out.println(id);
 
-		List<ViewFollowVO> follower = map.followSelect();
-		model.addAttribute("follower", follower);
+		/* List<ViewFollowVO> follower = followDAO.followeeSelect(); */
+		model.addAttribute("follower", followDAO.followeeSelect(id));
 		return "blog/blog/following";
+	}
+	
+	@PostMapping("/ajaxinsertFollow.do")
+	@ResponseBody
+	public void ajaxinsertFollow(String blog_id, HttpSession session, Model model) {
+		String id = (String) session.getAttribute("member_id");
+		FollowingVO follow = new FollowingVO();
+		follow.setFollower(id);
+		String owner = blogDAO.getBlogOwner(blog_id);
+		follow.setFollowee(owner);
+		System.out.println("owner : " + owner);
+		followDAO.insertFollow(follow);
+		model.addAttribute("owner", owner);
+		
+	}
+	
+	@PostMapping("/ajaxIsFollowCheck.do")
+	@ResponseBody
+	public boolean ajaxIsFollowCheck(@Param("blog_id") String blog_id, HttpSession session) {
+		FollowingVO follow = new FollowingVO();
+		
+		String id = (String) session.getAttribute("member_id");
+		follow.setFollower(id);
+		String followee = blogDAO.getBlogOwner(blog_id);
+		follow.setFollowee(followee);
+		
+		return followDAO.isFollowCheck(follow);
 	}
 
 	@RequestMapping("/reviewForm.do")

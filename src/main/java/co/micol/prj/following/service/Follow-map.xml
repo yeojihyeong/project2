@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.micol.prj.follow.service.FollowMapper">
+<mapper namespace="co.micol.prj.following.service.FollowingMapper">
 
+
+	<select id="isFollowCheck" resultType="boolean">
+		SELECT CASE WHEN COUNT(FOLLOWEE) = 1 THEN 0 ELSE 1 END AS FOLLOWEE
+		FROM FOLLOWING WHERE FOLLOWER = #{follower}
+		AND FOLLOWEE = #{followee}
+	</select>
+	
+	<resultMap type="co.micol.prj.following.service.FollowingVO"
+		id="FollowingVO">
+		<result property="follow_id" column="follow_id" />
+		<result property="follower" column="follower" />
+		<result property="followee" column="followee" />
+
+		<association property="memberVO"
+			javaType="co.micol.prj.member.service.MemberVO">
+			<id property="member_id" column="member_id" />
+			<result property="member_name" column="member_name" />
+			<result property="member_picture" column="member_picture" />
+			<result property="member_pfile" column="member_pfile" />
+		</association>
+	</resultMap>
+
+	<select id="followeeSelect" resultMap="FollowingVO">
+		select f.follow_id, f.follower, f.followee, m.member_id, m.member_name, m.member_picture, m.member_pfile 
+		FROM following f LEFT JOIN member m
+		ON f.followee = m.member_id WHERE f.follower= #{member_id}
+	</select>
+	
 	<select id="followSelect">
 		SELECT * FROM VI_FOLLOW WHERE FOLLOWEE=#{followee}
-	</select>
-
-	<select id="followeeSelect">
-		SELECT * FROM VI_FOLLOW
-		WHERE FOLLOWER=#{member_id}
 	</select>
 	
 	<select id="followSelectSome">
@@ -21,7 +44,7 @@
 		SELECT FOLLOW_ID FROM FOLLOWING WHERE FOLLOWEE=#{member_id}
 	</select>
 
-	<insert id="followInsert">
+	<insert id="insertFollow">
 		INSERT INTO FOLLOWING VALUES(following_seq.nextval, #{follower}, #{followee})
 	</insert>
 	

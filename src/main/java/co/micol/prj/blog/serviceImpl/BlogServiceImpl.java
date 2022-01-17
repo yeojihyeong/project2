@@ -96,4 +96,19 @@ public class BlogServiceImpl implements BlogService {
 		return map.searchListThree();
 	}
 
+	@Override
+	public int calcStar(String book_isbn) {
+		return map.calcStar(book_isbn);
+	}
+
+	@Override
+	public String getBlogOwner(String blog_id) {
+		return map.getBlogOwner(blog_id);
+	}
+
+	@Override
+	public String getBlogId(String member_id) {
+		return map.getBlogId(member_id);
+	}
+
 }

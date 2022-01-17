@@ -2,6 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.prj.blog.service.BlogMapper">
 
+	
+	<select id="calcStar" parameterType="String" resultType="float">
+		select avg(review_rating) as review_rating
+		from blog where book_isbn = #{book_isbn}
+	
+	</select>
+	
+	
+	
+	<select id="getBlogOwner" parameterType="String" resultType="String">
+		SELECT MEMBER_ID FROM BLOG WHERE BLOG_ID= #{blog_id}
+	</select>
+
 	<!--<select id="memberSelect" parameterType="co.micol.prj.member.service.MemberVO" 
 		resultType="co.micol.prj.member.service.MemberVO"> select * from member where 
 		member_id = #{member_id} </select> -->
@@ -14,6 +27,8 @@
 		<result property="review_cnt" column="review_cnt" />
 		<result property="review_like" column="review_like" />
 		<result property="review_rating" column="review_rating" />
+		<result property="blog_id" column="blog_id" />
+		<result property="member_id" column="member_id" />
 
 		<association property="bookVO"
 			javaType="co.micol.prj.blog.service.BookVO">
@@ -32,7 +47,7 @@
 		select
 		K.BOOK_NAME, K.BOOK_WRITE, K.BOOK_PUBLIS, K.BOOK_PICTURE,
 		K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_CONTENT, B.REVIEW_DATE,
-		B.REVIEW_CNT, B.REVIEW_LIKE, B.REVIEW_RATING
+		B.REVIEW_CNT, B.REVIEW_LIKE, B.REVIEW_RATING, B.BLOG_ID, B.MEMBER_ID
 		FROM BLOG B
 		LEFT JOIN BOOK
 		K
