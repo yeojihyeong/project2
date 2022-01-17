@@ -58,7 +58,7 @@ ul {
 </head>
 <body>
 	<section class="blog-details-hero set-bg"
-		data-setbg="resources/ogani/img/book.jpg">
+		data-setbg="resources/ogani/img/book.jpg" style="margin-bottom: 50px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -75,14 +75,21 @@ ul {
 		</div>
 	</section>
 
-
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>자주하는 질문</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
-				<div class="container-fluid px-4"
-					style="display: flex; justify-content: space-between;">
-					<h3 style="margin-bottom: 30px">F A Q</h3>
-				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content">
 						<main>
@@ -127,17 +134,7 @@ ul {
 			</div>
 		</div>
 	</section>
-	<!-- <script type="text/javascript">
-		function openCloseToc() {
-			if (document.getElementById('toc-content').style.display === 'block') {
-				document.getElementById('toc-content').style.display = 'none';
-				document.getElementById('toc-toggle').textContent = '+';
-			} else {
-				document.getElementById('toc-content').style.display = 'block';
-				document.getElementById('toc-toggle').textContent = '-';
-			}
-		}}
-	</script> -->
+	
 	<script type="text/javascript">
 		function notice() {
 			location.href = "noticeInsertPage.do";

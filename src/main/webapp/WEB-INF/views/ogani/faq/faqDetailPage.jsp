@@ -27,7 +27,7 @@
 </head>
 <body>
 	<section class="blog-details-hero set-bg"
-		data-setbg="resources/ogani/img/book.jpg">
+		data-setbg="resources/ogani/img/book.jpg" style="margin-bottom: 50px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -43,13 +43,21 @@
 			</div>
 		</div>
 	</section>
-
+	
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>자주하는 질문</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<div class="container">
 		<div class="col-lg-12">
-			<div style="margin-top: 50px; margin-bottom: 30px;">
-				<h3>자주하는 질문</h3>
-			</div>
-
 			<div>
 				<div>
 					Question: <input type="text" id="faq_question" name="faq_question"
