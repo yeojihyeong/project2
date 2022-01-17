@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.prj.genre.service.GenreMapper">
 
-	<select id="genreSelectList" parameterType="co.micol.prj.genre.service.GenreVO">
-		select * from genre;
+	<select id="genreSelectList" resultType="co.micol.prj.genre.service.GenreVO">
+		SELECT * FROM GENRE
 	</select>
 
 </mapper>

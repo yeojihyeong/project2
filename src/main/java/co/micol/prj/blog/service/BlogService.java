@@ -37,5 +37,8 @@ public interface BlogService {
 	
 	//블로그 조회수 상위 조회
 	List<BlogVO> searchList();
+	
+	//블로그 조회수 3개상위 조회
+	List<BlogVO> searchListThree();
 
 }

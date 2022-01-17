@@ -23,9 +23,9 @@ public class AdminController {
 	public String main(Model model) {
 		
 		List<GenreVO> list = mainDao.selectList();  
-		System.out.println(list);
+		/* System.out.println(list); */
 		model.addAttribute("main", list);
-			
+		
 		 
 		return "admin/main/main";
 	}

@@ -94,7 +94,7 @@
     <!-- Header Section Begin -->
     <tiles:insertAttribute name="header"/>
     <!-- Header Section End -->
-    
+    <tiles:insertAttribute name="nav"/>
     
 	<!-- Body Begin -->
     <tiles:insertAttribute name="body"/>
