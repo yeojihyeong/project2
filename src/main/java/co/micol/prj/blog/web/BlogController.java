@@ -148,9 +148,8 @@ public class BlogController {
 	}
 	
 	@PostMapping("/reviewInsert.do")
-	public String reviewInsert(BlogVO blog, HttpServletRequest request) throws Exception {
-		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
+	public String reviewInsert(BlogVO blog, HttpSession session) {
+		
 		String id = (String) session.getAttribute("member_id");
 		blog.setMember_id(id);
 		blogDAO.blogInsert(blog);

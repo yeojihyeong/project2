@@ -5,25 +5,42 @@
 <html>
 
 <script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<link rel="stylesheet" href="resources/blog/css/fontawesome-stars.css">
-<script type="text/javascript" src="resources/blog/js/jquery.barrating.min.js"></script>
+<head>
+<style>
 
-<script type="text/javascript">
+.star-rating {
+  
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
 
-$(document).ready(function(){
-	
-	$('#example').barrating({
-		theme:'fontawesome-stars'
-		, readonly: true
-	});
-	
-	$('#example').barrating('set', ${review.review_rating })
-	
-});
-</script>
+.star-rating input {
+  display:none;
+}
 
+/* .star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+} */
+
+</style>
+</head>
 <body>
+
 	<div class="col-lg-8">
 		<!-- Post content-->
 		<article>
@@ -53,13 +70,16 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td>
-					<select id="example">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
+					<div class="star-rating">
+						<c:forEach begin="1" end="${review.review_rating }">
+							<input type="radio" id="1-stars" name="review_rating" />
+							<label for="1-stars" class="star" style="color:#ccc;">&#9733;</label>
+						</c:forEach>
+						<c:forEach begin="1" end="${5 - review.review_rating }">
+							<input type="radio" id="2-stars" name="review_rating" />
+							<label for="1-stars" class="star" style="color:#fc0;">&#9733;</label>
+						</c:forEach>
+					</div>	
 					</td>
 				</tr>
 			</table>

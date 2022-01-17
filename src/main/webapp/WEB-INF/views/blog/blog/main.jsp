@@ -31,7 +31,7 @@
 				
 				</div>
 			</div>
-			<br>
+			
 			</c:forEach>
 			<br>
 			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">±Û¾²±â</button></a>

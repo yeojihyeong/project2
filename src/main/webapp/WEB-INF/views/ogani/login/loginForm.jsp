@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 
 <section class="breadcrumb-section set-bg" data-setbg="resources/ogani/img/breadcrumb.jpg">
@@ -30,7 +31,7 @@
                 <div class="col-lg-12">
                     <h6><span class="icon_tag_alt"></span> 계정이 없으신가요? <a href="joinForm.do">지금 가입하기</a>
                     </h6>
-                </div>
+                </div>       
             </div>
             <div class="row">
             <div class="col-lg-6" style="float: none; margin: 0 auto;">

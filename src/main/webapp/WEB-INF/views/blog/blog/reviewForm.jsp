@@ -6,13 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/blog/css/fontawesome-stars.css">
-<script type="text/javascript" src="resources/blog/js/jquery.barrating.min.js"></script>
+<script type="text/javascript" src="resources/blog/js/jquery.barrating.min.js"></script> -->
 
-<script type="text/javascript">
+<script>
 
 $(document).ready(function(){
+	
 	$('input[type="checkbox"][id="book_select"]').click(function(){
 		if($(this).prop('checked')){
 			$('input[type="checkbox"][id="book_select"]').prop('checked', false);
@@ -20,16 +21,10 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#example').barrating({
-		theme:'fontawesome-stars'
-		, onSelect: function(value, text, event){
-			if(typeof(event) !== 'undifined'){
-				$('#star_value').attr('value', value);
-			}
-		}
-	});
 });
+
 </script>
+
 </head>
 <style>
 table{
@@ -67,23 +62,57 @@ textarea:focus{
 	resize: nono;
 }
 
+.star-rating {
+  
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+}
+
 </style>
 <body>
 <div class="col-lg-8">
 		<form class="review" action="reviewInsert.do" method="post">
-			<p><textarea id="ta_title" name="review_title"placeholder="제목"></textarea>
+			<textarea id="ta_title" name="review_title"placeholder="제목"></textarea><br>
 			<hr>
-			<p><textarea id="ta_content" name="review_content" placeholder="내용을 입력하세요"></textarea>
+			<textarea id="ta_content" name="review_content" placeholder="내용을 입력하세요"></textarea>
 			<p><input id="book__title" disabled></p>
 			
-			<select id="example">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-			<p><input id="star_value" name="review_rating" type="hidden"></p>
+			<div class="star-rating">
+				<input type="radio" id="5-stars" name="review_rating" value="5" />
+				<label for="5-stars" class="star">&#9733;</label>
+				<input type="radio" id="4-stars" name="review_rating" value="4" />
+				<label for="4-stars" class="star">&#9733;</label>
+				<input type="radio" id="3-stars" name="review_rating" value="3" />
+				<label for="3-stars" class="star">&#9733;</label>
+				<input type="radio" id="2-stars" name="review_rating" value="2" />
+				<label for="2-stars" class="star">&#9733;</label>
+				<input type="radio" id="1-stars" name="review_rating" value="1" />
+				<label for="1-stars" class="star">&#9733;</label>
+			</div>
+
 			<p><input id="book__isbn" name="book_isbn" type="hidden"></p>
 			<p><button type="button" class="btn btn-secondary" id="book_search_btn">책 검색하기</button>
 			<button type="submit" class="btn btn-dark">작성</button></p>
@@ -156,9 +185,36 @@ textarea:focus{
 		
 		var bookData = [col1, col2, col3, col4, col5, col6, col7];
 		console.log(bookData);
+
+		$.ajax({
+			url: "ajaxbookSearch.do",
+			type: "POST",
+			data:{"book_isbn" : col5 },
+			success : function(result){
+				console.log("result" + result);
+				if(result){
+					
+					insert();
+				}else{
+					alert("등록되었습니다.");
+					$('input[id=book__title]').attr('value', col1);
+					$('input[id=book__isbn]').attr('value', col5);
+				}
+			},
+			
+			error:function(error){
+				console.log(error);
+				alert("실패");
+			}
+		});
 		
 		
 		
+		var insert = function(){
+			
+		
+	
+			
 		$.ajax({
 			url: "bookSearchInsert.do",
 			type: "POST",
@@ -177,7 +233,9 @@ textarea:focus{
 				console.log(error);
 				alert("실패");
 			}
-		})
+		});
+		
+		}
 		
 	});
 
