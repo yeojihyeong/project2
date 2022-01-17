@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.micol.prj.blog.service.BlogService;
 import co.micol.prj.book.service.BookService;
+import co.micol.prj.genre.service.GenreService;
 
 @Controller
 public class HomeController {
@@ -16,6 +17,10 @@ public class HomeController {
 	  private BlogService blogDAO;
 	 @Autowired
 	 private BookService bookDao;
+	@Autowired
+	private GenreService genreDao;
+	 
+
 	
 	@RequestMapping("/home.do")
 	public String home(Model model) {
@@ -26,13 +31,17 @@ public class HomeController {
 		//도서 정보 불러오기
 		model.addAttribute("searchbook", bookDao.bookSelectList());
 		
-		/*
-		 * model.addAttribute("searchOnebook", bookDao.bookSearchOne());
-		 * 
-		 * model.addAttribute("searchTwobook", bookDao.bookSearchTwo());
-		 * 
-		 * model.addAttribute("searchThreebook", bookDao.bookSearchThree());
-		 */		
+		model.addAttribute("searchSelectOne", bookDao.bookSearchOne());
+		
+		model.addAttribute("searchSelectTwo", bookDao.bookSearchTwo());
+		
+		model.addAttribute("searchSelectThree", bookDao.bookSearchThree());
+		
+		model.addAttribute("genre", genreDao.genreSelectList());
+				
+		model.addAttribute("searchBlogThree", blogDAO.searchListThree());
+		
+		 System.out.println(blogDAO.searchListThree()); 
 		return "ogani/home/home";
 	}
 	

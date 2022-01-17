@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +73,7 @@
 	<!-- Categories Section End -->
 
 	<!-- Featured Section Begin -->
-	
+
 	<!-- Featured Section End -->
 
 	<!-- Banner Begin -->
@@ -85,16 +85,6 @@
 						<h2>장르별 추천도서</h2>
 					</div>
 				</div>
-				<!-- <div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="resources/ogani/img/banner/banner-1.jpg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="resources/ogani/img/banner/banner-2.jpg" alt="">
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</section>
@@ -106,16 +96,22 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="latest-product__text">
-						<h4>장르1</h4>
+						<c:forEach items="${ searchSelectOne}" var="searchOne">
+							<c:forEach items="${ genre}" var="genre">
+								<c:if test="${searchOne.book_cheonggu eq genre.genre_id}">
+									<h4>${genre.genre_name}</h4>
+								</c:if>	
+							</c:forEach>
+						</c:forEach>
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
+							
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
 										<img src="resources/ogani/img/latest-product/lp-1.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
 										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
@@ -135,6 +131,19 @@
 									</div>
 								</a>
 							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="latest-product__text">
+						<c:forEach items="${ searchSelectTwo}" var="searchTwo">
+							<c:forEach items="${genre}" var="genre">
+								<c:if test="${searchTwo.book_cheonggu eq genre.genre_id}">
+									<h4>${genre.genre_name}</h4>
+								</c:if>
+							</c:forEach>
+						</c:forEach>
+						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
@@ -167,96 +176,14 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="latest-product__text">
-						<h4>장르 2</h4>
+						<c:forEach items="${ searchSelectThree}" var="searchThree">
+							<c:forEach items="${genre}" var="genre">
+								<c:if test="${searchThree.book_cheonggu eq genre.genre_id}">
+									<h4>${genre.genre_name}</h4>
+								</c:if>
+							</c:forEach>
+						</c:forEach>
 						<div class="latest-product__slider owl-carousel">
-							<div class="latest-prdouct__slider__item">
-								<a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-1.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-2.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-3.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a>
-							</div>
-							<div class="latest-prdouct__slider__item">
-								<a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-1.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-2.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-3.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="latest-product__text">
-						<h4>장르3</h4>
-						<div class="latest-product__slider owl-carousel">
-							<div class="latest-prdouct__slider__item">
-								<a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-1.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-2.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-3.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a>
-							</div>
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
@@ -298,71 +225,36 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title from-blog__title">
-						<h2>블로그  3개 가져오기</h2>
+						<h2>블로그</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
+			<c:forEach items="${searchbook }" var="book">
+				<c:forEach items="${searchBlogThree }" var="blogThree">
+				<c:if test="${blogThree.book_isbn eq book.book_isbn }">
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<div class="blog__item">
 						<div class="blog__item__pic">
-							<img src="resources/ogani/img/blog/blog-1.jpg" alt="">
+							<img src= "${book.book_picture }" alt="">
 						</div>
 						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
+
 							<h5>
-								<a href="#">Cooking tips make cooking simple</a>
+								<a href="#">${blogThree.review_title } </a>
 							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="resources/ogani/img/blog/blog-2.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">6 ways to prepare breakfast for 30</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="resources/ogani/img/blog/blog-3.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">Visit the clean farm in the US</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
+				</c:if>
+				</c:forEach>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
 	<!-- Blog Section End -->
 
-<section class="featured spad">
+	<section class="featured spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -372,26 +264,26 @@
 				</div>
 			</div>
 			<div class="row featured__filter">
-			<c:forEach items="${ searchbook}" var="book" >
-				<c:forEach items="${ searchBlog}" var="blog">
-				<c:if test="${blog.book_isbn eq book.book_isbn }">
-				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="${book.book_picture }">
-							<ul class="featured__item__pic__hover">
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-							<a href="#">${book.book_name }</a>
-							</h6>
-						</div>
-					</div>
-				</div>
-				</c:if>
-			</c:forEach>
-			</c:forEach>
+				<c:forEach items="${ searchbook}" var="book">
+					<c:forEach items="${ searchBlog}" var="blog">
+						<c:if test="${blog.book_isbn eq book.book_isbn }">
+							<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+								<div class="featured__item">
+									<div class="featured__item__pic set-bg"
+										data-setbg="${book.book_picture }">
+										<ul class="featured__item__pic__hover">
+										</ul>
+									</div>
+									<div class="featured__item__text">
+										<h6>
+											<a href="#">${book.book_name }</a>
+										</h6>
+									</div>
+								</div>
+							</div>
+						</c:if>
+					</c:forEach>
+				</c:forEach>
 			</div>
 		</div>
 	</section>

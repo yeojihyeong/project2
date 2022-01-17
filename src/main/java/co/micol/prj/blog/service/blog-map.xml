@@ -41,7 +41,8 @@
 		WHERE B.BLOG_ID=#{blog_id}
 	</select>
 
-	<insert id="blogInsert" parameterType="co.micol.prj.blog.service.BlogVO">
+	<insert id="blogInsert"
+		parameterType="co.micol.prj.blog.service.BlogVO">
 		INSERT INTO BLOG (BLOG_ID, MEMBER_ID, BOOK_ISBN,
 		REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE, REVIEW_RATING, REVIEW_CNT)
 		VALUES (blog_seq.nextval, #{member_id}, #{book_isbn}, #{review_title},
@@ -91,7 +92,7 @@
 		FROM BLOG
 		ORDER BY REVIEW_CNT DESC
 		)
-	<![CDATA[WHERE ROWNUM<=8]]>	
+	<![CDATA[WHERE ROWNUM<=8]]>
 	</select>
 
 
@@ -152,4 +153,16 @@
 
 	<!-- 댓글 입력 기능 -->
 
+	<select id="searchListThree"
+		resultType="co.micol.prj.blog.service.BlogVO">
+		SELECT *
+		FROM
+		(SELECT *
+		FROM BLOG
+		ORDER BY review_cnt DESC
+		)
+		WHERE ROWNUM <![CDATA[<= 3]]>
+
+
+	</select>
 </mapper>

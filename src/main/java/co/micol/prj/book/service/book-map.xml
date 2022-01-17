@@ -2,11 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.prj.book.service.BookMapper">
 
-	<select id="isBookCheck" parameterType="String" resultType="boolean">
-	select case when count(book_isbn) = 1 then 0 else 1 end as book_isbn
-	from book where book_isbn = #{book_isbn}
+	<select id="isBookCheck" parameterType="String"
+		resultType="boolean">
+		select case when count(book_isbn) = 1 then 0 else 1 end as book_isbn
+		from book where book_isbn = #{book_isbn}
 	</select>
-	
+
 	<select id="bookSearchList"
 		resultType="co.micol.prj.main.service.BookVO">
 		SELECT * FROM BOOK
@@ -65,7 +66,48 @@
 	</update>
 
 	<!-- 가장 많은 도서 장르 -->
-	<select id="bookSearchOne" resultType="co.micol.prj.book.service.BookVO">
+	<select id="bookSearchOne"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM
+		(SELECT BOOK_CHEONGGU
+		FROM BOOK
+		GROUP BY BOOK_CHEONGGU
+		ORDER
+		BY COUNT(BOOK_CHEONGGU) DESC
+		)
+		WHERE ROWNUM<![CDATA[<=1]]>
+
+	</select>
+
+
+	<!-- 두번째로 많은 도서 장르 -->
+	<select id="bookSearchTwo"
+		resultType="co.micol.prj.book.service.BookVO">
+
+		SELECT *
+		FROM(
+		SELECT *
+		FROM
+		(SELECT BOOK_CHEONGGU
+		FROM BOOK
+		GROUP BY BOOK_CHEONGGU
+		ORDER BY <![CDATA[COUNT]]>(BOOK_CHEONGGU) DESC
+		)
+		WHERE ROWNUM<![CDATA[<=2]]>
+		ORDER BY ROWNUM DESC
+		)
+		WHERE ROWNUM<![CDATA[<=1]]>
+
+
+	</select>
+
+	<!-- 세번째로 많은 도서 장르 -->
+
+	<select id="bookSearchThree"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM(
 		SELECT *
 		FROM
 		(SELECT BOOK_CHEONGGU
@@ -74,48 +116,10 @@
 		BOOK_CHEONGGU
 		ORDER BY COUNT(BOOK_CHEONGGU) DESC
 		)
-		WHERE <![CDATA[ROWNUM<=1]]>
-
-	</select>
-
-
-	<!-- 두번째로 많은 도서 장르 -->
-	<select id="bookSearchTwo" resultType="co.micol.prj.book.service.BookVO">
-		SELECT *
-		FROM(
-		SELECT *
-		FROM
-		(SELECT BOOK_CHEONGGU
-		FROM
-		BOOK
-		GROUP BY BOOK_CHEONGGU
-		ORDER BY COUNT(BOOK_CHEONGGU) DESC
-		)
-		WHERE
-		<![CDATA[ROWNUM<=2]]>
+		WHERE ROWNUM<![CDATA[<=3]]>
 		ORDER BY ROWNUM DESC
 		)
-		<![CDATA[WHERE ROWNUM<=1]]>
-
-
-	</select>
-
-	<!-- 세번째로 많은 도서 장르 -->
-
-	<select id="bookSearchThree" resultType="co.micol.prj.book.service.BookVO">
-		SELECT *
-		FROM(
-		SELECT *
-		FROM
-		(SELECT BOOK_CHEONGGU
-		FROM BOOK
-		GROUP BY BOOK_CHEONGGU
-		ORDER BY COUNT(BOOK_CHEONGGU) DESC
-		)
-		WHERE <![CDATA[ROWNUM<=3]]>
-		ORDER BY ROWNUM DESC
-		)
-		WHERE <![CDATA[ROWNUM<=1]]>
+		WHERE ROWNUM<![CDATA[<=1]]>
 	</select>
 
 </mapper>

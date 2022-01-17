@@ -9,6 +9,7 @@
 		<put-attribute name="title" value="MyWeb" />
 		<put-attribute name="header" value="/WEB-INF/tiles/ogani/header.jsp" />
 		<put-attribute name="body"	value="/WEB-INF/views/ogani/{1}/{2}.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/tiles/ogani/nav.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/ogani/footer.jsp" />
 	</definition>
 

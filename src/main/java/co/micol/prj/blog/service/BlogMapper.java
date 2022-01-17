@@ -36,4 +36,7 @@ public interface BlogMapper {
 	
 	List<BlogVO> searchList();
 	
+	// 상위 3개
+	List<BlogVO> searchListThree();
+	
 }
