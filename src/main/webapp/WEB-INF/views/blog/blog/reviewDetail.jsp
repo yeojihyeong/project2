@@ -14,7 +14,7 @@
 				<!-- Post meta content-->
 				<div class="text-muted fst-italic mb-2">Posted on
 					${review.review_date }</div>
-				<h6>조회수 (${review.review_cnt }) 좋아요 (${review.review_like })</h6>
+				<h6>조회수 (${review.review_cnt })</h6>
 
 			</header>
 			<!-- Preview image figure-->

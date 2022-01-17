@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -23,11 +23,11 @@
 				<div class="card-body">
 					<div class="small text-muted">${list.review_date }</div>
 					<h2 class="card-title h4">${list.review_title }</h2>
-					<a class="btn btn-primary" href="#!">Read more ¡æ</a>
+					<a class="btn btn-primary" href="#!">Read more â†’</a>
 				</div>
 			</div>
 			</c:forEach>
-			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">±Û¾²±â</button></a>
+			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">ê¸€ì“°ê¸°</button></a>
 		</div>
 	</div>
 	<!-- Pagination-->
