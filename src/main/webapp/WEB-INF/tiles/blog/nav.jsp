@@ -24,7 +24,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" href="home.do">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Join</a></li>
+					<li class="nav-item"><a class="nav-link" href="join.do">Join</a></li>
 					<li class="nav-item"><a class="nav-link" href="loginForm.do">Login</a></li>
 				</ul>
 			</div>

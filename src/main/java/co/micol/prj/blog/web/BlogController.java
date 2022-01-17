@@ -23,8 +23,13 @@ import co.micol.prj.blog.service.BlogMapper;
 import co.micol.prj.blog.service.BlogService;
 import co.micol.prj.blog.service.BlogVO;
 import co.micol.prj.book.service.BookService;
+import co.micol.prj.doneread.service.DonereadService;
+import co.micol.prj.following.service.FollowingMapper;
+import co.micol.prj.following.service.FollowingService;
+import co.micol.prj.following.service.ViewFollowVO;
 import co.micol.prj.member.service.MemberService;
 import co.micol.prj.member.service.MemberVO;
+import co.micol.prj.onread.service.OnreadService;
 import co.micol.prj.utils.PagingVO;
 import co.micol.prj.wish.service.WishMapper;
 import co.micol.prj.wish.service.WishService;
@@ -44,18 +49,19 @@ public class BlogController {
 	private WishService wishDAO;
 
 	@Autowired
+	private OnreadService readingDAO;
+
+	@Autowired
+	private DonereadService donereadDAO;
+
+	@Autowired
 	private BlogMapper mapper;
+	
+	@Autowired
+	private FollowingService followDAO;
 
-	@RequestMapping("/wishBook.do")
-	public String blog_wish(Model model, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-
-		String id = (String) session.getAttribute("member_id");
-		System.out.println(id);
-		model.addAttribute("wish", wishDAO.wishSelectList(id));
-		System.out.println(model);
-		return "blog/blog/wishBook";
-	}
+	@Autowired
+	private FollowingMapper map;
 
 	// 블로그 홈
 	@RequestMapping("/blog_list.do")
@@ -69,8 +75,8 @@ public class BlogController {
 	// 최근 리뷰
 	@RequestMapping("/blog_recent.do")
 	public String blog_recent(Model model) {
-		List<BlogVO> list = mapper.recentReview();
-		model.addAttribute("list", list);
+		List<BlogVO> recent = mapper.recentReview();
+		model.addAttribute("recent", recent);
 		return "ogani/blog/blogRecent";
 	}
 
@@ -101,12 +107,12 @@ public class BlogController {
 	}
 
 	// 게시글 상세 조회 + 조회수 증가
-	@GetMapping(value="/reviewDetailSelect.do")
+	@GetMapping(value = "/reviewDetailSelect.do")
 	public ModelAndView detail(@RequestParam("blog_id") String blog_id, Model model) {
 		System.out.println(blog_id);
-		
+
 		blogDAO.updateReviewCnt(blog_id);
-		
+
 		return new ModelAndView("blog/blog/reviewDetail", "review", blogDAO.reviewDetailSelect(blog_id));
 	}
 
@@ -118,42 +124,63 @@ public class BlogController {
 		System.out.println(search);
 		return "blog/blog/reviewSearch";
 	}
-	
-	// 검색 - 개별 블로그에서
-	
-	
+
+	@RequestMapping("/wishBook.do")
+	public String blog_wish(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+
+		String id = (String) session.getAttribute("member_id");
+
+		model.addAttribute("wish", wishDAO.wishSelectList(id));
+		return "blog/blog/wishBook";
+	}
+
 	@RequestMapping("/readingBook.do")
-	public String blog_reading() {
+	public String blog_reading(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+
+		String id = (String) session.getAttribute("member_id");
+
+		model.addAttribute("reading", readingDAO.onreadSelectList(id));
 		return "blog/blog/readingBook";
 	}
 
 	@RequestMapping("/readBook.do")
-	public String blog_read() {
+	public String blog_read(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+
+		String id = (String) session.getAttribute("member_id");
+
+		model.addAttribute("read", donereadDAO.donereadSelectList(id));
+
 		return "blog/blog/readBook";
 	}
 
-	@RequestMapping("/readingStat.do")
-	public String blog_stat() {
-		return "blog/blog/readgingStat";
-	}
-
 	@RequestMapping("/following.do")
-	public String blog_follow() {
+	public String followSelect(Model model, HttpServletRequest request) {
+
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("member_id");
+
+		System.out.println(id);
+
+		List<ViewFollowVO> follower = map.followSelect();
+		model.addAttribute("follower", follower);
 		return "blog/blog/following";
 	}
-	
+
 	@RequestMapping("/reviewForm.do")
 	public String reviewInsertForm() {
 		return "blog/blog/reviewForm";
 	}
-	
+
 	@PostMapping("/reviewInsert.do")
 	public String reviewInsert(BlogVO blog, HttpSession session) {
 		
 		String id = (String) session.getAttribute("member_id");
 		blog.setMember_id(id);
 		blogDAO.blogInsert(blog);
-		
+
 		return "redirect:blog_home.do";
 	}
 }

@@ -23,16 +23,17 @@ public class WishServiceImpl implements WishService{
 		return map.wishInsert(wish);
 	}
 
-	@Override
-	public int wishDelete(WishVO wish) {
-		// TODO Auto-generated method stub
-		return map.wishDelete(wish);
-	}
-
+	
 	@Override
 	public List<ViewWishVO> wishSelectList(String id) {
 		// TODO Auto-generated method stub
 		return map.wishSelectList(id);
+	}
+
+	@Override
+	public int wishDelete(String wish_id) {
+		// TODO Auto-generated method stub
+		return map.wishDelete(wish_id);
 	}
 	
 }

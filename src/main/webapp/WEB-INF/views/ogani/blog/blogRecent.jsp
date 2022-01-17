@@ -1,19 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="utf-8"%>
+	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
- <link rel="stylesheet" href="resources/ogani/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/ogani/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/ogani/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/ogani/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/ogani/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/ogani/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/ogani/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/ogani/css/style.css" type="text/css">
 </head>
 <body>
 	<!-- Breadcrumb Section Begin -->
@@ -39,12 +31,12 @@
 		<div class="container"></div>
 		<div class="col-lg-8 col-md-7">
 			<h2>
-				<a href="blog_list.do">í™”ì œì˜ í¬ìŠ¤íŒ…</a> &nbsp;&nbsp;&nbsp; <a
-					href="blog_recent.do">ìµœì‹  í¬ìŠ¤íŒ…</a>
+				<a href="blog_list.do">È­Á¦ÀÇ Æ÷½ºÆÃ</a> &nbsp;&nbsp;&nbsp; <a
+					href="blog_recent.do">ÃÖ½Å Æ÷½ºÆÃ</a>
 			</h2>
 
 			<div class="row" style="margin-top: 40px;">
-				<c:forEach items="${list }" var="list">
+				<c:forEach items="${recent }" var="recent">
 					<div class="col-lg-4 col-md-4 col-sm-4">
 						<div class="blog__item">
 							<div class="blog__item__pic">
@@ -53,15 +45,15 @@
 							<div class="blog__item__text">
 								<ul>
 									<li><i class="fa fa-calendar-o"></i> <c:out
-											value="${list.review_date}" /></li>
+											value="${recent.review_date}" /></li>
 								</ul>
 								<h5>
-									<c:out value="${list.review_title}" />
+									<c:out value="${recent.review_title}" />
 								</h5>
 
 								<form action="reviewDetailSelect.do" method="get">
 									<input type="hidden" name="blog_id" id="blog_id"
-										value="${list.blog_id }"> <input type="submit"
+										value="${recent.blog_id }"> <input type="submit"
 										value="READ MORE">
 								</form>
 							</div>
@@ -72,9 +64,7 @@
 		</div>
 		<div id="aside_home" class="col-lg-3"
 			style="float: right; top: -1700px; margin-right: 10px">
-			<c:if test="${member_id  ne null}">
 			<a href="blog_home.do" class="blog__btn">Go to my booklog </a>
-			</c:if>
 			<form name="blogForm" action="reviewSearch.do" method="get">
 				<input class="form-control" type="text" value="${searchValue }"
 					placeholder="Enter search term..."
