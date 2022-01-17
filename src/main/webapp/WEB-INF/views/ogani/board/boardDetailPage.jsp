@@ -13,6 +13,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
 	crossorigin="anonymous"></script>
 <style>
+
 .btn {
 	font-size: 14px;
 	color: #ffffff;
@@ -24,10 +25,19 @@
 	border: none;
 }
 
+#commbtn {
+	margin-left: 10px;
+}
+
+#editbtn {
+	margin: 5px;
+}
 .button {
+	
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
 </style>
 </head>
 <body>
@@ -66,16 +76,44 @@
 					<br>
 					<div class="button"
 						style="display: flex; justify-content: flex-end;">
-						<button type="submit" class="btn"
+						<button type="submit" class="btn" id="editbtn"
 							onclick="location.href='boardUpdatePage.do?board_num=${boardDetail.board_num }'">수정하기</button>
-						<button type="submit" class="btn"
+						<button type="submit" class="btn" id="editbtn"
 							onclick="location.href='boardDelete.do?board_num=${boardDetail.board_num }'">삭제하기</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		
+
+		<!-- 댓글 -->
 
 
+      <div class="container">
+         <div class="col-lg-12">
+            <div style="margin-top: 50px; margin-bottom: 30px;">
+               <h3>댓글</h3>
+            </div>
+         </div>
+      </div>
+      <section class="mb-5">
+         <div class="card bg-light">
+            <div class="card-body">
+               <!-- Comment form-->
+            
+               <!-- Comment with nested comments-->
+               <c:forEach items="${bcommDetail }" var="detail">
+                  <div class="d-flex mb-4">
+                     <!-- Parent comment-->
+                     <div class="ms-3">
+                        <div class="fw-bold">${detail.writer }</div>
+                        ${detail.content }
+                     </div>
+                  </div>
+               </c:forEach>
+            </div>
+
+         </div>
+      </section> 
 			<!-- <div class="comm-comm">
 					<div class="grid1_of_2 left">
 				<div class="grid_img">
@@ -104,16 +142,16 @@
 					<form action="" method="post" id="commInsert"
 						name="commInsert">
 						<div>
-							Comment <input type="text" id="content" name="content"> <input
-								type="hidden" value="${boardDetail.board_num }" id="board_num" name="board_num"> <input
-								type="hidden" value="${boardDetail.board_id }" id="writer" name="writer">
-
+							Comment <input type="text" id="content" name="content"> 
+									<input type="hidden" value="${boardDetail.board_num }" id="board_num" name="board_num"> 
+									<input type="hidden" value="${boardDetail.board_id }" id="writer" name="writer">
+									<input type="button" class="btn" id="commbtn" onclick="commentInsert()" value="등록">
 						</div>
-						<input type="button" class="btn" onclick="commentInsert()" value="댓글등록">
 					</form>
 					
 				</div>
 			</div>
+	</div>
 	</div>
 	<script type="text/javascript">
 		function commentInsert() {
