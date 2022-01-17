@@ -20,9 +20,19 @@ public class HomeController {
 	@RequestMapping("/home.do")
 	public String home(Model model) {
 		
+		//블로그 정보 불러오기
 		model.addAttribute("searchBlog",blogDAO.searchList());
+		
+		//도서 정보 불러오기
 		model.addAttribute("searchbook", bookDao.bookSelectList());
 		
+		/*
+		 * model.addAttribute("searchOnebook", bookDao.bookSearchOne());
+		 * 
+		 * model.addAttribute("searchTwobook", bookDao.bookSearchTwo());
+		 * 
+		 * model.addAttribute("searchThreebook", bookDao.bookSearchThree());
+		 */		
 		return "ogani/home/home";
 	}
 	
