@@ -23,6 +23,10 @@
 	background: #7fad39;
 	border: none;
 }
+
+.button {
+	margin-top: 20px;
+}
 </style>
 </head>
 <body>
@@ -43,7 +47,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="featured spad">
 		<div class="container">
 			<div class="row">
@@ -55,29 +59,43 @@
 			</div>
 		</div>
 	</section>
-	
-	<div class="container">
-		<div class="col-lg-12">
-			<div>
-				<div>
-					제목: <input type="text" id="notice_title" name="notice_title"
-						value="${noticeDetail.notice_title }" readonly="readonly"><br>
-					내용<br>
-					<textarea name="notice_content" id="notice_content" rows="10"
-						cols="130" readonly="readonly">${noticeDetail.notice_content }</textarea>
-					<br>
 
-					<div class="button"
-						style="display: flex; justify-content: flex-end;">
-						<button type="submit" class="btn" style="margin-right: 7px"
-							onclick="location.href='noticeUpdatePage.do?notice_num=${noticeDetail.notice_num}'">수정하기</button>
-						<button type="submit" class="btn"
-							onclick="location.href='noticeDelete.do?notice_num=${noticeDetail.notice_num}'">삭제하기</button>
+	<section class="blog spad">
+		<div class="container">
+			<div class="row">
+				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
+					<div id="layoutSidenav_content">
+						<main>
+							<div class="container-fluid px-4">
+								<div class="card mb-4">
+									<div class="card-body">
+										<div>
+											제목: <input type="text" id="notice_title" name="notice_title"
+												value="${noticeDetail.notice_title }" readonly="readonly"><br>
+											내용<br>
+											<textarea name="notice_content" id="notice_content" rows="10"
+												cols="130" readonly="readonly">${noticeDetail.notice_content }</textarea>
+											<br>
+											<c:if test="${sessionScope.member_author eq 'admin' }">
+												<div class="button"
+													style="display: flex; justify-content: flex-end;">
+													<button type="submit" class="btn" style="margin-right: 7px"
+														onclick="location.href='noticeUpdatePage.do?notice_num=${noticeDetail.notice_num}'">수정하기</button>
+													<button type="submit" class="btn"
+														onclick="location.href='noticeDelete.do?notice_num=${noticeDetail.notice_num}'">삭제하기</button>
+												</div>
+											</c:if>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</main>
 					</div>
 				</div>
-
 			</div>
 		</div>
-	</div>
+	</section>
+
 </body>
 </html>

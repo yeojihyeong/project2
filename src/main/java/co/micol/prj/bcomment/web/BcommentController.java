@@ -1,5 +1,7 @@
 package co.micol.prj.bcomment.web;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +23,10 @@ public class BcommentController {
 	@RequestMapping("commentInsert.do")
 	public String commentInsert(@RequestParam("content") String content, 
 			@RequestParam("board_num") String board_num, 
-			@RequestParam("writer") String writer, BcommentVO bcomm) {
-		System.out.println(content);
-		System.out.println(board_num);
-		System.out.println(writer);
+			@RequestParam("writer") String writer, BcommentVO bcomm, HttpSession session) {
 		bcomm.setContent(content);
 		bcomm.setBoard_num(board_num);
-		bcomm.setWriter(writer);
+		bcomm.setWriter((String) session.getAttribute("member_id"));
 		
 		bcommentDao.bcommentInsert(bcomm);
 		

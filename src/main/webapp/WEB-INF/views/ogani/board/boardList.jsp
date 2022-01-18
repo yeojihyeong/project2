@@ -111,9 +111,11 @@ thead>tr, tfoot>tr {
 												</c:forEach>
 											</tbody>
 										</table>
-										<div class="button" style="display: flex; justify-content: flex-end;">
-										<button type="button" class="btn" onclick="location.href='boardInsertPage.do'">글쓰기</button>
-										</div>
+										<c:if test="${sessionScope.member_author eq 'admin' || sessionScope.member_author eq 'user' }">
+											<div class="button" style="display: flex; justify-content: flex-end;">
+												<button type="button" class="btn" onclick="location.href='boardInsertPage.do'">글쓰기</button>
+											</div>
+										</c:if>
 									</div>
 								</div>
 							</div>

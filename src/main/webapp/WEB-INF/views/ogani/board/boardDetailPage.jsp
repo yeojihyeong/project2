@@ -13,7 +13,6 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
 	crossorigin="anonymous"></script>
 <style>
-
 .btn {
 	font-size: 14px;
 	color: #ffffff;
@@ -32,12 +31,10 @@
 #editbtn {
 	margin: 5px;
 }
-.button {
-	
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
 
+.button {
+	margin-top: 20px;
+}
 </style>
 </head>
 <body>
@@ -58,7 +55,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="featured spad">
 		<div class="container">
 			<div class="row">
@@ -70,32 +67,48 @@
 			</div>
 		</div>
 	</section>
-	
-	<div class="container">
-		<div class="col-lg-12">
-			
-			<div>
-				<div>
-					<img src="resources/ogani/img/board/${boardDetail.board_picture }"
-						width="" height="" alt=""> 제목: <input type="text"
-						id="board_title" name="board_title"
-						value="${boardDetail.board_title }" readonly="readonly"><br>
-					내용<br>
-					<textarea name="board_content" id="board_content" rows="10"
-						cols="130" readonly="readonly">${boardDetail.board_content }</textarea>
-					<br>
-					<div class="button"
-						style="display: flex; justify-content: flex-end;">
-						<button type="submit" class="btn" id="editbtn"
-							onclick="location.href='boardUpdatePage.do?board_num=${boardDetail.board_num }'">수정하기</button>
-						<button type="submit" class="btn" id="editbtn"
-							onclick="location.href='boardDelete.do?board_num=${boardDetail.board_num }'">삭제하기</button>
+
+	<section class="blog spad">
+		<div class="container">
+			<div class="row">
+				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
+					<div id="layoutSidenav_content">
+						<main>
+							<div class="container-fluid px-4">
+								<div class="card mb-4">
+									<div class="card-body">
+
+										<div>
+											<img
+												src="resources/ogani/img/board/${boardDetail.board_picture }"
+												width="" height="" alt=""> 제목: <input type="text"
+												id="board_title" name="board_title"
+												value="${boardDetail.board_title }" readonly="readonly"><br>
+											내용<br>
+											<textarea name="board_content" id="board_content" rows="10"
+												cols="130" readonly="readonly">${boardDetail.board_content }</textarea>
+											<br>
+											<c:if test="${sessionScope.member_id eq boardDetail.board_id }">
+												<div class="button"
+													style="display: flex; justify-content: flex-end;">
+													<button type="submit" class="btn" id="editbtn"
+														onclick="location.href='boardUpdatePage.do?board_num=${boardDetail.board_num }'">수정하기</button>
+													<button type="submit" class="btn" id="editbtn"
+														onclick="location.href='boardDelete.do?board_num=${boardDetail.board_num }'">삭제하기</button>
+												</div>
+											</c:if>
+										</div>
+									</div>
+								</div>
+							</div>
+						</main>
 					</div>
 				</div>
 			</div>
-		
+		</div>
+	</section>
 
-		<!-- 댓글 -->
+	<!-- 댓글 -->
 	<section class="featured spad">
 		<div class="container">
 			<div class="row">
@@ -108,82 +121,65 @@
 		</div>
 	</section>
 
-      <div class="container">
-      </div>
-      <section class="mb-5">
-         <div class="card bg-light">
-            <div class="card-body">
-               <!-- Comment form-->
-            
-               <!-- Comment with nested comments-->
-               <c:forEach items="${bcommDetail }" var="detail">
-                  <div class="d-flex mb-4">
-                     <!-- Parent comment-->
-                     <div class="ms-3">
-                        <div class="fw-bold">${detail.writer }</div>
-                        ${detail.content }
-                     </div>
-                  </div>
-               </c:forEach>
-            </div>
+	<div class="container"></div>
+	<section class="mb-5">
+		<div class="card bg-light">
+			<div class="card-body">
+				<!-- Comment form-->
 
-         </div>
-      </section> 
-			<!-- <div class="comm-comm">
-					<div class="grid1_of_2 left">
-				<div class="grid_img">
-					<a href=""><img src="images/pic10.jpg" alt=""></a>
-				</div>
-				<div class="grid_text">
-					<h4 class="style1 list">
-						<a href="#">Designer First</a>
-					</h4>
-					<h3 class="style">march 3, 2013 - 4.00 PM</h3>
-					<p class="para top">All the Lorem Ipsum generators on the
-						Internet tend to repeat predefined chunks as necessary, making
-						this the first true generator on the Internet. It uses a
-						dictionary of over 200 Latin words, combined with a handful of
-						model sentence structures, to generate Lorem Ipsum which looks
-						reasonable.</p>
-					<a href="" class="btn1">Click to Reply</a>
-				</div>
-				<div class="clear"></div>
-			</div> -->
-
-			<div class="artical-commentbox">
-				<h4>댓글입력</h4>
-				<div class="table-form">
-				
-					<form action="" method="post" id="commInsert"
-						name="commInsert">
-						<div>
-							Comment <input type="text" id="content" name="content"> 
-									<input type="hidden" value="${boardDetail.board_num }" id="board_num" name="board_num"> 
-									<input type="hidden" value="${boardDetail.board_id }" id="writer" name="writer">
-									<input type="button" class="btn" id="commbtn" onclick="commentInsert()" value="등록">
+				<!-- Comment with nested comments-->
+				<c:forEach items="${bcommDetail }" var="detail">
+					<div class="d-flex mb-4">
+						<!-- Parent comment-->
+						<div class="ms-3">
+							<div class="fw-bold">${detail.writer }</div>
+							${detail.content }
 						</div>
-					</form>
-					
-				</div>
+					</div>
+				</c:forEach>
 			</div>
+
+		</div>
+	</section>
+	
+	<c:if test="${sessionScope.member_author eq 'user' || sessionScope.member_author eq 'admin'}">
+	<div class="artical-commentbox">
+		<h4>댓글입력</h4>
+		<div class="table-form">
+
+			<form action="" method="post" id="commInsert" name="commInsert">
+				<div>
+					Comment <input type="text" id="content" name="content"> <input
+						type="hidden" value="${boardDetail.board_num }" id="board_num"
+						name="board_num"> <input type="hidden"
+						value="${boardDetail.board_id }" id="writer" name="writer">
+					<input type="button" class="btn" id="commbtn"
+						onclick="commentInsert()" value="등록">
+				</div>
+			</form>
+
+		</div>
 	</div>
-	</div>
+	</c:if>
 	<script type="text/javascript">
 		function commentInsert() {
 			console.log($("#content").val());
-			$.ajax ({
+			$.ajax({
 				url : "commentInsert.do",
 				type : "post",
-				data : {"content" : $("#content").val(), "board_num" : $("#board_num").val(), "writer" : $("#writer").val()},
+				data : {
+					"content" : $("#content").val(),
+					"board_num" : $("#board_num").val(),
+					"writer" : $("#writer").val()
+				},
 				//dataType : "json",
 				success : function() {
 					alert("성공")
 					location.reload();
 				}
-				
+
 			});
 		}
-		
 	</script>
 </body>
 </html>

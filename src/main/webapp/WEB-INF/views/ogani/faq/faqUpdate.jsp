@@ -58,9 +58,10 @@
 							<div class="container-fluid px-4">
 								<div class="card mb-4">
 									<div class="card-body">
-										<form action="faqUpdate.do?faq_num=${faq.faq_id }"
+										<form action="faqUpdate.do?faq_id=${faq.faq_id }"
 											id="faqUpdate" name="faqUpdate">
 											<div>
+												<input type="hidden" value="${faq.faq_id }" name="faq_id" id="faq_id">
 												Question: <input type="text" name="faq_question"
 													id="faq_question"><br> Answer:<br>
 												<textarea name="faq_answer" id="faq_answer" rows="10"
