@@ -24,6 +24,7 @@ public interface BlogMapper {
 	
 	String getBlogOwner(String blog_id);
 	String getBlogId(String member_id);
+	
   
 	int updateReviewCnt(String blog_id);
   

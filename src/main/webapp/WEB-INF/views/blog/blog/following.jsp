@@ -12,20 +12,41 @@
 </style>
 </head>
 <body>
-	<h3>나의 이웃목록</h3>
-	<div class="blog__details__author">
-		<div class="blog__details__author__pic">
-			<c:forEach items="${follower }" var="follower">
-				<img id="followee_picture" alt="" src="resources/ogani/upload/${follower.memberVO.member_picture }"><br>
-						${follower.memberVO.member_name }
-	</c:forEach>
-</div>
-</div>
-	<%-- <c:forEach items="${followee }" var="followee">
-					
-				${followee.member_picture }
-				${followee.member_name }
-	</c:forEach> --%>
+	
+	<div class="col-lg-8">
+		<div class="row">
+			<div class="col-lg-4">
+				<h4>내가 팔로우한 사람</h4><br>
+				<div class="blog__details__author">
+					<div class="blog__details__author__pic">
+						<c:forEach items="${followee }" var="followee">
+							<img id="followee_picture" alt="" src="resources/ogani/upload/${followee.memberVO.member_picture }"><br>
+									${followee.memberVO.member_name }
+						</c:forEach>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+			
+			<h4>나를 팔로우한 사람</h4><br>
+				<div class="blog__details__author">
+					<div class="blog__details__author__pic">
+						<c:forEach items="${follower }" var="follower">
+							<img id="follower_picture" alt="" src="resources/ogani/upload/${follower.memberVO.member_picture }"><br>
+									${follower.memberVO.member_name }
+						</c:forEach>
+			
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<%-- <c:forEach items="${followee }" var="followee">
+						
+					${followee.member_picture }
+					${followee.member_name }
+		</c:forEach> --%>
 
 </body>
 </html>

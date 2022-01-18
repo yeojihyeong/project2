@@ -40,7 +40,6 @@
 </style>
 </head>
 <body>
-
 	<div class="col-lg-8">
 		<!-- Post content-->
 		<article>
@@ -55,11 +54,11 @@
 
 			</header>
 			<!-- Preview image figure-->
-
 			<table border="1">
 				<tr>
 					<%-- <td rowspan="4">${review.bookVO.book_picture }</td> --%>
 					<td rowspan="4"><img alt="" src="${review.bookVO.book_picture }"></td><br>
+					
 					<td>${review.bookVO.book_name }</td>
 				</tr>
 				<tr>

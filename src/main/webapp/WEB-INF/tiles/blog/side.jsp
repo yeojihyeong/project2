@@ -54,7 +54,13 @@
 					follow();
 					
 				}else{
-					alert("팔로우 할 수 없습니다.");
+					if(!confirm("팔로우를 해제하시겠습니까?")){
+						
+					}else{
+						
+						unfollow();
+					}
+					
 				}
 				
 			},error: function(error){
@@ -65,25 +71,43 @@
 		
 		var follow = function(){
 			
-		
-		
-		$.ajax({
-			url: "ajaxinsertFollow.do",
-			type: "POST",
-			data: {blog_id : $('#blog_id_for_follow').val()},
-			success: function(result){
-				console.log(result);
-				/* $('#follow_btn').attr('class', 'btn btn-outline-dark');
-				$('#follow_btn').text('팔로우해제'); */
-				alert("팔로우되었습니다.");
-				
-			},
-			error: function(error){
-				console.log(error);
-				alert("팔로우 할 수 없습니다.");
-			}
-		})
+			$.ajax({
+				url: "ajaxinsertFollow.do",
+				type: "POST",
+				data: {blog_id : $('#blog_id_for_follow').val()},
+				success: function(result){
+					console.log(result);
+					/* $('#follow_btn').attr('class', 'btn btn-outline-dark');
+					$('#follow_btn').text('팔로우해제'); */
+					alert("팔로우되었습니다.");
+					
+				},
+				error: function(error){
+					console.log(error);
+					alert("팔로우 할 수 없습니다.");
+				}
+			})
 		}
+		
+			var unfollow = function(){
+			
+				$.ajax({
+					url: "ajaxdeleteFollow.do",
+					type: "POST",
+					data: {blog_id : $('#blog_id_for_follow').val()},
+					success: function(result){
+						console.log(result);
+						alert("팔로우가 해제되었습니다.");
+						
+					},
+					error: function(error){
+						console.log(error);
+						alert("오류가 발생했습니다.");
+					}
+				})
+			}
+		
+		
 	}
 
 </script>

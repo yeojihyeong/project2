@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.prj.following.service.FollowingMapper">
 
-
+	<select id="followIdSearch" resultType="String">
+		SELECT FOLLOW_ID FROM FOLLOWING WHERE FOLLOWER = #{follower} AND FOLLOWEE = #{followee}
+	</select>
+	
 	<select id="isFollowCheck" resultType="boolean">
 		SELECT CASE WHEN COUNT(FOLLOWEE) = 1 THEN 0 ELSE 1 END AS FOLLOWEE
 		FROM FOLLOWING WHERE FOLLOWER = #{follower}
@@ -30,8 +33,10 @@
 		ON f.followee = m.member_id WHERE f.follower= #{member_id}
 	</select>
 	
-	<select id="followSelect">
-		SELECT * FROM VI_FOLLOW WHERE FOLLOWEE=#{followee}
+	<select id="followerSelect" resultMap="FollowingVO">
+		select f.follow_id, f.follower, f.followee, m.member_id, m.member_name, m.member_picture, m.member_pfile 
+		FROM following f LEFT JOIN member m
+		ON f.follower = m.member_id WHERE f.followee= #{member_id}
 	</select>
 	
 	<select id="followSelectSome">
@@ -48,8 +53,8 @@
 		INSERT INTO FOLLOWING VALUES(following_seq.nextval, #{follower}, #{followee})
 	</insert>
 	
-	<delete id="followDelete">
-		DELETE FROM FOLLOWING WHERE FOLLOW_ID={#follow_id}
+	<delete id="deleteFollow">
+		DELETE FROM FOLLOWING WHERE FOLLOW_ID= #{follow_id}
 	</delete>
 
 </mapper>

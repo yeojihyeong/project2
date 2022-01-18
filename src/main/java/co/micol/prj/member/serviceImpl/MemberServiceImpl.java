@@ -69,4 +69,10 @@ public class MemberServiceImpl implements MemberService {
 	public int memberUpdate1( MemberVO member) {
 		return map.memberUpdate1(member);
 	}
+
+	@Override
+	public String getBlogOwnerName(String member_id) {
+		// TODO Auto-generated method stub
+		return map.getBlogOwnerName(member_id);
+	}
 }

@@ -20,9 +20,9 @@ public class FollowServiceImpl implements FollowingService {
 	private FollowingMapper map;
 	
 	@Override
-	public List<ViewFollowVO> followSelect() {
+	public List<ViewFollowVO> followerSelect(String member_id) {
 		// TODO Auto-generated method stub
-		return map.followSelect();
+		return map.followerSelect(member_id);
 	}
 
 	@Override
@@ -50,15 +50,21 @@ public class FollowServiceImpl implements FollowingService {
 	}
 
 	@Override
-	public int deleteFollow(FollowingVO follow) {
+	public int deleteFollow(String follow_id) {
 		// TODO Auto-generated method stub
-		return map.deleteFollow(follow);
+		return map.deleteFollow(follow_id);
 	}
 
 	@Override
 	public boolean isFollowCheck(FollowingVO follow) {
 		// TODO Auto-generated method stub
 		return map.isFollowCheck(follow);
+	}
+
+	@Override
+	public String followIdSearch(FollowingVO follow) {
+		// TODO Auto-generated method stub
+		return map.followIdSearch(follow);
 	}
 
 }

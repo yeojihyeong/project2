@@ -113,8 +113,15 @@ public class BlogController {
 	@GetMapping(value = "/reviewDetailSelect.do")
 	public ModelAndView detail(@RequestParam("blog_id") String blog_id, Model model) {
 		System.out.println(blog_id);
-
+		
+		String owner = blogDAO.getBlogOwner(blog_id);
+		String ownerName = memberDao.getBlogOwnerName(owner);
+		
+		System.out.println("블로그주인"+ownerName);
+		
 		blogDAO.updateReviewCnt(blog_id);
+		
+		model.addAttribute("ownerName", memberDao.getBlogOwnerName(owner));
 
 		return new ModelAndView("blog/blog/reviewDetail", "review", blogDAO.reviewDetailSelect(blog_id));
 	}
@@ -168,7 +175,9 @@ public class BlogController {
 		System.out.println(id);
 
 		/* List<ViewFollowVO> follower = followDAO.followeeSelect(); */
-		model.addAttribute("follower", followDAO.followeeSelect(id));
+		model.addAttribute("followee", followDAO.followeeSelect(id));
+		model.addAttribute("follower", followDAO.followerSelect(id));
+		
 		return "blog/blog/following";
 	}
 	
@@ -176,14 +185,33 @@ public class BlogController {
 	@ResponseBody
 	public void ajaxinsertFollow(String blog_id, HttpSession session, Model model) {
 		String id = (String) session.getAttribute("member_id");
-		FollowingVO follow = new FollowingVO();
-		follow.setFollower(id);
 		String owner = blogDAO.getBlogOwner(blog_id);
+		FollowingVO follow = new FollowingVO();
+		
+		follow.setFollower(id);
 		follow.setFollowee(owner);
 		System.out.println("owner : " + owner);
-		followDAO.insertFollow(follow);
-		model.addAttribute("owner", owner);
 		
+		followDAO.insertFollow(follow);
+		
+		model.addAttribute("owner", owner);
+	}
+	
+	@PostMapping("/ajaxdeleteFollow.do")
+	@ResponseBody
+	public void ajaxdeleteFollow(String blog_id, HttpSession session) {
+		String id = (String) session.getAttribute("member_id");
+		String owner = blogDAO.getBlogOwner(blog_id);
+		FollowingVO follow = new FollowingVO();
+		
+		follow.setFollower(id);
+		follow.setFollowee(owner);
+		System.out.println("unfollow owner : " + owner);
+		
+		String follow_id = followDAO.followIdSearch(follow);
+		
+		System.out.println("팔로우아이디 : " + follow_id);
+		followDAO.deleteFollow(follow_id);
 	}
 	
 	@PostMapping("/ajaxIsFollowCheck.do")

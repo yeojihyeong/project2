@@ -26,6 +26,7 @@ public interface BlogService {
 	String getBlogOwner(String blog_id);
 	String getBlogId(String member_id);
 	
+	
 	//조회수 증가
 	int updateReviewCnt(String blog_id);
 

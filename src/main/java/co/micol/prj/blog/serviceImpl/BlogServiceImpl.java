@@ -111,4 +111,5 @@ public class BlogServiceImpl implements BlogService {
 		return map.getBlogId(member_id);
 	}
 
+	
 }
