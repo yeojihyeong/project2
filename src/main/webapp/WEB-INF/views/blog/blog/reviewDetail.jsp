@@ -11,7 +11,7 @@
 .star-rating {
   
   display:flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   font-size:1.5em;
   justify-content:space-around;
   padding:0 .2em;
@@ -40,7 +40,6 @@
 </style>
 </head>
 <body>
-
 	<div class="col-lg-8">
 		<!-- Post content-->
 		<article>
@@ -55,11 +54,11 @@
 
 			</header>
 			<!-- Preview image figure-->
-
 			<table border="1">
 				<tr>
 					<%-- <td rowspan="4">${review.bookVO.book_picture }</td> --%>
 					<td rowspan="4"><img alt="" src="${review.bookVO.book_picture }"></td><br>
+					
 					<td>${review.bookVO.book_name }</td>
 				</tr>
 				<tr>
@@ -73,11 +72,11 @@
 					<div class="star-rating">
 						<c:forEach begin="1" end="${review.review_rating }">
 							<input type="radio" id="1-stars" name="review_rating" />
-							<label for="1-stars" class="star" style="color:#ccc;">&#9733;</label>
+							<label for="1-stars" class="star" style="color:#fc0;">&#9733;</label>
 						</c:forEach>
 						<c:forEach begin="1" end="${5 - review.review_rating }">
 							<input type="radio" id="2-stars" name="review_rating" />
-							<label for="1-stars" class="star" style="color:#fc0;">&#9733;</label>
+							<label for="1-stars" class="star" style="color:#ccc;">&#9733;</label>
 						</c:forEach>
 					</div>	
 					</td>

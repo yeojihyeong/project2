@@ -4,12 +4,16 @@ import java.util.List;
 
 public interface FollowingMapper {
 	// 팔로잉 목록
-	List<ViewFollowVO> followSelect();
+	List<ViewFollowVO> followerSelect(String member_id);
 
 	// 팔로이 목록
-	List<ViewFollowVO> followeeSelect();
+	List<ViewFollowVO> followeeSelect(String member_id);
 
 	List<ViewFollowVO> followeeSelectSome();
+	
+	boolean isFollowCheck(FollowingVO follow);
+	
+	String followIdSearch(FollowingVO follow);
 	
 	//팔로우 여부 확인
 	FollowingVO followSelectOne(FollowingVO follow);
@@ -18,5 +22,5 @@ public interface FollowingMapper {
 	int insertFollow(FollowingVO follow);
 
 	// 팔로우 취소
-	int deleteFollow(FollowingVO follow);
+	int deleteFollow(String follow_id);
 }

@@ -25,6 +25,7 @@ public class HomeController {
 	@RequestMapping("/home.do")
 	public String home(Model model) {
 		
+		
 		//블로그 정보 불러오기
 		model.addAttribute("searchBlog",blogDAO.searchList());
 		
