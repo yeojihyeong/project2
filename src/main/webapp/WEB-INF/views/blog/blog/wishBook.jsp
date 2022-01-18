@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>읽고 싶은 책</h3>
+	<h3 style="margin-bottom : 30px;">읽고 싶은 책</h3>
 
 	<div class="col-lg-8">
 		<!-- Nested row for non-featured blog posts-->
@@ -24,50 +24,19 @@
 				<!-- Blog post-->
 				<c:forEach items="${wish }" var="w">
 					<div class="card mb-4">
-						<a href="#!"><img class="card-img-top"
-							src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+						${w.book_picture }
 						<div class="card-body">
 							<div class="small text-muted">${w.book_write }</div>
 							<h2 class="card-title h4">${w.book_name }</h2>
-							<a class="btn btn-primary" href="#!">detail →</a>
-							<form action="deleteWish.do" name="deleteForm">
-							<input type="submit" class="deleteWish">delete
-							</form>
+							<a class="btn btn-primary" href="#!" style="background-color : rgb(127, 173, 57); border : none;">상세보기 →</a>
+						
 						</div>
 					</div>
 				</c:forEach>
 			</div>
 		</div>
 	</div>
-	<nav aria-label="Pagination">
-		<hr class="my-0" />
-		<ul class="pagination justify-content-center my-4">
-			<c:if test="${paging.startPage != 1 }">
-				<li class="page-item"><a class="page-link"
-					href="/blog_home.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">Newer</a></li>
-			</c:if>
-
-			<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
-				var="p">
-				<c:choose>
-					<c:when test="${p == paging.nowPage }">
-						<li class="page-item active" aria-current="page"><a
-							class="page-link"
-							href="/blog_home.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a></li>
-					</c:when>
-					<c:when test="${p != paging.nowPage }">
-						<li class="page-item"><a class="page-link"
-							href="/blog_home.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a></li>
-					</c:when>
-				</c:choose>
-			</c:forEach>
-
-			<c:if test="${paging.endPage != paging.lastPage }">
-				<li class="page-item"><a class="page-link"
-					href="/blog_home.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">Older</a></li>
-			</c:if>
-		</ul>
-	</nav>
+	
 </body>
 
 </html>

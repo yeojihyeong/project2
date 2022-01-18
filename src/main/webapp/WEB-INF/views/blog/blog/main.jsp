@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -17,10 +17,10 @@
 <div class="col-lg-8">
 	<!-- Nested row for non-featured blog posts-->
 	<div class="row">
-		<div class="col-lg-4">
+		<div class="col-lg-8">
 			<!-- Blog post-->
 			<c:forEach items="${viewAll }" var="list">
-			<div class="card mb-4">
+			<div class="card mb-2">
 				<a href="#!"><img class="card-img-top"
 					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
 				

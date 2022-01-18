@@ -437,10 +437,13 @@ dots[n].className += " active";
 			<c:forEach items="${searchbook }" var="book">
 				<c:forEach items="${searchBlogThree }" var="blogThree">
 				<c:if test="${blogThree.book_isbn eq book.book_isbn }">
+				<a href="reviewDetailSelect.do?blog_id=${blogThree.blog_id }">
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<div class="blog__item">
 						<div class="blog__item__pic">
-							<img id="home_blog_image" src="${book.book_picture }" alt="">
+
+							<img src= "${book.book_picture }" width="359.98" height="491.67" alt="">
+
 						</div>
 						<div class="blog__item__text">
 
@@ -450,6 +453,7 @@ dots[n].className += " active";
 						</div>
 					</div>
 				</div>
+				</a>
 				</c:if>
 				</c:forEach>
 				</c:forEach>
