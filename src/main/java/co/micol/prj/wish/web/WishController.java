@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import co.micol.prj.book.service.BookVO;
 import co.micol.prj.wish.service.ViewWishVO;
 import co.micol.prj.wish.service.WishMapper;
 import co.micol.prj.wish.service.WishService;
@@ -35,5 +36,15 @@ public class WishController {
 		model.addAttribute("wish", wishDAO.wishDelete(wish_id));
 		
 		return "blog/blog/wishBook";
+	}
+	
+	//위시 등록
+	@RequestMapping("/InsertWish.do")
+	public String InsertWish(WishVO wish, BookVO book, HttpSession session) {
+		
+		wish.setMember_id((String) session.getAttribute("member_id"));
+		wish.setBook_isbn(book.getBook_isbn());
+		
+		return "ogani/search/InsertWishSuccess";
 	}
 }
