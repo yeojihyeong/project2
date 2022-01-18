@@ -43,7 +43,7 @@ nav#main_nav {
 	width: 80%;
 }
 
-input#menu:checked + nav#main_nav {
+input#menu:checked+nav#main_nav {
 	display: block;
 }
 
@@ -57,32 +57,39 @@ ul {
 </style>
 </head>
 <body>
-	<section class="blog-details-hero set-bg"
-		data-setbg="resources/ogani/img/book.jpg">
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="resources/ogani/img/breadcrumb.jpg" style="margin-bottom: 50px">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>FAQ</h2>
+						<div class="breadcrumb__option">
+							<a href="./index.html">Home</a> <span>FAQ</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
+
+	<section class="featured spad" style="padding-top:0; padding-bottom:0;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="blog__details__hero__text">
-						<h2>The Moment You Need To Remove Garlic From The Menu</h2>
-						<ul>
-							<li>By Michael Scofield</li>
-							<li>January 14, 2019</li>
-							<li>8 Comments</li>
-						</ul>
+					<div class="section-title">
+						<h2>자주하는 질문</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-
-	<section class="blog spad">
+	<section class="blog spad" style="padding-top:0;">
 		<div class="container">
 			<div class="row">
-				<div class="container-fluid px-4"
-					style="display: flex; justify-content: space-between;">
-					<h3 style="margin-bottom: 30px">F A Q</h3>
-				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content">
 						<main>
@@ -108,16 +115,20 @@ ul {
 													<tr>
 														<td>${faq.faq_id }</td>
 														<td
-														onclick="location.href='faqDetailPage.do?faq_id=${faq.faq_id}'">${faq.faq_question }</td>
+															onclick="location.href='faqDetailPage.do?faq_id=${faq.faq_id}'">${faq.faq_question }</td>
 														<td>${faq.faq_date }</td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
-										<div class="button" style="display: flex; justify-content: flex-end;">
-										<button type="button" class="btn" style="margin-bottom: 50px;"
-						onclick="location.href='faqInsertPage.do'">글쓰기</button>
-										</div>
+										<c:if test="${sessionScope.member_author eq 'admin' }">
+											<div class="button"
+												style="display: flex; justify-content: flex-end;">
+												<button type="button" class="btn"
+													style="margin-bottom: 50px;"
+													onclick="location.href='faqInsertPage.do'">글쓰기</button>
+											</div>
+										</c:if>
 									</div>
 								</div>
 							</div>
@@ -127,17 +138,7 @@ ul {
 			</div>
 		</div>
 	</section>
-	<!-- <script type="text/javascript">
-		function openCloseToc() {
-			if (document.getElementById('toc-content').style.display === 'block') {
-				document.getElementById('toc-content').style.display = 'none';
-				document.getElementById('toc-toggle').textContent = '+';
-			} else {
-				document.getElementById('toc-content').style.display = 'block';
-				document.getElementById('toc-toggle').textContent = '-';
-			}
-		}}
-	</script> -->
+
 	<script type="text/javascript">
 		function notice() {
 			location.href = "noticeInsertPage.do";

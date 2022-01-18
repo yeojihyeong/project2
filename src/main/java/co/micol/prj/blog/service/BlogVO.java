@@ -14,7 +14,7 @@ public class BlogVO {
 	private String review_title;
 	private String review_content;
 	private String review_date;
-	private String review_rating;
+	private int review_rating;
 	private int review_cnt;
 	private int review_like;
 	

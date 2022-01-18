@@ -8,6 +8,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>수정에 성공하였습니다.</h2>
+	<section class="breadcrumb-section set-bg"
+		data-setbg="resources/ogani/img/breadcrumb.jpg" style="margin-bottom: 50px">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>Notice</h2>
+						<div class="breadcrumb__option">
+							<a href="./index.html">Home</a> <span>Notice</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>수정 성공하였습니다.</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

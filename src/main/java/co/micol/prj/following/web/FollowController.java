@@ -14,7 +14,8 @@ import co.micol.prj.following.service.FollowingService;
 import co.micol.prj.following.service.ViewFollowVO;
 
 public class FollowController {
-	/*@Autowired
+	/*
+	@Autowired
 	private FollowingService followDAO;
 
 	@Autowired
@@ -45,7 +46,7 @@ public class FollowController {
 		List<ViewFollowVO> followee = mapper.followeeSelect();
 		model.addAttribute("followee", followee);
 		return "blog/blog/following";
-	}*/
+	}
 
-
+*/
 }

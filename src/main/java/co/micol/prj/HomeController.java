@@ -25,6 +25,7 @@ public class HomeController {
 	@RequestMapping("/home.do")
 	public String home(Model model) {
 		
+		
 		//블로그 정보 불러오기
 		model.addAttribute("searchBlog",blogDAO.searchList());
 		
@@ -40,6 +41,8 @@ public class HomeController {
 		model.addAttribute("genre", genreDao.genreSelectList());
 				
 		model.addAttribute("searchBlogThree", blogDAO.searchListThree());
+		
+		model.addAttribute("booksearch",bookDao.bookSelectListOne());
 		
 		 System.out.println(blogDAO.searchListThree()); 
 		return "ogani/home/home";

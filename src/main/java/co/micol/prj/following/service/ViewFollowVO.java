@@ -6,4 +6,5 @@ public class ViewFollowVO {
 	private String followee;
 	private String member_picture;
 	private String member_pfile;
+	private String member_name;
 }

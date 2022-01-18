@@ -17,9 +17,7 @@ header {
 			<!-- <img src="resources/ogani/img/블로그메인.png"> -->
 			<h3 class="fw-bolder">${member2.member_name}의 블로그</h3>
 			<p class="lead mb-0">A room without books is like a body without a soul.</p>
-		
-			
-						
+
 		</div>
 	</div>
 </header>

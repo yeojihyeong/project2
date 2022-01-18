@@ -45,30 +45,38 @@ thead>tr, tfoot>tr {
 </style>
 </head>
 <body>
-	<section class="blog-details-hero set-bg"
-		data-setbg="resources/ogani/img/book.jpg" style="margin-bottom: 50px">
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="resources/ogani/img/breadcrumb.jpg" style="margin-bottom: 50px">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="blog__details__hero__text">
-						<h2>The Moment You Need To Remove Garlic From The Menu</h2>
-						<ul>
-							<li>By Michael Scofield</li>
-							<li>January 14, 2019</li>
-							<li>8 Comments</li>
-						</ul>
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>Board</h2>
+						<div class="breadcrumb__option">
+							<a href="./index.html">Home</a> <span>Board</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<!-- Breadcrumb Section End -->
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>자유게시판</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
-				<div class="container-fluid px-4" style="display: flex; justify-content: space-between;">
-					<h3 style="margin-bottom: 30px">자유게시판</h3>
-				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content">
 						<main>
@@ -103,9 +111,11 @@ thead>tr, tfoot>tr {
 												</c:forEach>
 											</tbody>
 										</table>
-										<div class="button" style="display: flex; justify-content: flex-end;">
-										<button type="button" class="btn" onclick="location.href='boardInsertPage.do'">글쓰기</button>
-										</div>
+										<c:if test="${sessionScope.member_author eq 'admin' || sessionScope.member_author eq 'user' }">
+											<div class="button" style="display: flex; justify-content: flex-end;">
+												<button type="button" class="btn" onclick="location.href='boardInsertPage.do'">글쓰기</button>
+											</div>
+										</c:if>
 									</div>
 								</div>
 							</div>

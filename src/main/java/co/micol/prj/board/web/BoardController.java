@@ -45,8 +45,6 @@ public class BoardController {
 	@RequestMapping("boardInsert.do")
 	public String boardInsert(BoardVO board, Model model, HttpSession session, MemberVO member) {
 		
-		session.setAttribute("member_id", member.getMember_id());
-		//board = (BoardVO)session.getAttribute("");
 		board.setBoard_id((String) session.getAttribute("member_id"));
 		int r = boardDao.boardInsert(board);
 		if(r > 0) {
@@ -55,7 +53,7 @@ public class BoardController {
 			model.addAttribute("message", "등록실패");
 		}
 		model.addAllAttributes(boardDao.boardSelectList());
-		return "ogani/board/boardList";
+		return "ogani/board/boardInsertSuccess";
 	}
 	
 	@RequestMapping("boardDetailPage.do")

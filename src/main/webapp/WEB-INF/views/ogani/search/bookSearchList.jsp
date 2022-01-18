@@ -75,7 +75,6 @@ th, td{
 		                		<th></th>
 		                		<th></th>
 		                		<th></th>
-		                		<th></th>
 		                	</tr>
 		                </thead>
 		                <tbody>
@@ -86,7 +85,6 @@ th, td{
 		                			<td class='actionTd'>${list.book_name}</td>
 		                			<td class='actionTd'>${list.book_write}</td>
 		                			<td class='actionTd'>${list.book_publis}</td>
-		                			<td>별점칸</td>
 		                	</c:forEach>
 		                </tbody>
 	                </table>

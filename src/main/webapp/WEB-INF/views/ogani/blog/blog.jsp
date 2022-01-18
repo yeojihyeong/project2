@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link rel="stylesheet" href="resources/ogani/css/bootstrap.min.css"
 	type="text/css">
 <link rel="stylesheet" href="resources/ogani/css/font-awesome.min.css"
@@ -64,7 +65,6 @@
 
 
 </style>
-
 </head>
 
 <body>
@@ -117,8 +117,10 @@
 
 								<form action="reviewDetailSelect.do" method="get">
 									<input type="hidden" name="blog_id" id="blog_id"
+
 										value="${list.blog_id }"> <input class="read" type="submit"
 										value="READ MORE →">
+
 								</form>
 							</div>
 						</div>
