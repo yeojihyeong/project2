@@ -22,15 +22,14 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<!-- Blog post-->
-				<c:forEach items="${read }" var="reading">
+				<c:forEach items="${read }" var="read">
 					<div class="card mb-4">
 						<a href="#!"><img class="card-img-top"
 							src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
 						<div class="card-body">
 							<div class="small text-muted">${read.book_write }</div>
 							<h2 class="card-title h4">${read.book_name }</h2>
-							<a class="btn btn-primary" href="#!">detail →</a> <a
-								class="btn btn-primary" href="#!">delete</a>
+							<a class="btn btn-primary" href="#!">detail →</a>
 						</div>
 					</div>
 				</c:forEach>

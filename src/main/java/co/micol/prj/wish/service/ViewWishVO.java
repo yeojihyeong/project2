@@ -11,5 +11,6 @@ public class ViewWishVO {
 	private String book_isbn;
 	private String book_name;
 	private String book_write;
+	private String book_picture;
 	private String book_pfile;
 }

@@ -37,6 +37,10 @@
   color:#fc0;
 } */
 
+table{
+	align : center;
+}
+
 </style>
 </head>
 <body>
@@ -46,20 +50,22 @@
 			<!-- Post header-->
 			<header class="mb-4">
 				<!-- Post title-->
-				<h1 class="fw-bolder mb-1">${review.review_title }</h1>
+				<h2 class="fw-bolder mb-1">${review.review_title }</h2>
 				<!-- Post meta content-->
 				<div class="text-muted fst-italic mb-2">Posted on
 					${review.review_date }</div>
-				<h6>조회수 (${review.review_cnt })</h6>
+				<h6 style="text-align : right">hit (${review.review_cnt })</h6>
+			<hr>
 
 			</header>
 			<!-- Preview image figure-->
-			<table border="1">
+
+			<table border="0" align="center">
 				<tr>
 					<%-- <td rowspan="4">${review.bookVO.book_picture }</td> --%>
-					<td rowspan="4"><img alt="" src="${review.bookVO.book_picture }"></td><br>
-					
-					<td>${review.bookVO.book_name }</td>
+					<td rowspan="4"><img alt="" src="${review.bookVO.book_picture }" style="margin-right : 20px;"></td><br>
+					<td><h4 style="margin-bottom : 20px; font-weight : bold;">${review.bookVO.book_name }</h4></td>
+
 				</tr>
 				<tr>
 					<td>${review.bookVO.book_write }</td>
@@ -85,7 +91,7 @@
 
 			<!-- Post content-->
 			<section class="mb-5">
-				<p class="fs-5 mb-4">${review.review_content }</p>
+				<p class="fs-5 mb-4" style="margin-top : 50px;">${review.review_content }</p>
 
 
 			</section>

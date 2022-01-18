@@ -12,4 +12,5 @@ public class ViewOnreadVO {
 	private String book_name;
 	private String book_write;
 	private String book_pfile;
+	private String book_picture;
 }

@@ -29,42 +29,13 @@
 						<div class="card-body">
 							<div class="small text-muted">${reading.book_write }</div>
 							<h2 class="card-title h4">${reading.book_name }</h2>
-							<a class="btn btn-primary" href="#!">detail →</a> <a
-								class="btn btn-primary" href="#!">delete</a>
+							<a class="btn btn-primary" href="#!">detail →</a>
 						</div>
 					</div>
 				</c:forEach>
 			</div>
 		</div>
 	</div>
-	<nav aria-label="Pagination">
-		<hr class="my-0" />
-		<ul class="pagination justify-content-center my-4">
-			<c:if test="${paging.startPage != 1 }">
-				<li class="page-item"><a class="page-link"
-					href="/blog_home.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">Newer</a></li>
-			</c:if>
-
-			<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
-				var="p">
-				<c:choose>
-					<c:when test="${p == paging.nowPage }">
-						<li class="page-item active" aria-current="page"><a
-							class="page-link"
-							href="/blog_home.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a></li>
-					</c:when>
-					<c:when test="${p != paging.nowPage }">
-						<li class="page-item"><a class="page-link"
-							href="/blog_home.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a></li>
-					</c:when>
-				</c:choose>
-			</c:forEach>
-
-			<c:if test="${paging.endPage != paging.lastPage }">
-				<li class="page-item"><a class="page-link"
-					href="/blog_home.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">Older</a></li>
-			</c:if>
-		</ul>
-	</nav>
+	
 </body>
 </html>
