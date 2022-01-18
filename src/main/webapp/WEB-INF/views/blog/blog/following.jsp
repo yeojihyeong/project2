@@ -21,7 +21,7 @@
 					<div class="blog__details__author__pic">
 						<c:forEach items="${followee }" var="followee">
 							<img id="followee_picture" alt="" src="resources/ogani/upload/${followee.memberVO.member_picture }"><br>
-									${followee.memberVO.member_name }
+									${followee.memberVO.member_name }<br>
 						</c:forEach>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 					<div class="blog__details__author__pic">
 						<c:forEach items="${follower }" var="follower">
 							<img id="follower_picture" alt="" src="resources/ogani/upload/${follower.memberVO.member_picture }"><br>
-									${follower.memberVO.member_name }
+									${follower.memberVO.member_name }<br>
 						</c:forEach>
 			
 					</div>
