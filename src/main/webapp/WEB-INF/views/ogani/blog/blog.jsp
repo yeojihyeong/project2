@@ -35,7 +35,7 @@
 	display: inline-block;
 	border-radius: 30px;
 	margin-bottom: 20px;
-	padding-top : 5px;
+	padding-top: 5px;
 }
 
 .cover {
@@ -46,24 +46,19 @@
 }
 
 .read {
-	margin-top : 10px;
-	background-color : lightgray;
-	color : black;
-	width : 200px;
-	height : 40px;
+	margin-top: 10px;
+	background-color: lightgray;
+	color: black;
+	width: 200px;
+	height: 40px;
 	border-radius: 30px;
-	border : 1px solid gray;
-	
+	border: 1px solid gray;
 }
 
-.form-control{
-	width : 350px;
-	height : 40px;
-
+.form-control {
+	width: 350px;
+	height: 40px;
 }
-
-
-
 </style>
 </head>
 
@@ -100,37 +95,39 @@
 			</h2>
 
 			<div class="row" style="margin-top: 40px;">
-				<c:forEach items="${list }" var="list">
-					<div class="col-lg-4 col-md-4 col-sm-4">
-						<div class="blog__item">
-							<div class="blog__item__pic">
-								<img class="cover" src="" alt="">
+				<c:forEach items="${ list}" var="list">
+					<c:forEach items="${book }" var="book">
+						<c:if test="${list.book_isbn eq book.book_isbn  }">
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="blog__item">
+									<div class="blog__item__pic">
+										<img class="" src="" alt="">
+									</div>
+									<div class="blog__item__text">
+										<ul>
+											<li><i class="fa fa-calendar-o"></i> <c:out
+													value="${list.review_date}" /></li>
+										</ul>
+										<h4>
+											<c:out value="${list.review_title}" />
+										</h4>
+
+										<form action="reviewDetailSelect.do" method="get">
+											<input type="hidden" name="blog_id" id="blog_id"
+												value="${list.blog_id }"> <input class="read"
+												type="submit" value="READ MORE →">
+										</form>
+									</div>
+								</div>
 							</div>
-							<div class="blog__item__text">
-								<ul>
-									<li><i class="fa fa-calendar-o"></i> <c:out
-											value="${list.review_date}" /></li>
-								</ul>
-								<h4>
-									<c:out value="${list.review_title}" />
-								</h4>
-
-								<form action="reviewDetailSelect.do" method="get">
-									<input type="hidden" name="blog_id" id="blog_id"
-
-										value="${list.blog_id }"> <input class="read" type="submit"
-										value="READ MORE →">
-
-								</form>
-							</div>
-						</div>
-					</div>
+						</c:if>
+					</c:forEach>
 				</c:forEach>
 			</div>
 		</div>
-		
+
 		<div id="aside_home" class="col-lg-3"
-			style="float: right; top:-1700px; margin-right: 10px">
+			style="float: right; top: -1700px; margin-right: 10px">
 			<c:if test="${member_id  ne null}">
 				<a href="blog_home.do" class="blog__btn">나의 블로그로 가기 </a>
 			</c:if>
@@ -138,8 +135,9 @@
 				<input class="form-control" type="text" value="${searchValue }"
 					placeholder="Enter search term..."
 					aria-label="Enter search term..." aria-describedby="button-search" />
-				<input type="submit" value="검색" style="background-color : rgb(127, 173, 57); border:0; float:right;" class="btn btn-primary" id="button-search"
-					type="button" >
+				<input type="submit" value="검색"
+					style="background-color: rgb(127, 173, 57); border: 0; float: right;"
+					class="btn btn-primary" id="button-search" type="button">
 			</form>
 			<img src="resources/ogani/img/blog/3.jpg" alt=""
 				style="margin-top: 70px;">
@@ -147,7 +145,7 @@
 		</div>
 
 	</section>
-		
+
 
 
 

@@ -70,7 +70,10 @@ public class BlogController {
 	public String blog_main(Model model) {
 
 		List<BlogVO> list = mapper.likedReview();
+		
 		model.addAttribute("list", list);
+		model.addAttribute("book",bookDao.bookSelectList());
+		
 		return "ogani/blog/blog";
 	}
 	
@@ -80,6 +83,7 @@ public class BlogController {
 	public String blog_recent(Model model) {
 		List<BlogVO> recent = mapper.recentReview();
 		model.addAttribute("recent", recent);
+		model.addAttribute("book",bookDao.bookSelectList());
 		return "ogani/blog/blogRecent";
 	}
 
