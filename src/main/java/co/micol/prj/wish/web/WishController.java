@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import co.micol.prj.book.service.BookVO;
@@ -26,7 +27,16 @@ public class WishController {
 	private WishService wishDAO;
 	
 	//위시리스트 추가
-	
+	@PostMapping("/ajaxaddWishBook.do")
+	@ResponseBody
+	public String ajaxAddWishBook(@Param("book_isbn") String book_isbn, HttpSession session) {
+		String id = (String) session.getAttribute("member_id");
+		WishVO wish = new WishVO();
+		wish.setMember_id(id);
+		wish.setBook_isbn(book_isbn);
+		wishDAO.insertWishBook(wish);
+		return "ogani/search/bookDetail";
+	}
 	
 	//위시 삭제
 	@RequestMapping("/deleteWish.do")

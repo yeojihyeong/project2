@@ -35,5 +35,12 @@ public class WishServiceImpl implements WishService{
 		// TODO Auto-generated method stub
 		return map.wishDelete(wish_id);
 	}
+
+
+	@Override
+	public int insertWishBook(WishVO wish) {
+		// TODO Auto-generated method stub
+		return map.insertWishBook(wish);
+	}
 	
 }

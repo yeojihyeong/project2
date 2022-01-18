@@ -9,4 +9,6 @@ public interface WishMapper {
 	int wishInsert(WishVO wish);
 	
 	int wishDelete(String wish_id);
+	
+	int insertWishBook(WishVO wish);
 }

@@ -7,7 +7,7 @@
 		WHERE MEMBER_ID = #{member_id}
 	</select>
 
-	<insert id="wishInsert">
+	<insert id="insertWishBook" parameterType="co.micol.prj.wish.service.WishVO">
 		INSERT INTO WISHLIST (WISH_ID, MEMBER_ID, BOOK_ISBN)
 		VALUES (wishlist_seq.nextval, #{member_id}, #{book_isbn})
 	</insert>

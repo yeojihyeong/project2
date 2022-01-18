@@ -20,20 +20,22 @@
 	<div class="col-lg-8">
 		<!-- Nested row for non-featured blog posts-->
 		<div class="row">
-			<div class="col-lg-6">
+		<c:forEach items="${wish }" var="w">
+			<div class="col-lg-3">
 				<!-- Blog post-->
-				<c:forEach items="${wish }" var="w">
+				
 					<div class="card mb-4">
-						${w.book_picture }
+						<img alt="" src="${w.book_picture }" width="200px">
 						<div class="card-body">
 							<div class="small text-muted">${w.book_write }</div>
-							<h2 class="card-title h4">${w.book_name }</h2>
+							<h5 class="card-title h4">${w.book_name }</h5>
 							<a class="btn btn-primary" href="#!" style="background-color : rgb(127, 173, 57); border : none;">상세보기 →</a>
 						
 						</div>
 					</div>
-				</c:forEach>
+				
 			</div>
+			</c:forEach>
 		</div>
 	</div>
 	
