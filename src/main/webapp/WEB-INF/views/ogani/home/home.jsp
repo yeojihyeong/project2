@@ -226,7 +226,7 @@ dots[n].className += " active";
 			<br>
 			
 	<!-- Categories Section Begin -->
-	<section class="categories">
+	<!-- <section class="categories">
 		<div class="container">
 			<div class="row">
 				<div class="categories__slider owl-carousel">
@@ -273,7 +273,7 @@ dots[n].className += " active";
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Categories Section End -->
 
 	<!-- Featured Section Begin -->
@@ -310,9 +310,9 @@ dots[n].className += " active";
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
 								<c:forEach items="${ bookOne}" var="book">
-								<a href="${book.book_picture }" class="latest-product__item">
+								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="#" alt="">
+										<img src="${book.book_picture }" alt="">
 									</div>
 									<div class="latest-product__item__text">
 										<h6>${book.book_name }</h6>
@@ -335,9 +335,9 @@ dots[n].className += " active";
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
 								<c:forEach items="${ bookTwo}" var="book">
-								<a href="${book.book_picture }" class="latest-product__item">
+								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="#" alt="">
+										<img src="${book.book_picture }" alt="">
 									</div>
 									<div class="latest-product__item__text">
 										<h6>${book.book_name }</h6>
@@ -360,9 +360,9 @@ dots[n].className += " active";
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
 								<c:forEach items="${ bookThree}" var="book">
-								<a href="${book.book_picture }" class="latest-product__item">
+								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="#" alt="">
+										<img src="${book.book_picture }" alt="">
 									</div>
 									<div class="latest-product__item__text">
 										<h6>${book.book_name }</h6>
