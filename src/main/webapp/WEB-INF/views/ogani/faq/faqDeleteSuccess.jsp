@@ -11,7 +11,7 @@
 
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
-		data-setbg="resources/ogani/img/breadcrumb.jpg" style="margin-bottom: 50px">
+		data-setbg="resources/ogani/img/bookmen.jpg" style="margin-bottom: 50px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
