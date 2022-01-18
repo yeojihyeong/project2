@@ -43,7 +43,7 @@ nav#main_nav {
 	width: 80%;
 }
 
-input#menu:checked + nav#main_nav {
+input#menu:checked+nav#main_nav {
 	display: block;
 }
 
@@ -86,7 +86,7 @@ ul {
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
@@ -115,16 +115,20 @@ ul {
 													<tr>
 														<td>${faq.faq_id }</td>
 														<td
-														onclick="location.href='faqDetailPage.do?faq_id=${faq.faq_id}'">${faq.faq_question }</td>
+															onclick="location.href='faqDetailPage.do?faq_id=${faq.faq_id}'">${faq.faq_question }</td>
 														<td>${faq.faq_date }</td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
-										<div class="button" style="display: flex; justify-content: flex-end;">
-										<button type="button" class="btn" style="margin-bottom: 50px;"
-						onclick="location.href='faqInsertPage.do'">글쓰기</button>
-										</div>
+										<c:if test="${sessionScope.member_author eq 'admin' }">
+											<div class="button"
+												style="display: flex; justify-content: flex-end;">
+												<button type="button" class="btn"
+													style="margin-bottom: 50px;"
+													onclick="location.href='faqInsertPage.do'">글쓰기</button>
+											</div>
+										</c:if>
 									</div>
 								</div>
 							</div>
@@ -134,7 +138,7 @@ ul {
 			</div>
 		</div>
 	</section>
-	
+
 	<script type="text/javascript">
 		function notice() {
 			location.href = "noticeInsertPage.do";

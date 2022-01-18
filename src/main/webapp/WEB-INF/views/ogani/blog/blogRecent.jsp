@@ -6,6 +6,19 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+	.btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: #7fad39;
+	border: none;
+	}
+	
+</style>
 </head>
 <body>
 	<!-- Breadcrumb Section Begin -->
@@ -53,7 +66,7 @@
 
 								<form action="reviewDetailSelect.do" method="get">
 									<input type="hidden" name="blog_id" id="blog_id"
-										value="${recent.blog_id }"> <input type="submit"
+										value="${recent.blog_id }"> <input type="submit" class="btn"
 										value="READ MORE">
 								</form>
 							</div>

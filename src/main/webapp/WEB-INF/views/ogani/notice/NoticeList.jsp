@@ -28,19 +28,19 @@ thead>tr, tfoot>tr {
 	float: right;
 }
 
-.title> button {
+.title>button {
 	float: left;
 }
 
 .btn {
-    font-size: 14px;
-    color: #ffffff;
-    font-weight: 800;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 13px 30px 12px;
-    background: #7fad39;
-    border: none;
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: #7fad39;
+	border: none;
 }
 </style>
 </head>
@@ -62,7 +62,7 @@ thead>tr, tfoot>tr {
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="featured spad">
 		<div class="container">
 			<div class="row">
@@ -74,15 +74,15 @@ thead>tr, tfoot>tr {
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
-					<div id="layoutSidenav_content" >
+					<div id="layoutSidenav_content">
 						<main>
 							<div class="container-fluid px-4">
-								<div class="card mb-4">			
+								<div class="card mb-4">
 									<div class="card-body">
 										<table id="datatablesSimple">
 											<colgroup>
@@ -103,21 +103,25 @@ thead>tr, tfoot>tr {
 														<td>${notice.notice_num }</td>
 														<td
 															onclick="location.href='noticeDetailPage.do?notice_num=${notice.notice_num}'">${notice.notice_title }</td>
-															<td>${notice.notice_date }</td>
+														<td>${notice.notice_date }</td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
-										<div class="button" style="display: flex; justify-content: flex-end;">
-										<button type="button" style="margin-bottom: 50px;" class="btn" onclick=notice()>글쓰기</button>
-										</div>
+											<c:if test="${sessionScope.member_author eq 'admin' }">
+												<div class="button"
+													style="display: flex; justify-content: flex-end;">
+													<button type="button" style="margin-bottom: 50px;"
+														class="btn" onclick=notice()>글쓰기</button>
+												</div>
+											</c:if>
 									</div>
 								</div>
 							</div>
 						</main>
 					</div>
 				</div>
-		
+
 			</div>
 		</div>
 	</section>
