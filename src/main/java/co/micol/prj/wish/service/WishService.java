@@ -10,7 +10,7 @@ public interface WishService {
 	int wishInsert(WishVO wish);
 	
 	//����
-
+	int insertWishBook(WishVO wish);
 
 	int wishDelete(String wish_id);
 }

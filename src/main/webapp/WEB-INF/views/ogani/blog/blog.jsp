@@ -129,7 +129,7 @@
 		</div>
 
 		<div id="aside_home" class="col-lg-3"
-			style="float: right; top: -1700px; margin-right: 10px">
+			style="float: right; top: -600px; margin-right: 10px">
 			<c:if test="${member_id  ne null}">
 				<a href="blog_home.do" class="blog__btn">나의 블로그로 가기 </a>
 			</c:if>

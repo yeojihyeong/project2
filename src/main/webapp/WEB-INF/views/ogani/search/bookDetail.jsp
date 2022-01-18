@@ -55,7 +55,7 @@
 						<li><b>총 페이지 수</b> <span>${book.book_page } </span></li>
 						<li><b>저자</b> <span>${book.book_write }</span></li>
 						<li><b>출판사</b> <span>${book.book_publis }</span></li>
-						<li><a href="">읽고싶은책</a></li>
+						<li><a href="#" onclick="addWishBook()">읽고싶은책</a></li>
 						<li><a href="">읽고있는책</a></li>
 						<li><a href="">읽은책</a></li>
 
@@ -142,5 +142,26 @@
 		</div>
 	</div>
 </section>
+
+<script>
+	
+	function addWishBook(){
+		
+		$.ajax({
+			url: "ajaxaddWishBook.do",
+			type: "POST",
+			data: {book_isbn : ${book.book_isbn }},
+			success: function(result){
+				alert("추가되었습니다.")
+				
+			},error: function(error){
+				console.log(error);
+				alert("오류가 발생했습니다.");
+			}
+		})
+		
+	}
+	
+</script>
 </body>
 </html>

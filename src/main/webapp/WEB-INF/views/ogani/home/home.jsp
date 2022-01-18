@@ -199,13 +199,13 @@ dots[n].className += " active";
 
       <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
-        <img src="https://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425435/hwxwxqxfwo4htfgqksbu/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
+        <img src="resources/ogani/upload/image2.png" style="width:100%">
     
       </div>
 
       <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
-        <img src="https://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425448/rnelglmoujifzlbzykxw/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
+        <img src="resources/ogani/upload/image3.png" style="width:100%">
        
       </div>
 
