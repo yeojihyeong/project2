@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <script src="resources/ogani/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
 <div class="col-lg-4">
 	<!-- Search widget-->
 	<!-- Categories widget-->
@@ -16,14 +17,14 @@
 				<c:if test="${member_id ne review.member_id }">
 					<form id="followForm" method="post">
 					<input id="blog_id_for_follow" name="blog_id" type="hidden" value="${review.blog_id }">
-						<button id="follow_btn" onclick="addFollow()" type="button" class="btn btn-dark">ÆÈ·Î¿ì</button>
+						<button id="follow_btn" onclick="addFollow()" type="button" class="btn btn-dark">íŒ”ë¡œìš°</button>
 					</form>
 				</c:if>
 					<ul class="list-unstyled mb-0">
-						<li><a href="blog_home.do" style="color: inherit">È¨À¸·Î°¡±â</a></li>
-						<li><a href="wishBook.do" style="color: inherit" >ÀĞ°í½Í¾î¿ä</a></li>
-						<li><a href="readingBook.do"style="color: inherit" >ÀĞ´ÂÁßÀÌ¿¡¿ä</a></li>
-						<li><a href="readBook.do" style="color: inherit" >ÀĞ¾ú¾î¿ä</a></li>
+						<li><a href="blog_home.do" style="color: inherit">í™ˆìœ¼ë¡œê°€ê¸°</a></li>
+						<li><a href="wishBook.do" style="color: inherit" >ì½ê³ ì‹¶ì–´ìš”</a></li>
+						<li><a href="readingBook.do"style="color: inherit" >ì½ëŠ”ì¤‘ì´ì—ìš”</a></li>
+						<li><a href="readBook.do" style="color: inherit" >ì½ì—ˆì–´ìš”</a></li>
 					</ul>
 				</div>
 			</div>
@@ -34,7 +35,9 @@
 		<div class="card-header">Following</div>
 		<div class="card-body">my following list</div>
 
-		<div class="card-body" ><a style="color: inherit" href="following.do">ÆÈ·Î¿ì°ü¸® </a></div>
+
+		<div class="card-body" ><a style="color: inherit" href="following.do">íŒ”ë¡œìš°ê´€ë¦¬ </a></div>
+
 
 	</div>
 </div>
@@ -54,7 +57,7 @@
 					follow();
 					
 				}else{
-					if(!confirm("ÆÈ·Î¿ì¸¦ ÇØÁ¦ÇÏ½Ã°Ú½À´Ï±î?")){
+					if(!confirm("íŒ”ë¡œìš°ë¥¼ í•´ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?")){
 						
 					}else{
 						
@@ -65,7 +68,7 @@
 				
 			},error: function(error){
 				console.log(error);
-				alert("¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.");
+				alert("ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.");
 			}
 		})
 		
@@ -78,13 +81,13 @@
 				success: function(result){
 					console.log(result);
 					/* $('#follow_btn').attr('class', 'btn btn-outline-dark');
-					$('#follow_btn').text('ÆÈ·Î¿ìÇØÁ¦'); */
-					alert("ÆÈ·Î¿ìµÇ¾ú½À´Ï´Ù.");
+					$('#follow_btn').text('íŒ”ë¡œìš°í•´ì œ'); */
+					alert("íŒ”ë¡œìš°ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					
 				},
 				error: function(error){
 					console.log(error);
-					alert("ÆÈ·Î¿ì ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+					alert("íŒ”ë¡œìš° í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 				}
 			})
 		}
@@ -97,12 +100,12 @@
 					data: {blog_id : $('#blog_id_for_follow').val()},
 					success: function(result){
 						console.log(result);
-						alert("ÆÈ·Î¿ì°¡ ÇØÁ¦µÇ¾ú½À´Ï´Ù.");
+						alert("íŒ”ë¡œìš°ê°€ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 						
 					},
 					error: function(error){
 						console.log(error);
-						alert("¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.");
+						alert("ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.");
 					}
 				})
 			}

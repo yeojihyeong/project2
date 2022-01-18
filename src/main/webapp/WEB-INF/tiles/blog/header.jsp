@@ -1,14 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<header class="py-5 bg-light border-bottom mb-4">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<style>
+.blog_header{
+	background-image : url("resources/ogani/img/블로그메인.png");
+	width : 100%;
+	height : 250px;
+	margin-bottom : 50px;
+	padding-top : 100px;
+}
+
+</style>
+
+<header class="blog_header">	
 	<div class="container">
 		<div class="text-center my-5">
-			<h1 class="fw-bolder">${member2.member_name}</h1>
+			<!-- <img src="resources/ogani/img/블로그메인.png"> -->
+			<h3 class="fw-bolder">${member2.member_name}</h3>
 			<p class="lead mb-0">A room without books is like a body without a soul.</p>
-			<h3>${ownerName}</h3>
-			<c:if test="${member2.member_id eq member_id }">
-			</c:if>
-			
+
 		</div>
 	</div>
 </header>

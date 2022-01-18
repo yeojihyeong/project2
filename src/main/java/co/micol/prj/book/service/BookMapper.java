@@ -28,5 +28,11 @@ public interface BookMapper {
 
 
 	boolean isBookCheck(String book_isbn);
+	
+	List<BookVO> bookSelectListOne();
 
+	
+	List<BookVO> bookOne();
+	List<BookVO> bookTwo();
+	List<BookVO> bookThree();
 }

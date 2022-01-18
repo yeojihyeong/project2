@@ -5,9 +5,9 @@
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="footer__about">
-					<div class="footer__about__logo">
+					<!-- <div class="footer__about__logo">
 						<a href="home.do"><img src="resources/ogani/img/logo.png" alt=""></a>
-					</div>
+					</div> -->
 					<ul>
 						<li>Address: DaeGu Korea</li>
 						<li>Phone: +82 010.1111.1111</li>

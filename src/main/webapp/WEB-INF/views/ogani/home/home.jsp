@@ -6,7 +6,173 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  max-height: 450px;
+  position: relative;
+  margin: auto;
+}
+.slideshow-container .mySlides img {
+  height: 450px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+ /*  background-color: #717171; */
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#home_blog_image{
+	width: 200px;
+	height: 430px;
+}
+
+</style>
 </head>
+
+<script type="text/javascript">
+
+var slideIndex = 0; //slide index
+
+//HTML 로드가 끝난 후 동작
+window.onload=function(){
+showSlides(slideIndex);
+
+// Auto Move Slide
+var sec = 3000;
+setInterval(function(){
+ slideIndex++;
+ showSlides(slideIndex);
+
+}, sec);
+}
+
+
+//Next/previous controls
+function moveSlides(n) {
+slideIndex = slideIndex + n
+showSlides(slideIndex);
+}
+
+//Thumbnail image controls
+function currentSlide(n) {
+slideIndex = n;
+showSlides(slideIndex);
+}
+
+function showSlides(n) {
+
+var slides = document.getElementsByClassName("mySlides");
+var dots = document.getElementsByClassName("dot");
+var size = slides.length;
+
+if ((n+1) > size) {
+ slideIndex = 0; n = 0;
+}else if (n < 0) {
+ slideIndex = (size-1);
+ n = (size-1);
+}
+
+for (i = 0; i < slides.length; i++) {
+   slides[i].style.display = "none";
+}
+for (i = 0; i < dots.length; i++) {
+   dots[i].className = dots[i].className.replace(" active", "");
+}
+
+slides[n].style.display = "block";
+dots[n].className += " active";
+}
+
+</script>
 <body>
 	<!-- 
 			<div class="container">
@@ -21,8 +187,46 @@
 					</div>
 				</div>
 			</div> -->
+			<br>
+			<div class="slideshow-container">
+
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="resources/ogani/upload/image1.PNG" style="width:100%">
+       <!--  <div class="text">ACNE STUDIO</div> -->
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="https://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425435/hwxwxqxfwo4htfgqksbu/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
+    
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="https://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425448/rnelglmoujifzlbzykxw/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
+       
+      </div>
+
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
+      <a class="next" onclick="moveSlides(1)">&#10095;</a>
+    </div>
+    <br/>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+			<br>
+			<br>
+			
 	<!-- Categories Section Begin -->
-	<section class="categories">
+	<!-- <section class="categories">
 		<div class="container">
 			<div class="row">
 				<div class="categories__slider owl-carousel">
@@ -69,7 +273,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Categories Section End -->
 
 	<!-- Featured Section Begin -->
@@ -105,31 +309,16 @@
 						</c:forEach>
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
-							
+								<c:forEach items="${ bookOne}" var="book">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-1.jpg" alt="">
+										<img src="${book.book_picture }" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-2.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-3.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>${book.book_name }</h6>
 									</div>
 								</a>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
@@ -145,31 +334,16 @@
 						</c:forEach>
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
+								<c:forEach items="${ bookTwo}" var="book">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-1.jpg" alt="">
+										<img src="${book.book_picture }" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-2.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-3.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>${book.book_name }</h6>
 									</div>
 								</a>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
@@ -185,31 +359,16 @@
 						</c:forEach>
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
+								<c:forEach items="${ bookThree}" var="book">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-1.jpg" alt="">
+										<img src="${book.book_picture }" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-2.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="resources/ogani/img/latest-product/lp-3.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>${book.book_name }</h6>
 									</div>
 								</a>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
@@ -233,10 +392,13 @@
 			<c:forEach items="${searchbook }" var="book">
 				<c:forEach items="${searchBlogThree }" var="blogThree">
 				<c:if test="${blogThree.book_isbn eq book.book_isbn }">
+				<a href="reviewDetailSelect.do?blog_id=${blogThree.blog_id }">
 				<div class="col-lg-4 col-md-4 col-sm-6">
 					<div class="blog__item">
 						<div class="blog__item__pic">
-							<img src= "${book.book_picture }" alt="">
+
+							<img src= "${book.book_picture }" width="359.98" height="491.67" alt="">
+
 						</div>
 						<div class="blog__item__text">
 
@@ -246,6 +408,7 @@
 						</div>
 					</div>
 				</div>
+				</a>
 				</c:if>
 				</c:forEach>
 				</c:forEach>

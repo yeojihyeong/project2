@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<head>
+<style type="text/css">
+
+
+</style>
+</head>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
-			<div class="header__logo">
-				<a href="home.do"><img src="resources/ogani/img/logo.png" alt=""></a>
+			<div class="header__logo" style="text-align : center;">
+				<a href="home.do"><img id="book_logo" width="150px"  src="resources/ogani/upload/book_logo.png" alt=""></a>
 				<!--  로고 -->
 			</div>
 		</div>
