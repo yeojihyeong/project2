@@ -306,36 +306,36 @@ var phoneJ = /^01([016789])([0-9]{3,4})([0-9]{4})$/;
 											</p>
 										</div>
 										<div class="checkout__input__checkbox">
-											<label for="genre0">총류&emsp; 
-												<input type="checkbox" id="genre0" name="genre_id" value="0">
-												<span class="checkmark"></span></label>
-											<label for="genre1">철학&emsp;
-												<input type="checkbox" id="genre1" name="genre_id" value="1">
-												<span class="checkmark"></span></label>
-											<label for="genre2">종교&emsp;
-												<input type="checkbox" id="genre2" name="genre_id" value="2">
-												<span class="checkmark"></span></label>
-											<label for="genre3">사회과학&emsp;
-												<input type="checkbox" id="genre3" name="genre_id" value="3">
-												<span class="checkmark"></span></label>
-											<label for="genre4">자연과학&emsp;
-												<input type="checkbox" id="genre4" name="genre_id" value="4">
-												<span class="checkmark"></span></label>
-											<label for="genre5">기술과학&emsp;
-												<input type="checkbox" id="genre5" name="genre_id" value="5">
-												<span class="checkmark"></span></label>
-											<label for="genre6">예술&emsp;
-												<input type="checkbox" id="genre6" name="genre_id" value="6">
-												<span class="checkmark"></span></label>
-											<label for="genre7">언어&emsp;
-												<input type="checkbox" id="genre7" name="genre_id" value="7">
-												<span class="checkmark"></span></label>
-											<label for="genre8">문학&emsp;
-												<input type="checkbox" id="genre8" name="genre_id" value="8">
-												<span class="checkmark"></span></label>
-											<label for="genre9">역사&emsp;
-												<input type="checkbox" id="genre9" name="genre_id" value="9">
-												<span class="checkmark"></span></label>
+											<label for="genre0">소설&emsp;
+                                        <input type="checkbox" id="genre0" name="genre_id" value="101"><span class="checkmark"></span></label>
+                                    <label for="genre1">에세이&emsp;
+                                        <input type="checkbox" id="genre1" name="genre_id" value="102"><span class="checkmark"></span></label>
+                                    <label for="genre2">예술/대중문화&emsp;
+                                        <input type="checkbox" id="genre2" name="genre_id" value="103"><span class="checkmark"></span></label>
+                                    <label for="genre3">만화&emsp;
+                                        <input type="checkbox" id="genre3" name="genre_id" value="108"><span class="checkmark"></span></label>
+                                    <label for="genre4">아동&emsp;
+                                        <input type="checkbox" id="genre4" name="genre_id" value="110"><span class="checkmark"></span></label>
+                                    <label for="genre5">경제경영&emsp;
+                                        <input type="checkbox" id="genre5" name="genre_id" value="117"><span class="checkmark"></span></label>
+                                    <label for="genre6">자기계발&emsp;
+                                        <input type="checkbox" id="genre6" name="genre_id" value="118"><span class="checkmark"></span></label>
+                                    <label for="genre7">자연과과학&emsp;
+                                        <input type="checkbox" id="genre7" name="genre_id" value="116"><span class="checkmark"></span></label>
+                                    <label for="genre8">인문&emsp;
+                                        <input type="checkbox" id="genre8" name="genre_id" value="119"><span class="checkmark"></span></label>
+                                    <label for="genre9">컴퓨터/인터넷&emsp;
+                                        <input type="checkbox" id="genre9" name="genre_id" value="122"><span class="checkmark"></span></label>
+                                    <label for="genre10">자격서/수험서&emsp;
+                                        <input type="checkbox" id="genre10" name="genre_id" value="123"><span class="checkmark"></span></label>
+                                    <label for="genre11">취미/레저&emsp;
+                                        <input type="checkbox" id="genre11" name="genre_id" value="124"><span class="checkmark"></span></label>
+                                    <label for="genre12">전공/대학교재&emsp;
+                                        <input type="checkbox" id="genre12" name="genre_id" value="125"><span class="checkmark"></span></label>
+                                    <label for="genre13">건강/뷰티&emsp;
+                                        <input type="checkbox" id="genre13" name="genre_id" value="126"><span class="checkmark"></span></label>
+                                    <label for="genre14">여행&emsp;
+                                        <input type="checkbox" id="genre14" name="genre_id" value="128"><span class="checkmark"></span></label>
 										</div>
 									</div>
 									<br>

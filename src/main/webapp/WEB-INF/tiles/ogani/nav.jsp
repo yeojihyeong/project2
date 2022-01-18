@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-lg-3">
 			<div class="header__logo">
-				<a href="home.do"><img src="resources/ogani/img/logo.png" alt=""></a>
+				<a href="home.do"><img src="resources/ogani/upload/book_logo.png" alt=""></a>
 				<!--  로고 -->
 			</div>
 		</div>
