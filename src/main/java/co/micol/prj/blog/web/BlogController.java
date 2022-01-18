@@ -71,7 +71,8 @@ public class BlogController {
 		model.addAttribute("list", list);
 		return "ogani/blog/blog";
 	}
-
+	
+	
 	// 최근 리뷰
 	@RequestMapping("/blog_recent.do")
 	public String blog_recent(Model model) {
