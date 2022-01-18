@@ -131,4 +131,33 @@
 		ORDER BY BOOK_CNT
 	</select>
 
+
+	<select id="bookOne"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM(
+		SELECT * FROM BOOK
+		<![CDATA[WHERE BOOK_CHEONGGU = 101)]]>
+		<![CDATA[WHERE ROWNUM <=3]]>
+	</select>
+
+	<select id="bookTwo"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM(
+		SELECT * FROM BOOK
+		WHERE BOOK_CHEONGGU = '118')
+		WHERE ROWNUM <![CDATA[<=3]]>
+	</select>
+
+	<select id="bookThree"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM(
+		SELECT * FROM BOOK
+		WHERE BOOK_CHEONGGU = '119')
+		WHERE ROWNUM <![CDATA[<=3 ]]>
+	</select>
+
+
 </mapper>
