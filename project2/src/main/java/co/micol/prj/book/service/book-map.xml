@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.book.service.BookMapper">
+
+	<select id="isBookCheck" parameterType="String" resultType="boolean">
+	select case when count(book_isbn) = 1 then 0 else 1 end as book_isbn
+	from book where book_isbn = #{book_isbn}
+	</select>
+	
+	<select id="bookSearchList"
+		resultType="co.micol.prj.main.service.BookVO">
+		SELECT * FROM BOOK
+		WHERE 1 = 1
+
+		<if test="type == 'all'"> and book_name LIKE '%'||#{keyword}||'%' or book_write
+			LIKE '%'||#{keyword}||'%' or book_publis LIKE '%'||#{keyword}||'%'
+		</if>
+		<if test="type == 'book_name'"> and book_name LIKE '%'||#{keyword}||'%'</if>
+		<if test="type == 'book_write'"> and book_write LIKE '%'||#{keyword}||'%'</if>
+		<if test="type == 'book_publis'"> and book_publis LIKE '%'||#{keyword}||'%'</if>
+
+	</select>
+
+	<select id="bookSelectList"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT * FROM BOOK
+	</select>
+
+	<select id="bookSearch" parameterType="String"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT * FROM BOOK
+		WHERE BOOK_ISBN = #{book_isbn}
+
+	</select>
+
+	<insert id="bookInsert"
+		parameterType="co.micol.prj.book.service.BookVO">
+		INSERT INTO BOOK(BOOK_ISBN, BOOK_NAME, BOOK_CONTENT,
+		BOOK_WRITE, BOOK_PAGE, BOOK_PUBLIS, BOOK_PICTURE, BOOK_PFILE,
+		BOOK_CHEONGGU)
+		VALUES(#{book_isbn}, #{book_name}, #{book_content},
+		#{book_write}, #{book_page}, #{book_publis}, #{book_picture},
+		#{book_pfile}, #{book_cheonggu})
+	</insert>
+
+	<delete id="bookDelete"
+		parameterType="co.micol.prj.book.service.BookVO">
+		DELETE FROM BOOK WHERE BOOK_ISBN = #{book_isbn}
+	</delete>
+
+	<update id="bookUpdate"
+		parameterType="co.micol.prj.book.service.BookVO">
+		update book
+		<set>
+			<if test="book_name != null">book_name = #{book_name},</if>
+			<if test="book_content != null">book_content = #{book_content},</if>
+			<if test="book_write != null">book_write = #{book_write},</if>
+			<if test="book_page != null">book_page = #{book_page},</if>
+			<if test="book_publis != null">book_publis = #{book_publis},</if>
+			<if test="book_picture != null">book_picture = #{book_picture},</if>
+			<if test="book_pfile != null">book_pfile = #{book_pfile},</if>
+			<if test="book_cheonggu != null">book_cheonggu = #{book_cheonggu},</if>
+		</set>
+		where book_isbn = #{book_isbn}
+	</update>
+
+	<!-- 가장 많은 도서 장르 -->
+	<select id="bookSearchOne" resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM
+		(SELECT BOOK_CHEONGGU
+		FROM BOOK
+		GROUP BY
+		BOOK_CHEONGGU
+		ORDER BY COUNT(BOOK_CHEONGGU) DESC
+		)
+		WHERE <![CDATA[ROWNUM<=1]]>
+
+	</select>
+
+
+	<!-- 두번째로 많은 도서 장르 -->
+	<select id="bookSearchTwo" resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM(
+		SELECT *
+		FROM
+		(SELECT BOOK_CHEONGGU
+		FROM
+		BOOK
+		GROUP BY BOOK_CHEONGGU
+		ORDER BY COUNT(BOOK_CHEONGGU) DESC
+		)
+		WHERE
+		<![CDATA[ROWNUM<=2]]>
+		ORDER BY ROWNUM DESC
+		)
+		<![CDATA[WHERE ROWNUM<=1]]>
+
+
+	</select>
+
+	<!-- 세번째로 많은 도서 장르 -->
+
+	<select id="bookSearchThree" resultType="co.micol.prj.book.service.BookVO">
+		SELECT *
+		FROM(
+		SELECT *
+		FROM
+		(SELECT BOOK_CHEONGGU
+		FROM BOOK
+		GROUP BY BOOK_CHEONGGU
+		ORDER BY COUNT(BOOK_CHEONGGU) DESC
+		)
+		WHERE <![CDATA[ROWNUM<=3]]>
+		ORDER BY ROWNUM DESC
+		)
+		WHERE <![CDATA[ROWNUM<=1]]>
+	</select>
+
+</mapper>

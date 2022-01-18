@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.member.service.MemberMapper">
+	
+	<select id="memberSelectList" resultType="co.micol.prj.member.service.MemberVO">
+		select * from member
+	</select>
+	
+	<select id="memberSelect" parameterType="co.micol.prj.member.service.MemberVO"
+			resultType="co.micol.prj.member.service.MemberVO">
+		select * from  member
+		where member_id = #{member_id}
+		<if test="member_password != null">
+			and member_password = #{member_password}
+		</if>
+	</select>
+	
+	<insert id="memberInsert" parameterType="co.micol.prj.member.service.MemberVO">
+		insert into member(member_id, member_password, member_name, member_tel, member_address, member_picture, member_pfile, member_gender, member_bir, genre_id)
+		values(#{member_id}, #{member_password}, #{member_name}, #{member_tel}, #{member_address}, #{member_picture}, #{member_pfile}, #{member_gender}, #{member_bir}, #{genre_id})
+	</insert>
+	
+	<update id="memberUpdate" parameterType="co.micol.prj.member.service.MemberVO">
+		update member
+		<set>
+			<if test="member_password != null">member_password = #{member_password},</if>
+			<if test="member_name != null">member_name = #{member_name},</if>
+			<if test="member_author != null">member_author = #{member_author},</if>
+			<if test="member_tel != null">member_tel = #{member_tel},</if>
+			<if test="member_address != null">member_address = #{member_address},</if>
+			<if test="member_picture != null">member_picture = #{member_picture},</if>
+			<if test="member_pfile != null">member_pfile = #{member_pfile},</if>
+			<if test="member_gender != null">member_gender = #{member_gender},</if>
+			<if test="member_bir != null">member_bir = #{member_bir},</if>
+			<if test="genre_id != null">genre_id = #{genre_id},</if>
+		</set>
+		where member_id = #{member_id}
+	</update>
+	
+	<delete id="memberDelete" parameterType="co.micol.prj.member.service.MemberVO">
+		delete from member where member_id = #{member_id} and member_password = #{member_password}
+	</delete>
+	
+	<select id="isIdCheck" parameterType="String" resultType="boolean">
+		select case when count(member_id) = 1 then 0 else 1 end as member_id
+		from member where member_id = #{member_id}
+	</select>
+	
+	<select id="memberSearch" resultType="co.micol.prj.member.service.MemberVO">
+		select * from member
+		<if test="key == ''"> where 1 = 1</if>
+		<if test="key == 'name'"> WHERE NAME LIKE '%'|| #{data} ||'%' </if>
+		<if test="key == 'tel'"> WHERE TEL LIKE '%'|| #{data} ||'%' </if>
+	</select>
+
+	<select id="memberOne" resultType="co.micol.prj.member.service.MemberVO">
+		select * from member
+		where member_id = #{member_id}
+	</select>
+
+	<select id="memberSearch1" parameterType="String" resultType="co.micol.prj.member.service.MemberVO">
+		select * from member
+		where member_id = #{member_id}
+	</select>
+	
+	<delete id="memberDelete1" parameterType="String">
+		delete from member where member_id = #{member_id}
+	</delete>
+	
+	<update id="memberUpdate1" parameterType="co.micol.prj.member.service.MemberVO">
+			update member
+		<set>
+			<if test="member_password != null">member_password = #{member_password},</if>
+			<if test="member_name != null">member_name = #{member_name},</if>
+			<if test="member_author != null">member_author = #{member_author},</if>
+			<if test="member_tel != null">member_tel = #{member_tel},</if>
+			<if test="member_address != null">member_address = #{member_address},</if>
+			<if test="member_picture != null">member_picture = #{member_picture},</if>
+			<if test="member_pfile != null">member_pfile = #{member_pfile},</if>
+			<if test="member_gender != null">member_gender = #{member_gender},</if>
+			<if test="member_bir != null">member_bir = #{member_bir},</if>
+			<if test="genre_id != null">genre_id = #{genre_id},</if>
+		</set>
+		where member_id = #{member_id}
+	</update>
+	
+</mapper>

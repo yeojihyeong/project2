@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.bcomment.service.BcommentMapper">
+	<select id="bcommentSelectList" resultType="co.micol.prj.bcomment.service.BcommentVO">
+		SELECT * FROM B_COMMENT WHERE BOARD_NUM = #{board_num} ORDER BY GRP DESC
+	</select>
+	
+	<select id="bcommentSelect" resultType="co.micol.prj.bcomment.service.BcommentVO">
+		SELECT * FROM B_COMMENT WHERE GRP = #{grp }
+	</select>
+	
+	<insert id="bcommentInsert" parameterType="co.micol.prj.bcomment.service.BcommentVO">
+		INSERT INTO B_COMMENT(COMMENT_NO, BOARD_NUM, WRITER, CONTENT, WDATE)
+		VALUES(B_COMMENT_SEQ.NEXTVAL, #{board_num}, #{writer}, #{content}, SYSDATE)
+	</insert>
+	
+	<update id="grpUpdate" parameterType="co.micol.prj.bcomment.service.BcommentVO">
+		UPDATE B_COMMENT
+			<if test="content != null"> SET CONTENT = #{content}</if>
+		WHERE GRP = #{grp }
+	</update>
+	
+	<update id="grpsUpdate" parameterType="co.micol.prj.bcomment.service.BcommentVO">
+		UPDATE B_COMMENT
+			<if test="content != null"> SET CONTENT = #{content}</if>
+		WHERE GRPS = #{grps }
+	</update>
+	
+	<delete id="grpDelete" parameterType="co.micol.prj.bcomment.service.BcommentVO">
+		DELETE FROM B_COMMENT WHERE GRP = #{grp }
+	</delete>
+	
+	<delete id="grpsDelete" parameterType="co.micol.prj.bcomment.service.BcommentVO">
+		DELETE FROM B_COMMENT WHERE GRPS = #{grps }
+	</delete>
+</mapper>

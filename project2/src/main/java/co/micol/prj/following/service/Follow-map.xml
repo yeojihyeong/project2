@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.follow.service.FollowMapper">
+
+	<select id="followSelect">
+		SELECT * FROM VI_FOLLOW WHERE FOLLOWEE=#{followee}
+	</select>
+
+	<select id="followeeSelect">
+		SELECT * FROM VI_FOLLOW
+		WHERE FOLLOWER=#{member_id}
+	</select>
+	
+	<select id="followSelectSome">
+		SELECT * FROM VI_FOLLOW
+		WHERE FOLLOWEE=#{member_id}
+		<![CDATA[WHERE ROWNUM < 4]]>
+	</select>
+
+	<select id="followSelectOne">
+		SELECT FOLLOW_ID FROM FOLLOWING WHERE FOLLOWEE=#{member_id}
+	</select>
+
+	<insert id="followInsert">
+		INSERT INTO FOLLOWING VALUES(following_seq.nextval, #{follower}, #{followee})
+	</insert>
+	
+	<delete id="followDelete">
+		DELETE FROM FOLLOWING WHERE FOLLOW_ID={#follow_id}
+	</delete>
+
+</mapper>
