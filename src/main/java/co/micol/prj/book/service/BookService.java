@@ -29,6 +29,10 @@ public interface BookService {
 
 	List<BookVO> bookSelectListOne();
 	
+	List<BookVO> bookOne();
+	List<BookVO> bookTwo();
+	List<BookVO> bookThree();
+	
 }
 
 
