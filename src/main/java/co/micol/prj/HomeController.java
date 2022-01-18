@@ -41,6 +41,8 @@ public class HomeController {
 				
 		model.addAttribute("searchBlogThree", blogDAO.searchListThree());
 		
+		model.addAttribute("booksearch",bookDao.bookSelectListOne());
+		
 		 System.out.println(blogDAO.searchListThree()); 
 		return "ogani/home/home";
 	}

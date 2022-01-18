@@ -4,7 +4,8 @@
 
 	<select id="isBookCheck" parameterType="String"
 		resultType="boolean">
-		select case when count(book_isbn) = 1 then 0 else 1 end as book_isbn
+		select case when count(book_isbn) = 1 then 0 else 1 end as
+		book_isbn
 		from book where book_isbn = #{book_isbn}
 	</select>
 
@@ -91,8 +92,10 @@
 		FROM
 		(SELECT BOOK_CHEONGGU
 		FROM BOOK
-		GROUP BY BOOK_CHEONGGU
-		ORDER BY <![CDATA[COUNT]]>(BOOK_CHEONGGU) DESC
+		GROUP BY
+		BOOK_CHEONGGU
+		ORDER BY <![CDATA[COUNT]]>(BOOK_CHEONGGU)
+		DESC
 		)
 		WHERE ROWNUM<![CDATA[<=2]]>
 		ORDER BY ROWNUM DESC
@@ -120,6 +123,12 @@
 		ORDER BY ROWNUM DESC
 		)
 		WHERE ROWNUM<![CDATA[<=1]]>
+	</select>
+
+	<select id="bookSelectListOne"
+		resultType="co.micol.prj.book.service.BookVO">
+		SELECT * FROM BOOK
+		ORDER BY BOOK_CNT
 	</select>
 
 </mapper>

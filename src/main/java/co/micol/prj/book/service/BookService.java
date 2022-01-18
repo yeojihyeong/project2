@@ -27,6 +27,8 @@ public interface BookService {
 
 	boolean isBookCheck(String book_isbn);
 
+	List<BookVO> bookSelectListOne();
+	
 }
 
 
