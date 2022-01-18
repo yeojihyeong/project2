@@ -94,7 +94,7 @@
 		FROM
 		(SELECT *
 		FROM BLOG
-		ORDER BY review_cnt DESC
+		ORDER BY REVIEW_CNT DESC
 		)
 		<![CDATA[WHERE ROWNUM <= 5]]>
 	</select>

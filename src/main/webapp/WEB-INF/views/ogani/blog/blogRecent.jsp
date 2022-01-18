@@ -95,33 +95,34 @@
 			</h2>
 
 			<div class="row" style="margin-top: 40px;">
-				<c:forEach items="${recent }" var="recent">
-					<div class="col-lg-4 col-md-4 col-sm-4">
-						<div class="blog__item">
-							<div class="blog__item__pic">
-								<img class="cover" src="resources/ogani/img/blog/1.jpg" alt="">
+				<c:forEach items="${ recent}" var="list">
+					<c:forEach items="${book }" var="book">
+						<c:if test="${list.book_isbn eq book.book_isbn  }">
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="blog__item">
+									<div class="blog__item__pic">
+										<img class="" src="" alt="">
+									</div>
+									<div class="blog__item__text">
+										<ul>
+											<li><i class="fa fa-calendar-o"></i> <c:out
+													value="${list.review_date}" /></li>
+										</ul>
+										<h4>
+											<c:out value="${list.review_title}" />
+										</h4>
+
+										<form action="reviewDetailSelect.do" method="get">
+											<input type="hidden" name="blog_id" id="blog_id"
+												value="${list.blog_id }"> <input class="read"
+												type="submit" value="READ MORE →">
+										</form>
+									</div>
+								</div>
 							</div>
-							<div class="blog__item__text">
-								<ul>
-									<li><i class="fa fa-calendar-o"></i> <c:out
-											value="${ recent.review_date}" /></li>
-								</ul>
-								<h4>
-									<c:out value="${recent.review_title}" />
-								</h4>
-
-								<form action="reviewDetailSelect.do" method="get">
-									<input type="hidden" name="blog_id" id="blog_id"
-
-										value="${recent.blog_id }"> <input class="read"
-										type="submit" value="READ MORE →">
-
-								</form>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
+						</c:if>
+					</c:forEach>
+				</c:forEach>			</div>
 		</div>
 		<div id="aside_home" class="col-lg-3"
 			style="float: right; top: -700px; margin-right: 10px">
