@@ -157,7 +157,7 @@ var phoneJ = /^01([016789])([0-9]{3,4})([0-9]{4})$/;
 </script>
 
 	<section class="breadcrumb-section set-bg"
-		data-setbg="resources/ogani/img/breadcrumb.jpg">
+		data-setbg="resources/ogani/img/bookmen.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">

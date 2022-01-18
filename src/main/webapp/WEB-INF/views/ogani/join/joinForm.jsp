@@ -216,7 +216,7 @@ var address = $('#mem_detailaddress');
 	
 </script>
 
-<section class="breadcrumb-section set-bg" data-setbg="resources/ogani/img/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg" data-setbg="resources/ogani/img/bookmen.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

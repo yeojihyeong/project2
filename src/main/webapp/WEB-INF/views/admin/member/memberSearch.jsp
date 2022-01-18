@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <section class="breadcrumb-section set-bg"
-	data-setbg="resources/ogani/img/breadcrumb.jpg">
+	data-setbg="resources/ogani/img/bookmen.jpg">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
