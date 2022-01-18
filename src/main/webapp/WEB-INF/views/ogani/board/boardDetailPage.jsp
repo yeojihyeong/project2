@@ -58,12 +58,22 @@
 			</div>
 		</div>
 	</section>
-
+	
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>자유게시판</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<div class="container">
 		<div class="col-lg-12">
-			<div style="margin-top: 50px; margin-bottom: 30px;">
-				<h3>게시판</h3>
-			</div>
+			
 			<div>
 				<div>
 					<img src="resources/ogani/img/board/${boardDetail.board_picture }"
@@ -86,14 +96,19 @@
 		
 
 		<!-- 댓글 -->
-
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>댓글</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
       <div class="container">
-         <div class="col-lg-12">
-            <div style="margin-top: 50px; margin-bottom: 30px;">
-               <h3>댓글</h3>
-            </div>
-         </div>
       </div>
       <section class="mb-5">
          <div class="card bg-light">

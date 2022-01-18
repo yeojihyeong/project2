@@ -8,6 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>삭제 성공하였습니다.</h2>
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>삭제 성공하였습니다.</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

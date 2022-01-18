@@ -62,13 +62,21 @@ thead>tr, tfoot>tr {
 			</div>
 		</div>
 	</section>
-
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>자유게시판</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
-				<div class="container-fluid px-4" style="display: flex; justify-content: space-between;">
-					<h3 style="margin-bottom: 30px">자유게시판</h3>
-				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content">
 						<main>

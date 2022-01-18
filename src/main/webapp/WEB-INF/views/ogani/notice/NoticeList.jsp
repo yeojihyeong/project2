@@ -63,12 +63,21 @@ thead>tr, tfoot>tr {
 		</div>
 	</section>
 	
+	<section class="featured spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>공지사항</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
-				<div class="container-fluid px-4" style="display: flex; justify-content: space-between;">
-				<h3 style="margin-bottom: 30px">공지사항</h3>
-				</div>
 				<div id="layoutSidenav" class="col-lg-12 col-md-12 col-sm-12">
 					<div id="layoutSidenav_content" >
 						<main>
@@ -112,32 +121,6 @@ thead>tr, tfoot>tr {
 			</div>
 		</div>
 	</section>
-	<%-- <div align="center">
-	<h3>공지사항</h3>
-	<div class="container">
-                <div class="row">
-	<div class="col-md-12">
-		<table border="1">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${notices }" var="notice">
-					<tr>
-						<td>${notice.notice_num }</td>
-						<td onclick="location.href='noticeDetailPage.do?notice_num=${notice.notice_num}'">${notice.notice_title }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-<button type="button" onclick=notice()>글쓰기</button>
-</div>
-</div>
-</div> --%>
 
 	<script type="text/javascript">
 		function notice() {
