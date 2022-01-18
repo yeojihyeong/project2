@@ -68,6 +68,11 @@ public class BookServiceImpl implements BookService{
 
 		return map.bookSearchThree();
 	}
+
+	@Override
+	public List<BookVO> bookSelectListOne() {
+		return map.bookSelectListOne();
+	}
 	
 
 }
