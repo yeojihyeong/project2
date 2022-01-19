@@ -60,11 +60,11 @@
 									<div class="card-body">
 										<div class="insert">
 											<form action="faqInsert.do" id="faqInsert" name="faqInsert">
-												Question: <input type="text" style="width: 350px"
+												Question: <input type="text" style="width: 35%; border-radius: 7px;"
 													id="faq_question" name="faq_question"><br>
 												Answer<br>
 												<textarea name="faq_answer" id="faq_answer" rows="10"
-													cols="130"></textarea>
+													cols="130" style="width:95%; border-radius: 7px;"></textarea>
 												<br> <br> <input type="submit" class="btn"
 													value="등록">
 											</form>

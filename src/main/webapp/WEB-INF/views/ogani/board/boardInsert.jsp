@@ -62,10 +62,10 @@
 											<form action="boardInsert.do" method="post"
 												enctype="multipart/form-data">
 												<div>
-													제목: <input type="text" style="width: 350px"
+													제목: <input type="text" style="width: 35%; border-radius: 7px;"
 														id="board_title" name="board_title"><br> 내용<br>
 													<textarea name="notice_content" id="notice_content"
-														rows="10" cols="130"></textarea>
+														rows="10" cols="130" style="width:95%; border-radius: 7px;"></textarea>
 													<br> 사진: <input type="file" id="file" name="file"><br>
 												</div>
 												<div class="button"
