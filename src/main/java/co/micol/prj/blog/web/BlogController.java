@@ -133,11 +133,17 @@ public class BlogController {
 
 	// 검색 - 블로그 홈에서
 	@RequestMapping("/reviewSearch.do")
-	public String reviewSearch(@Param("searchValue") String searchValue, Model model) {
-		List<BlogVO> search = mapper.reviewSearch(searchValue);
+	public String reviewSearch(@RequestParam("searchValue") String searchValue, Model model) {
+		
+		BlogVO blog = new BlogVO();
+		blog.setSearchValue(searchValue);
+		System.out.println("검색값"+searchValue);
+		List<BlogVO> search = mapper.reviewSearch(blog);
+		model.addAttribute("searchValue", searchValue);
 		model.addAttribute("search", search);
+		model.addAttribute("book",bookDao.bookSelectList());
 		System.out.println(search);
-		return "blog/blog/reviewSearch";
+		return "ogani/blog/reviewSearch";
 	}
 
 	@RequestMapping("/wishBook.do")

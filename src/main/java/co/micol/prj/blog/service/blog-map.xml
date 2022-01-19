@@ -96,7 +96,7 @@
 		FROM BLOG
 		ORDER BY REVIEW_CNT DESC
 		)
-		<![CDATA[WHERE ROWNUM <= 5]]>
+		<![CDATA[WHERE ROWNUM <= 8]]>
 	</select>
 
 	<select id="searchList"
@@ -119,7 +119,7 @@
 		FROM BLOG
 		ORDER BY review_date DESC
 		)
-		<![CDATA[WHERE ROWNUM <= 5]]>
+		<![CDATA[WHERE ROWNUM <= 8]]>
 	</select>
 
 	<!-- 페이징 기능 -->
@@ -146,7 +146,7 @@
 	<select id="reviewSearch"
 		parameterType="co.micol.prj.blog.service.BlogVO" resultMap="BlogVO">
 		SELECT
-		K.BOOK_PICTURE, K.BOOK_PFILE, B.REVIEW_TITLE, B.REVIEW_DATE
+		*
 		FROM BLOG B
 		JOIN BOOK K USING (BOOK_ISBN)
 		WHERE REVIEW_TITLE LIKE

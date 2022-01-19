@@ -31,13 +31,16 @@
 		<div class="container"></div>
 		<div class="col-lg-8 col-md-7">
 			<h2> 검색 결과	</h2>
-
+			
 			<div class="row" style="margin-top: 40px;">
 				<c:forEach items="${search }" var="search">
+				<c:forEach items="${book }" var="book">
+				<c:if test="${search.review_title eq searchValue}">
+				<c:if test="${book.book_isbn eq search.book_isbn}">
 					<div class="col-lg-4 col-md-4 col-sm-4">
 						<div class="blog__item">
 							<div class="blog__item__pic">
-								<img src="resources/ogani/img/blog/1.jpg" alt="">
+								<img src="${book.book_picture }" alt="">
 							</div>
 							<div class="blog__item__text">
 								<ul>
@@ -55,6 +58,9 @@
 							</div>
 						</div>
 					</div>
+				</c:if>
+				</c:if>
+					</c:forEach>
 				</c:forEach>
 			</div>
 		</div>
