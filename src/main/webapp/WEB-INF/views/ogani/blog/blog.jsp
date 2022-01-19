@@ -59,6 +59,11 @@
 	width: 350px;
 	height: 40px;
 }
+
+#bookimagesize{
+	width: 200px;
+	height:350px;
+}
 </style>
 </head>
 
@@ -100,10 +105,10 @@
 				<c:forEach items="${ list}" var="list">
 					<c:forEach items="${book }" var="book">
 						<c:if test="${list.book_isbn eq book.book_isbn  }">
-							<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="col-lg-3 col-md-3 col-sm-3">
 								<div class="blog__item">
 									<div class="blog__item__pic">
-										<img class="" src="" alt="">
+										<img id="bookimagesize" class="" src="${book.book_picture}" alt="">
 									</div>
 									<div class="blog__item__text">
 										<ul>
@@ -129,12 +134,12 @@
 		</div>
 
 		<div id="aside_home" class="col-lg-3"
-			style="float: right; top: -600px; margin-right: 10px">
+			style="float: right; top: -1200px; margin-right: 10px">
 			<c:if test="${member_id  ne null}">
 				<a href="blog_home.do" class="blog__btn">나의 블로그로 가기 </a>
 			</c:if>
-			<form name="blogForm" action="reviewSearch.do" method="get">
-				<input class="form-control" type="text" value="${searchValue }"
+			<form name="blogForm" action="reviewSearch.do" method="post">
+				<input class="form-control" type="text" name="searchValue"
 					placeholder="Enter search term..."
 					aria-label="Enter search term..." aria-describedby="button-search" />
 				<input type="submit" value="검색"

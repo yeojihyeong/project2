@@ -38,7 +38,7 @@ public interface BlogMapper {
 	// 개별 리뷰 상세 조회
 	BlogVO reviewDetailSelect(String blog_id);
 
-	List<BlogVO> reviewSearch(String searchValue);
+	List<BlogVO> reviewSearch(BlogVO blog);
 	
 	List<BlogVO> searchList();
 	

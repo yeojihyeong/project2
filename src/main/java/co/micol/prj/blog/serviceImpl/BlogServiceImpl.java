@@ -54,8 +54,8 @@ public class BlogServiceImpl implements BlogService {
 		return map.likedReview();
 	}
 
-	public List<BlogVO> reviewSearch(String searchValue) {
-		return map.reviewSearch(searchValue);
+	public List<BlogVO> reviewSearch(BlogVO blog) {
+		return map.reviewSearch(blog);
 	}
 
 	@Override

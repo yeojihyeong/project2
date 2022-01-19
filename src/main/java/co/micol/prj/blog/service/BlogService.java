@@ -34,7 +34,7 @@ public interface BlogService {
 	
 	List<BlogVO> recentReview();
 
-	List<BlogVO> reviewSearch(String searchValue);
+	List<BlogVO> reviewSearch(BlogVO blog);
 	
 	List<BlogVO> blogReviewSearch(BlogVO blog);
 
