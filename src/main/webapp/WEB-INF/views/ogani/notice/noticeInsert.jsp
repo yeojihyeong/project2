@@ -62,10 +62,10 @@
 											<form action="noticeInsert.do" id="noticeInsert"
 												name="noticeInsert">
 												제목: <input type="text" name="notice_title"
-													style="width: 350px" id="notice_title"><br>
+													style="width: 35%; border-radius: 7px;" id="notice_title"><br>
 												<br> 내용<br>
 												<textarea name="notice_content" id="notice_content"
-													rows="10" cols="130"></textarea>
+													rows="10" cols="130" style="width:95%; border-radius: 7px;"></textarea>
 												<br> <br> <input type="submit" class="btn"
 													value="등록">
 											</form>
