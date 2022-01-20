@@ -108,7 +108,7 @@ public class BlogController {
 		model.addAttribute("paging", paging);
 		int end_no = paging.getEnd_no();
 		int start_no = paging.getStart_no();
-
+		model.addAttribute("book",bookDao.bookSelectList());
 		model.addAttribute("viewAll", blogDAO.blogSelectList(start_no, end_no, member_id));
 
 		return "blog/blog/main";

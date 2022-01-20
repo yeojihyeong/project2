@@ -17,12 +17,17 @@
 <div class="col-lg-8">
 	<!-- Nested row for non-featured blog posts-->
 	<div class="row">
-		<div class="col-lg-8">
+	
+	<c:forEach items="${viewAll }" var="list">
+			<c:forEach items="${book }" var="book">
+			<c:if test="${book.book_isbn eq list.book_isbn}">
+			
+		<div class="col-lg-4">
 			<!-- Blog post-->
-			<c:forEach items="${viewAll }" var="list">
+			
 			<div class="card mb-2">
 				<a href="#!"><img class="card-img-top"
-					src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+					src="${book.book_picture }" alt="..." /></a>
 				
 				<div class="blog__item__text">
 					<div class="small text-muted">${list.review_date }</div>
@@ -34,14 +39,17 @@
 				</div>
 			</div>
 			
+		</div>
+		
+		</c:if>
 			</c:forEach>
-
-			<a href="reviewForm.do"><button type="button" class="btn btn-secondary">글쓰기</button></a>
+			</c:forEach>
+		
+	</div>
+	
+	<a href="reviewForm.do"><button type="button" class="btn btn-secondary">글쓰기</button></a>
 
 			<br>
-
-		</div>
-	</div>
 	<!-- Pagination-->
 	<nav aria-label="Pagination">
 		<hr class="my-0" />
